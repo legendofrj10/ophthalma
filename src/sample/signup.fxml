@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.signupController">
+   <children>
+      <TextField fx:id="Name" maxWidth="150.0" promptText="Full Name">
+         <StackPane.margin>
+            <Insets bottom="200.0" right="75.0" />
+         </StackPane.margin>
+      </TextField>
+      <TextField fx:id="email" maxWidth="250.0" promptText="Email Address">
+         <StackPane.margin>
+            <Insets left="25.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label prefWidth="29.0" text="Role">
+         <StackPane.margin>
+            <Insets bottom="100.0" right="310.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="two_SignUPbtn" mnemonicParsing="false" onAction="#submitSignUp" text="Submit">
+         <StackPane.margin>
+            <Insets top="300.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="two_pass" maxWidth="250.0" promptText="Password">
+         <StackPane.margin>
+            <Insets left="25.0" top="100.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#backtologin" text="Back" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </StackPane.margin>
+      </Button>
+      <ComboBox fx:id="jobChoice" prefWidth="150.0">
+         <StackPane.margin>
+            <Insets bottom="100.0" right="75.0" />
+         </StackPane.margin>
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Doctor" />
+               <String fx:value="Lab technician" />
+               <String fx:value="" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Label layoutX="346.0" layoutY="152.0" prefWidth="39.0" text="Name">
+         <StackPane.margin>
+            <Insets bottom="200.0" right="320.0" />
+         </StackPane.margin>
+      </Label>
+      <Label layoutX="96.0" layoutY="152.0" prefWidth="37.0" text="Email">
+         <StackPane.margin>
+            <Insets right="315.0" />
+         </StackPane.margin>
+      </Label>
+      <Label layoutX="92.0" layoutY="202.0" text="Password">
+         <StackPane.margin>
+            <Insets right="340.0" top="100.0" />
+         </StackPane.margin>
+      </Label>
+      <TextField fx:id="two_passconf" layoutX="148.0" layoutY="247.0" maxWidth="250.0" promptText="Confirm Password">
+         <StackPane.margin>
+            <Insets left="25.0" top="200.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label layoutX="79.0" layoutY="252.0" text="Confirm Password">
+         <StackPane.margin>
+            <Insets right="400.0" top="200.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="passnotmatch" textAlignment="CENTER" textFill="RED">
+         <StackPane.margin>
+            <Insets top="250.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</StackPane>
