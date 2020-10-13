@@ -10,25 +10,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.dashboardController">
    <children>
       <SplitPane orientation="VERTICAL" prefHeight="39.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button layoutX="334.0" layoutY="3.0" minHeight="25.0" mnemonicParsing="false" text="Help &amp; FAQ" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="helpAndFaqBTN" layoutX="334.0" layoutY="3.0" minHeight="25.0" mnemonicParsing="false" onAction="#callHelpAndFaq" text="Help &amp; FAQ" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font size="10.0" />
                      </font></Button>
-                  <Button layoutX="225.0" layoutY="3.0" minHeight="25.0" mnemonicParsing="false" text="Patients &amp; scans" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="patientsAndScansBTN" layoutX="225.0" layoutY="3.0" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font size="10.0" />
                      </font></Button>
-                  <Button layoutX="131.0" layoutY="2.0" minHeight="25.0" mnemonicParsing="false" text="DashBoard" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="dashboardBTN" layoutX="131.0" layoutY="2.0" minHeight="25.0" mnemonicParsing="false" onAction="#callDashboard" text="DashBoard" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font size="10.0" />
                      </font></Button>
-                  <Button layoutX="512.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="logOutBTN" layoutX="512.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="2.0">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -47,7 +47,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button layoutX="510.0" layoutY="1.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="settingsBTN" layoutX="510.0" layoutY="1.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -59,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="464.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="notificationBTN" layoutX="464.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="2.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,7 +71,7 @@
                         <Font size="9.0" />
                      </font>
                   </Button>
-                  <Button layoutX="426.0" layoutY="1.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="2.0">
+                  <Button fx:id="chatBubbleBTN" layoutX="426.0" layoutY="1.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="2.0">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -87,5 +87,6 @@
             </AnchorPane>
         </items>
       </SplitPane>
+      <Label text="dashboard" />
    </children>
 </VBox>
