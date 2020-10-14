@@ -41,8 +41,8 @@ public class loginController {
         Parent root;
         stage = (Stage) signupbtn.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("signup.fxml"));
-
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(), sc.getHeight());
         stage.setScene(scene);
         stage.show();
     }
@@ -50,7 +50,8 @@ public class loginController {
     @FXML
     void Dashboard(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
         stage.show();
     }

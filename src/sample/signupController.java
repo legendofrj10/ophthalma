@@ -33,7 +33,10 @@ public class signupController {
 
     public void backtologin() throws Exception{
         Stage stage = (Stage) backButton.getScene().getWindow();
-        loginController.login(stage);
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     static Connection getConnect(){
@@ -63,7 +66,8 @@ public class signupController {
     @FXML
     void profileComplete(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("completeProfile.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
         stage.show();
     }

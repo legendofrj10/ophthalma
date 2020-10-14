@@ -48,7 +48,8 @@ public class helpAndFaqController {
     void callPatientsAndScans() throws IOException {
         Stage stage = (Stage) patientsAndScansBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
 
     }
