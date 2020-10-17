@@ -13,7 +13,7 @@
         <Label text="help and faq" />
         <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
             <children>
-                <Button fx:id="helpAndFaqBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callHelpAndFaq" text="Help &amp; FAQ" StackPane.alignment="TOP_LEFT">
+                <Button fx:id="helpAndFaqBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callHelpAndFaq" text="Help &amp; FAQ" StackPane.alignment="TOP_LEFT">
                     <font>
                         <Font size="10.0" />
                     </font>

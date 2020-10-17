@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 public class patientsRegisterController {
 
@@ -43,7 +44,11 @@ public class patientsRegisterController {
 
     @FXML
     void callRegister() {
-
+        String name = patientNameField.getText();
+        String gender = (String) patientGenderCB.getValue();
+        String DOB = patientDOB.getValue().format(DateTimeFormatter.BASIC_ISO_DATE);
+        String eye = (String) patientEyeCB.getValue();
+        System.out.println(name+"  "+gender+"  "+DOB+"  "+eye);
     }
 
 }

@@ -38,8 +38,12 @@ public class dashboardController {
     }
 
     @FXML
-    void callLogOut() {
-
+    void callLogOut() throws IOException {
+        Stage stage = (Stage) logOutBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("logout.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     @FXML

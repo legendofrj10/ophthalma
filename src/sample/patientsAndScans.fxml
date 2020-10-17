@@ -25,7 +25,7 @@
                         <Insets left="300.0" top="7.0" />
                     </StackPane.margin>
                 </Button>
-                <Button fx:id="patientsAndScansBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
+                <Button fx:id="patientsAndScansBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
                     <font>
                         <Font size="10.0" />
                     </font>
