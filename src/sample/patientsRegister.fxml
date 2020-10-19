@@ -62,8 +62,8 @@
          </StackPane.margin>
          <items>
             <FXCollections fx:factory="observableArrayList">
-               <String fx:value="MALE" />
-               <String fx:value="FEMALE" />
+               <String fx:value="male" />
+               <String fx:value="female" />
             </FXCollections>
          </items>
       </ComboBox>

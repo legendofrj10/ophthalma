@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class completeProController {
+public class completeProfileController {
     String Query;
     static String IDLoggedIn;
     static String nameLoggedIn;

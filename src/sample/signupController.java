@@ -73,7 +73,7 @@ public class signupController {
     }
 
     int newUserID(){
-        int ID=0;
+        int ID=1000;
         try{
             Connection con1 = getConnect();
             Statement stmt = con1.createStatement();
@@ -85,26 +85,27 @@ public class signupController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        ID++;
         return ID;
     }
 
     @FXML
     public void submitSignUp() throws Exception {
-        completeProController.nameLoggedIn = Name.getText();
+        completeProfileController.nameLoggedIn = Name.getText();
         String job = (String) jobChoice.getValue();
         String emailAddress = email.getText();
         String pass = two_pass.getText();
         String confPass = two_passconf.getText();
-        int uID = newUserID()==0?1001:newUserID()+1;
-        completeProController.IDLoggedIn = job.equals("Doctor")?"DOC"+uID:"LAB"+uID;
-        System.out.println(completeProController.nameLoggedIn+" "+completeProController.IDLoggedIn);
+        int uID = newUserID();//==0?1001:newUserID()+1;
+        completeProfileController.IDLoggedIn = job.equals("Doctor")?"DOC"+uID:"LAB"+uID;
+        System.out.println(completeProfileController.nameLoggedIn+" "+ completeProfileController.IDLoggedIn);
         if(pass.equals(confPass)){
             passnotmatch.setText("");
             try{
                 Connection con = getConnect();
                 Statement st = con.createStatement();
                 Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord) VALUES " +
-                        "('" + completeProController.nameLoggedIn + "','" + completeProController.IDLoggedIn + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass +"')";
+                        "('" + completeProfileController.nameLoggedIn + "','" + completeProfileController.IDLoggedIn + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass +"')";
                 st.executeUpdate(Query);
                 closeConnect(con);
             }catch(Exception e){
