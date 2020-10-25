@@ -117,22 +117,22 @@
                 </Button>
             </children>
         </StackPane>
-        <VBox prefHeight="200.0" prefWidth="100.0">
+        <VBox prefHeight="200.0">
             <StackPane.margin>
-                <Insets top="100.0" />
+                <Insets bottom="10.0" left="10.0" right="10.0" top="100.0" />
             </StackPane.margin>
             <children>
-                <HBox maxWidth="1.7976931348623157E308" prefHeight="167.0">
-                    <children>
-                        <ListView fx:id="patientListName" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListLD" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListPE" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </ListView>
-                    </children>
-                </HBox>
+            <HBox maxWidth="1.7976931348623157E308" prefHeight="167.0">
+               <children>
+                      <ListView fx:id="patientListName" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
+                  <ListView fx:id="patientListLD" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
+                  <ListView fx:id="patientListPE" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ListView>
+               </children>
+            </HBox>
             </children>
         </VBox>
     </children>

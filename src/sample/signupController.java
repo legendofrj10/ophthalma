@@ -20,7 +20,7 @@ public class signupController {
     String Query;
 
     @FXML
-    private ComboBox jobChoice;
+    private ComboBox<?> jobChoice;
 
     @FXML
     private Label passnotmatch;

@@ -16,7 +16,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class patientsRegisterController {
 
@@ -66,12 +68,14 @@ public class patientsRegisterController {
 
     int newPatientID(){
         int ID=1000;
+        int IDt;
         try{
             Connection con1 = getConnect();
             Statement stmt = con1.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT numeric_id FROM patients");
             while(rs.next()){
-                ID=rs.getInt("numeric_id");
+                IDt=rs.getInt("numeric_id");
+                ID=Math.max(IDt, ID);
             }
             con1.close();
         }catch (Exception e){
@@ -115,22 +119,18 @@ public class patientsRegisterController {
 
             }
             Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye) VALUES " +
-                    "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" + lastCheckup + "','" + eye +"')";
+                    "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
+                    lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye +"')";
             st.executeUpdate(Query);
             closeConnect(con);
+            Stage stage = (Stage) registerBTN.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
+            Scene sc = registerBTN.getScene();
+            Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+            stage.setScene(scene);
         }catch(Exception e){
             e.printStackTrace();
         }
-        /*try{
-            Connection con = getConnect();
-            Statement st = con.createStatement();
-            Query = "INSERT INTO patients (name,age,dob,gender) VALUES " +
-                    "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "')";
-            st.executeUpdate(Query);
-            closeConnect(con);
-        }catch(Exception e){
-            e.printStackTrace();
-        }*/
     }
 
 }
