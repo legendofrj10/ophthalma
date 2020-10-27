@@ -17,7 +17,6 @@ import java.sql.Statement;
 public class patientsAndScansController {
     static int i=0;
 
-//    public ListView<String> patientList;
     public ListView<String> patientListName;
     public ListView<String> patientListLD;
     public ListView<String> patientListPE;
@@ -78,6 +77,7 @@ public class patientsAndScansController {
 
     @FXML
     void callLogOut() throws IOException {
+        i=0;
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("logout.fxml"));
         Scene sc = stage.getScene();
@@ -116,11 +116,10 @@ public class patientsAndScansController {
     }
     @FXML
     void callPatientsList() {
-  //      String line = "Name                Last Diagnosed                Problematic Eye";
         if(i<5) {
             patientListName.getItems().add("Name");
             patientListLD.getItems().add("Last Diagnosed");
-            patientListPE.getItems().add("Problematic Eye");
+            patientListPE.getItems().add("Patient ID");
 
         }
         if(i<5){
@@ -132,7 +131,7 @@ public class patientsAndScansController {
                 while(rs.next() && i<5){
                     String name = rs.getString("name");
                     String lD = rs.getString("last_diagnosed");
-                    String pE = rs.getString("problematicEye");
+                    String pE = rs.getString("patient_id");
                     /*line = name + new String(new char[21-name.length()]).replace('\0', ' ')
                             + lD + new String(new char[30-lD.length()]).replace('\0',' ')
                             + pE;*/

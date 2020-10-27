@@ -66,6 +66,24 @@ public class patientsRegisterController {
         }
     }
 
+    /*String newPatient(){
+        int ID=1000;
+        try{
+            Connection con = getConnect();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select patient_id from patients");
+            while(rs.next()){
+                ID++;
+            }
+            closeConnect(con);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        ID++;
+        String i = "PAT"+ID;
+        return i;
+    }*/
+
     int newPatientID(){
         int ID=1000;
         int IDt;
@@ -118,9 +136,10 @@ public class patientsRegisterController {
                 PatientNumeric_id=newPatientID();
 
             }
-            Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye) VALUES " +
+            String patient_id = "Pat"+PatientNumeric_id;
+            Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye,patient_id) VALUES " +
                     "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
-                    lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye +"')";
+                    lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye + "','" + patient_id + "')";
             st.executeUpdate(Query);
             closeConnect(con);
             Stage stage = (Stage) registerBTN.getScene().getWindow();
