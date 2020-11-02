@@ -86,25 +86,30 @@ public class loginController {
         String uid = loginIdField.getText();
         String pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);
-        String Query = "SELECT PassWord FROM HMS WHERE userID='"+uid+"'";
-        try{
-            Connection con = getConnect();
-            Statement st = con.createStatement();
-            ResultSet rs=st.executeQuery(Query);
-            String password="";
-            while(rs.next()){
-                password=rs.getString("PassWord");
-            }
+        if(uid.length()!=0 && pass.length()!=0){
+            String Query = "SELECT PassWord FROM HMS WHERE userID='"+uid+"'";
+            try{
+                Connection con = getConnect();
+                Statement st = con.createStatement();
+                ResultSet rs=st.executeQuery(Query);
+                String password="";
+                while(rs.next()){
+                    password=rs.getString("PassWord");
+                }
 
-            if(pass.equals(password)){
-                Stage stage = (Stage)loginbtn.getScene().getWindow();
-                Dashboard(stage);
-            }else{
-                loginerror.setText("Wrong password!!!!");
+                if(pass.equals(password)){
+                    Stage stage = (Stage)loginbtn.getScene().getWindow();
+                    Dashboard(stage);
+                }else{
+                    loginerror.setText("Wrong password!!!!");
+                }
+                closeConnect(con);
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            closeConnect(con);
-        }catch (Exception e){
-            e.printStackTrace();
+        }
+        else{
+            loginerror.setText("ID or Password Cannot be empty!!!!");
         }
 
     }

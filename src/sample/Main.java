@@ -8,6 +8,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(600);
+
         loginController.login(primaryStage);
     }
 

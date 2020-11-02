@@ -130,17 +130,19 @@ public class patientsRegisterController {
             Query = "SELECT * FROM patients WHERE name='"+name+"' AND dob='"+DOB+"'";
             ResultSet rs = st.executeQuery(Query);
             if(rs.next()){
-                PatientNumeric_id=rs.getInt("numeric_id");
+                Query = "UPDATE patients SET last_diagnosed='" + lastCheckup + " " +
+                        DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "' WHERE name='"+name+"' AND dob='"+DOB+"'";
+                st.executeUpdate(Query);
             }
             else{
                 PatientNumeric_id=newPatientID();
-
+                String patient_id = "Pat"+PatientNumeric_id;
+                Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye,patient_id) VALUES " +
+                        "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
+                        lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye + "','" + patient_id + "')";
+                st.executeUpdate(Query);
             }
-            String patient_id = "Pat"+PatientNumeric_id;
-            Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye,patient_id) VALUES " +
-                    "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
-                    lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye + "','" + patient_id + "')";
-            st.executeUpdate(Query);
+
             closeConnect(con);
             Stage stage = (Stage) registerBTN.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
