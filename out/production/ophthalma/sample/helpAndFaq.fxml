@@ -82,7 +82,7 @@
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../photos/turn-notifications-on-button.png" />
+                                <Image url="@../photos/notifications.png" />
                             </image>
                         </ImageView>
                     </graphic>

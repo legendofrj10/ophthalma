@@ -90,7 +90,7 @@
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../photos/turn-notifications-on-button.png" />
+                                <Image url="@../photos/notifications.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -125,9 +125,9 @@
             <children>
                 <HBox maxWidth="1.7976931348623157E308" prefHeight="167.0">
                     <children>
-                        <ListView fx:id="patientListName" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListLD" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListPE" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onMouseEntered="#callPatientsList" prefHeight="100.0" HBox.hgrow="ALWAYS">
+                        <ListView fx:id="patientListName" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS" />
+                        <ListView fx:id="patientListLD" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS" />
+                        <ListView fx:id="patientListPE" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>

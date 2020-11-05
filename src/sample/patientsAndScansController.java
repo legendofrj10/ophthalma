@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,9 +57,10 @@ public class patientsAndScansController {
 
     }
 
+
+
     @FXML
     void callDashboard() throws IOException {
-        i=0;
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         Scene sc = stage.getScene();
@@ -70,7 +70,6 @@ public class patientsAndScansController {
 
     @FXML
     void callHelpAndFaq() throws IOException {
-        i=0;
         Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
         Scene sc = stage.getScene();
@@ -80,7 +79,6 @@ public class patientsAndScansController {
 
     @FXML
     void callLogOut() throws IOException {
-        i=0;
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("logout.fxml"));
         Scene sc = stage.getScene();
@@ -110,7 +108,6 @@ public class patientsAndScansController {
 
     @FXML
     void callRegisterPatient() throws IOException {
-        i=0;
         Stage stage = (Stage) registerPatientBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("patientsRegister.fxml"));
         Scene sc = stage.getScene();
@@ -118,47 +115,50 @@ public class patientsAndScansController {
         stage.setScene(scene);
     }
     @FXML
-    void callPatientsList() throws SQLException {
+    public void initialize() throws SQLException {
+        i=0;
+        Connection con = getConnect();
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("select * from patients order by last_diagnosed desc");
 
-        if(i==0){
-            Connection con = getConnect();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from patients order by last_diagnosed desc");
+        patientListName.getItems().add("NAME");
+        patientListName.getItems().add("  ");
 
-            patientListName.getItems().add("NAME");
-            patientListName.getItems().add("  ");
+        patientListLD.getItems().add("LAST DIAGNOSED");
+        patientListLD.getItems().add("  ");
 
-            patientListLD.getItems().add("LAST DIAGNOSED");
-            patientListLD.getItems().add("  ");
+        patientListPE.getItems().add("PATIENT ID");
+        patientListPE.getItems().add("  ");
 
-            patientListPE.getItems().add("PATIENT ID");
-            patientListPE.getItems().add("  ");
-
-            try{
-                while(rs.next() && i<5){
-                    String name = rs.getString("name");
-                    String lD = rs.getString("last_diagnosed");
-                    String pE = rs.getString("patient_id");
-                    patientListName.getItems().add(name);
-                    patientListLD.getItems().add(lD);
-                    patientListPE.getItems().add(pE);
-                    i++;
-                }
-            }catch (Exception e){
-                e.printStackTrace();
+        try{
+            while(rs.next() && i<5){
+                String name = rs.getString("name");
+                String lD = rs.getString("last_diagnosed");
+                String pE = rs.getString("patient_id");
+                patientListName.getItems().add(name);
+                patientListLD.getItems().add(lD);
+                patientListPE.getItems().add(pE);
+                i++;
             }
-            closeConnect(con);
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        closeConnect(con);
     }
 
-    public void callSearch() throws SQLException {
+    public void callSearch() throws SQLException, IOException {
         String id = searchPatientField.getText();
         Connection con = getConnect();
         Statement st = con.createStatement();
         String Query = "SELECT * FROM patients WHERE patient_id='" + id + "'";
         ResultSet rs = st.executeQuery(Query);
         if(rs.next()){
-            System.out.println();                                                           //PICKUP FROM HERE.......
+            patientController.patID = id;
+            Stage stage = (Stage) searchBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
+            Scene sc = stage.getScene();
+            Scene scene  = new Scene(root,sc.getWidth(),sc.getHeight());
+            stage.setScene(scene);
         }
         else{
             noPatientMatchLbl.setText("No such patient registered!");
