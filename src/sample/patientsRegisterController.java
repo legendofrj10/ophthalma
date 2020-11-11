@@ -122,6 +122,7 @@ public class patientsRegisterController {
         LocalDate lastCheckup = LocalDate.now();
         Period age = Period.between(DOB,lastCheckup);
         int PatientNumeric_id;
+        String patient_id = "";
         int ageYears = age.getYears();
         System.out.println(name+"  "+gender+"  "+DOB+"  "+eye+"  "+ageYears);
         try{
@@ -132,20 +133,20 @@ public class patientsRegisterController {
             if(rs.next()){
                 Query = "UPDATE patients SET last_diagnosed='" + lastCheckup + " " +
                         DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "' WHERE name='"+name+"' AND dob='"+DOB+"'";
-                st.executeUpdate(Query);
             }
             else{
                 PatientNumeric_id=newPatientID();
-                String patient_id = "Pat"+PatientNumeric_id;
+                patient_id = "Pat"+PatientNumeric_id;
                 Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,problematicEye,patient_id) VALUES " +
                         "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
                         lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + eye + "','" + patient_id + "')";
-                st.executeUpdate(Query);
             }
+            st.executeUpdate(Query);
 
             closeConnect(con);
+            patientController.patID = patient_id;
             Stage stage = (Stage) registerBTN.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
             Scene sc = registerBTN.getScene();
             Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
             stage.setScene(scene);

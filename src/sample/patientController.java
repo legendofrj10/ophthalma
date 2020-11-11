@@ -23,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 public class patientController {
 
     static String patID="";
+    public Label patientAge;
 
     @FXML
     private Button backBtn;
@@ -70,6 +71,7 @@ public class patientController {
         String pName = "";
         String pGender = "";
         String pRemark = "";
+        String pAge = "";
         String Query = "SELECT * FROM patients WHERE patient_id='" + patID + "'";
         System.out.println(Query);
         try{
@@ -80,6 +82,7 @@ public class patientController {
                 pName = rs.getString("name");
                 pGender = rs.getString("gender");
                 pRemark = rs.getString("remarks");
+                pAge = rs.getString("age");
             }
             closeConnect(con);
 
@@ -87,6 +90,7 @@ public class patientController {
             e.printStackTrace();
         }
         patientName.setText(pName);
+        patientAge.setText("( " + pAge + " )");
         Image image;
         if(pGender.equals("male")){
             image = new Image("file:src/photos/male.png");

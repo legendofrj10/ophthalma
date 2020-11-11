@@ -123,11 +123,11 @@
                 <Insets top="100.0" />
             </StackPane.margin>
             <children>
-                <HBox maxWidth="1.7976931348623157E308" prefHeight="167.0">
+                <HBox maxWidth="1.7976931348623157E308" prefHeight="186.0" prefWidth="600.0">
                     <children>
-                        <ListView fx:id="patientListName" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListLD" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS" />
-                        <ListView fx:id="patientListPE" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" HBox.hgrow="ALWAYS">
+                        <ListView fx:id="patientListName" cacheShape="false" centerShape="false" focusTraversable="false" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS" />
+                        <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS" />
+                        <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
