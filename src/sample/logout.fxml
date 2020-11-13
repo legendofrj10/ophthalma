@@ -7,25 +7,25 @@
 <?import javafx.scene.text.Font?>
 
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.logoutController">
-   <children>
-      <Button fx:id="noBTN" mnemonicParsing="false" onAction="#callNo" text=" NO">
-         <StackPane.margin>
-            <Insets left="100.0" />
-         </StackPane.margin>
-      </Button>
-      <Button fx:id="yesBTN" mnemonicParsing="false" onAction="#callYes" text="YES">
-         <StackPane.margin>
-            <Insets right="100.0" />
-         </StackPane.margin>
-      </Button>
-      <Label text="ARE YOU SURE TO LOGOUT??">
-         <StackPane.margin>
-            <Insets bottom="100.0" />
-         </StackPane.margin>
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-   </children>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="sample.logoutController">
+   <Button fx:id="noBTN" mnemonicParsing="false" onAction="#callNo" text=" NO">
+      <StackPane.margin>
+         <Insets left="100.0"/>
+      </StackPane.margin>
+   </Button>
+   <Button fx:id="yesBTN" mnemonicParsing="false" onAction="#callYes" text="YES">
+      <StackPane.margin>
+         <Insets right="100.0"/>
+      </StackPane.margin>
+   </Button>
+   <Label text="ARE YOU SURE TO LOGOUT??">
+      <StackPane.margin>
+         <Insets bottom="100.0"/>
+      </StackPane.margin>
+      <font>
+         <Font name="System Bold" size="22.0"/>
+      </font>
+   </Label>
 </StackPane>

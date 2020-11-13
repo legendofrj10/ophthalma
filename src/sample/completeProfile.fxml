@@ -12,134 +12,141 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.completeProfileController">
-  <columnConstraints>
-      <ColumnConstraints hgrow="ALWAYS" />
-    <ColumnConstraints hgrow="SOMETIMES" />
-  </columnConstraints>
-  <rowConstraints>
-      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
-    <RowConstraints vgrow="SOMETIMES" />
-    <RowConstraints vgrow="SOMETIMES" />
-    <RowConstraints vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <Label text="WELCOME">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="30.0" />
-         </GridPane.margin>
-      </Label>
-      <Label fx:id="NameUser" layoutX="10.0" layoutY="29.0" text="userName">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="130.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Complete your Profile" GridPane.rowIndex="1">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="30.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="User ID">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="300.0" />
-         </GridPane.margin>
-      </Label>
-      <Label fx:id="UID" text="UID">
-         <GridPane.margin>
-            <Insets left="380.0" />
-         </GridPane.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label text="Gender" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="110.0" />
-         </GridPane.margin></Label>
-      <Label text="Designation" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="80.0" />
-         </GridPane.margin></Label>
-      <Label text="Mobile Number" GridPane.rowIndex="5">
-         <GridPane.margin>
-            <Insets left="60.0" />
-         </GridPane.margin></Label>
-      <Label text="Secondary email" GridPane.rowIndex="6">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin></Label>
-      <Label prefHeight="20.0" prefWidth="53.0" text="Address" GridPane.rowIndex="7">
-         <GridPane.margin>
-            <Insets left="105.0" />
-         </GridPane.margin></Label>
-      <TextField fx:id="Designation" maxWidth="200.0" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="phNo" maxWidth="200.0" GridPane.rowIndex="5">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="secEmail" maxWidth="200.0" GridPane.rowIndex="6">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="Address" maxWidth="200.0" prefHeight="26.0" prefWidth="279.0" GridPane.rowIndex="7">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </TextField>
-      <Button fx:id="three_submit" mnemonicParsing="false" onAction="#CompleteSubmit" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="7">
-         <GridPane.margin>
-            <Insets left="30.0" right="30.0" />
-         </GridPane.margin>
-      </Button>
-      <Button fx:id="three_skip" mnemonicParsing="false" onAction="#SkipCom" prefHeight="26.0" prefWidth="64.0" text="Skip" GridPane.columnIndex="1" GridPane.rowIndex="8">
-         <GridPane.margin>
-            <Insets left="30.0" right="30.0" />
-         </GridPane.margin>
-      </Button>
-      <ComboBox fx:id="gendr" prefWidth="150.0" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="MALE" />
-               <String fx:value="FEMALE" />
-               <String fx:value="" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <Label text="YOU CAN SKIP AND CONTINUE LATER" GridPane.rowIndex="8">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </Label>
-      <Button fx:id="three_refresh" mnemonicParsing="false" onAction="#refresh" text="Refresh" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets left="30.0" />
-         </GridPane.margin>
-      </Button>
-   </children>
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.completeProfileController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS"/>
+      <ColumnConstraints hgrow="SOMETIMES"/>
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+      <RowConstraints vgrow="SOMETIMES"/>
+   </rowConstraints>
+   <Label text="WELCOME">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <GridPane.margin>
+         <Insets left="30.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label fx:id="NameUser" layoutX="10.0" layoutY="29.0" text="userName">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <GridPane.margin>
+         <Insets left="130.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label text="Complete your Profile" GridPane.rowIndex="1">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <GridPane.margin>
+         <Insets left="30.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label text="User ID">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <GridPane.margin>
+         <Insets left="300.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label fx:id="UID" text="UID">
+      <GridPane.margin>
+         <Insets left="380.0"/>
+      </GridPane.margin>
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </Label>
+   <Label text="Gender" GridPane.rowIndex="3">
+      <GridPane.margin>
+         <Insets left="110.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label text="Designation" GridPane.rowIndex="4">
+      <GridPane.margin>
+         <Insets left="80.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label text="Mobile Number" GridPane.rowIndex="5">
+      <GridPane.margin>
+         <Insets left="60.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label text="Secondary email" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets left="50.0"/>
+      </GridPane.margin>
+   </Label>
+   <Label prefHeight="20.0" prefWidth="53.0" text="Address" GridPane.rowIndex="7">
+      <GridPane.margin>
+         <Insets left="105.0"/>
+      </GridPane.margin>
+   </Label>
+   <TextField fx:id="Designation" maxWidth="200.0" GridPane.rowIndex="4">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+   </TextField>
+   <TextField fx:id="phNo" maxWidth="200.0" GridPane.rowIndex="5">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+   </TextField>
+   <TextField fx:id="secEmail" maxWidth="200.0" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+   </TextField>
+   <TextField fx:id="Address" maxWidth="200.0" prefHeight="26.0" prefWidth="279.0" GridPane.rowIndex="7">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+   </TextField>
+   <Button fx:id="three_submit" mnemonicParsing="false" onAction="#CompleteSubmit" text="Submit"
+           GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <GridPane.margin>
+         <Insets left="30.0" right="30.0"/>
+      </GridPane.margin>
+   </Button>
+   <Button fx:id="three_skip" mnemonicParsing="false" onAction="#SkipCom" prefHeight="26.0" prefWidth="64.0" text="Skip"
+           GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <GridPane.margin>
+         <Insets left="30.0" right="30.0"/>
+      </GridPane.margin>
+   </Button>
+   <ComboBox fx:id="gendr" prefWidth="150.0" GridPane.rowIndex="3">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="MALE"/>
+            <String fx:value="FEMALE"/>
+            <String fx:value=""/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <Label text="YOU CAN SKIP AND CONTINUE LATER" GridPane.rowIndex="8">
+      <GridPane.margin>
+         <Insets left="200.0"/>
+      </GridPane.margin>
+   </Label>
+   <Button fx:id="three_refresh" mnemonicParsing="false" onAction="#refresh" text="Refresh" GridPane.columnIndex="1">
+      <GridPane.margin>
+         <Insets left="30.0"/>
+      </GridPane.margin>
+   </Button>
 </GridPane>

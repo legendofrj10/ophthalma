@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class completeProfileController {
+    public Button three_refresh;
     String Query;
     static String IDLoggedIn;
     static String nameLoggedIn;
@@ -29,7 +30,9 @@ public class completeProfileController {
     private TextField phNo, Designation,secEmail,Address;
 
     @FXML
-    private Button three_submit,three_skip,three_refresh;
+    private Button three_submit;
+    @FXML
+    private Button three_skip;
 
     static Connection getConnect(){
         try{

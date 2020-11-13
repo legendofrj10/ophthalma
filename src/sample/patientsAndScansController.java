@@ -53,8 +53,12 @@ public class patientsAndScansController {
     }
 
     @FXML
-    void callChatBubble() {
-
+    void callChatBubble() throws IOException {
+        Stage stage = (Stage) chatBubbleBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("chatBubble.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
 
@@ -87,8 +91,12 @@ public class patientsAndScansController {
     }
 
     @FXML
-    void callNotifications() {
-
+    void callNotifications() throws IOException {
+        Stage stage = (Stage) notificationBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("notifications.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     @FXML
@@ -102,8 +110,12 @@ public class patientsAndScansController {
     }
 
     @FXML
-    void callSettings() {
-
+    void callSettings() throws IOException {
+        Stage stage = (Stage) settingsBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     @FXML

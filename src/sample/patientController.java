@@ -37,9 +37,6 @@ public class patientController {
     @FXML
     private ImageView gender;
 
-    @FXML
-    private Button editRemarksBtn;
-
     static Connection getConnect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
