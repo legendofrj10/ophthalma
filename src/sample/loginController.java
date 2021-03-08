@@ -15,6 +15,9 @@ import java.sql.Statement;
 
 public class loginController {
 
+    String uid="";
+    String pass="";
+
     @FXML
     public Label loginerror;
 
@@ -40,7 +43,7 @@ public class loginController {
         Stage stage;
         Parent root;
         stage = (Stage) signupbtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+        root = FXMLLoader.load(getClass().getResource("DOC/signup.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(), sc.getHeight());
         stage.setScene(scene);
@@ -49,7 +52,20 @@ public class loginController {
 
     @FXML
     void Dashboard(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        String dashboardPath = uid.substring(0, 3);
+        System.out.println(dashboardPath);
+        Parent root = null;
+        if(dashboardPath.equals("ADM")){
+            root = FXMLLoader.load(getClass().getResource("ADM/dashboard.fxml"));
+        }else if(dashboardPath.equals("RCP")){
+            root = FXMLLoader.load(getClass().getResource("RCP/dashboard.fxml"));
+        }else if(dashboardPath.equals("DOC")){
+            root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
+        }else if(dashboardPath.equals("LBT")){
+            root = FXMLLoader.load(getClass().getResource("LBT/dashboard.fxml"));
+        }else if(dashboardPath.equals("MDC")){
+            root = FXMLLoader.load(getClass().getResource("MDC/dashboard.fxml"));
+        }
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -83,8 +99,8 @@ public class loginController {
 
     @FXML
     void checkLogin() {
-        String uid = loginIdField.getText();
-        String pass = loginPassField.getText();
+        uid = loginIdField.getText();
+        pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);
         if(uid.length()!=0 && pass.length()!=0){
             String Query = "SELECT PassWord FROM HMS WHERE userID='"+uid+"'";

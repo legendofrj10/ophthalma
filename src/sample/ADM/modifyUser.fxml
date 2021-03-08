@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.modifyUserController">
+   <children>
+      <TextField fx:id="userIDTxt" maxWidth="175.0" minWidth="175.0" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="15.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label text="User ID" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets right="250.0" top="18.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="searchUserBtn" mnemonicParsing="false" onAction="#callSearchUser" text="Search" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets left="250.0" top="15.0" />
+         </StackPane.margin>
+      </Button>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <StackPane.margin>
+            <Insets top="50.0" />
+         </StackPane.margin>
+         <children>
+            <Label text="Name" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="300.0" left="100.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Designation" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="90.0" left="100.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Role" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="160.0" left="100.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Password" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="230.0" left="100.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="102.0" text="Gender" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="100.0" top="50.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Work Email" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="100.0" top="120.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Address" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="100.0" top="190.0" />
+               </StackPane.margin>
+            </Label>
+            <Label layoutX="292.0" layoutY="177.0" text="Ph. No." StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="100.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField editable="false">
+               <StackPane.margin>
+                  <Insets bottom="300.0" left="200.0" right="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="22.0">
+               <StackPane.margin>
+                  <Insets bottom="160.0" left="200.0" right="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="22.0">
+               <StackPane.margin>
+                  <Insets bottom="230.0" left="200.0" right="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="92.0">
+               <StackPane.margin>
+                  <Insets bottom="90.0" left="200.0" right="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="127.0">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="200.0" right="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="167.0">
+               <StackPane.margin>
+                  <Insets left="200.0" right="100.0" top="50.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextField editable="false" layoutX="210.0" layoutY="197.0">
+               <StackPane.margin>
+                  <Insets left="200.0" right="100.0" top="120.0" />
+               </StackPane.margin>
+            </TextField>
+            <TextArea editable="false" maxHeight="50.0" prefHeight="248.0" prefWidth="600.0">
+               <StackPane.margin>
+                  <Insets left="200.0" right="100.0" top="215.0" />
+               </StackPane.margin>
+            </TextArea>
+            <Button fx:id="editAddressBtn" mnemonicParsing="false" onAction="#callEditAddress" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="25.0" top="210.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editWorkEmailBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditWorkEmail" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="25.0" top="120.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editGenderBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditGender" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="25.0" top="50.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editPhoneBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditPhone" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" right="25.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editDesignationBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditDesignation" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="90.0" right="25.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editRoleBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditRole" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="160.0" right="25.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editPasswordBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditPassword" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="230.0" right="25.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editNameBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditName" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="300.0" right="25.0" />
+               </StackPane.margin>
+               <graphic>
+                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../photos/edit.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="deleteUserBtn" mnemonicParsing="false" onAction="#callDeleteUser" text="Delete Account" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="20.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>

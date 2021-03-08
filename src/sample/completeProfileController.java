@@ -17,8 +17,8 @@ import java.sql.Statement;
 public class completeProfileController {
     public Button three_refresh;
     String Query;
-    static String IDLoggedIn;
-    static String nameLoggedIn;
+    public static String IDLoggedIn;
+    public static String nameLoggedIn;
 
     @FXML
     private ComboBox gendr;
@@ -59,7 +59,7 @@ public class completeProfileController {
     }
 
     void Dashboard(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
