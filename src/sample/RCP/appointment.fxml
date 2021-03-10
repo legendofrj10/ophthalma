@@ -109,7 +109,7 @@
                <Button fx:id="modifyAppointmentBTN" layoutX="13.0" layoutY="75.0" mnemonicParsing="false" onAction="#callModifyAppointment" text="Modify Appointment" />
             </children>
          </AnchorPane>
-         <BorderPane fx:id="appointmentPane" />
+         <BorderPane fx:id="appointmentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
      </items>
       <StackPane.margin>
          <Insets top="40.0" />

@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class notificationsController {
+    public Button labtestsBTN;
     @FXML
     private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
 
@@ -30,7 +31,8 @@ public class notificationsController {
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
 
@@ -80,6 +82,20 @@ public class notificationsController {
         stage.setScene(scene);
     }
 
-    public void callAppointment(ActionEvent actionEvent) {
+    @FXML
+    void callHelpAndFaq() throws IOException {
+        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    public void callLabtests(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("labtests.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 }

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MDC.medicineBillController">
+   <children>
+      <Button fx:id="backBTN" layoutX="394.0" layoutY="40.0" mnemonicParsing="false" onAction="#callBack" text="Back" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="patientID" maxWidth="200.0" minWidth="200.0" promptText="Patient ID" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets right="60.0" top="20.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="searchPatientBTN" mnemonicParsing="false" onAction="#callSearchPatient" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets left="200.0" top="20.0" />
+         </StackPane.margin>
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../photos/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <SplitPane dividerPositions="0.5752508361204013" prefHeight="160.0" prefWidth="200.0">
+        <items>
+            <StackPane>
+               <children>
+                  <ScrollPane maxHeight="850.0" maxWidth="620.0" StackPane.alignment="CENTER">
+                     <content>
+                        <StackPane maxHeight="100.0" maxWidth="595.0" minHeight="840.0" minWidth="595.0">
+                           <children>
+                              <Label text="HOSPITAL NAME" textFill="#4effe4" StackPane.alignment="TOP_CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets top="20.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label layoutX="178.0" layoutY="30.0" text="MEDICINE BILL" textFill="#4effe4" StackPane.alignment="TOP_CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets top="80.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label text="__________________________________________________" textFill="#3ddfee" StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets top="120.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="130.0" text="__________________________________________________" textFill="#4bd6eb" StackPane.alignment="TOP_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets top="120.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Patient Name : " StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="20.0" top="150.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label fx:id="patientNameTxt" layoutX="30.0" layoutY="160.0" text="Patient Name : " StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="125.0" top="150.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label layoutX="30.0" layoutY="160.0" text="Age : " StackPane.alignment="TOP_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets right="150.0" top="150.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label fx:id="ageTxt" layoutX="135.0" layoutY="160.0" text="A" StackPane.alignment="TOP_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets right="100.0" top="150.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label layoutX="30.0" layoutY="160.0" text="Medicine Sold By : " StackPane.alignment="BOTTOM_LEFT">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="20.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Label fx:id="medicineSellerNameTxt" layoutX="135.0" layoutY="160.0" text="seller" StackPane.alignment="BOTTOM_LEFT">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="150.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </content>
+                     <StackPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </StackPane.margin>
+                  </ScrollPane>
+               </children>
+            </StackPane>
+            <StackPane maxWidth="250.0" minWidth="250.0">
+               <children>
+                  <TextField fx:id="medicineName" maxWidth="150.0" minWidth="150.0" promptText="Search Medicine" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets right="50.0" top="20.0" />
+                     </StackPane.margin>
+                  </TextField>
+                  <Button fx:id="searchMedicineBTN" mnemonicParsing="false" onAction="#callSearchMedicine" StackPane.alignment="TOP_CENTER">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../photos/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <StackPane.margin>
+                        <Insets left="160.0" top="20.0" />
+                     </StackPane.margin>
+                  </Button>
+               </children>
+            </StackPane>
+        </items>
+         <StackPane.margin>
+            <Insets top="60.0" />
+         </StackPane.margin>
+      </SplitPane>
+      <Button fx:id="generateBillBTN" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#callGenerateBill" text="Generate Bill" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="20.0" top="20.0" />
+         </StackPane.margin>
+      </Button>
+   </children>
+</StackPane>

@@ -1,14 +1,10 @@
 package sample.ADM;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import sample.completeProfileController;
 
 import java.sql.Connection;
@@ -18,6 +14,7 @@ import java.sql.Statement;
 
 public class addUserController {
 
+    public Label userAddedTxt;
     String Query;
 
     @FXML
@@ -32,13 +29,7 @@ public class addUserController {
     @FXML
     private Button backButton,two_SignUPbtn;
 
-    public void backtologin() throws Exception{
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../login.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
+
 
     static Connection getConnect(){
         try{
@@ -64,14 +55,6 @@ public class addUserController {
         }
     }
 
-    @FXML
-    void profileComplete(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("completeProfile.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
 
     int newUserID(){
         int ID=1000;
@@ -91,29 +74,49 @@ public class addUserController {
     }
 
     @FXML
-    public void submitSignUp() throws Exception {
-        completeProfileController.nameLoggedIn = Name.getText();
+    public void submitSignUp() {
+        String userName = Name.getText();
         String job = (String) jobChoice.getValue();
         String emailAddress = email.getText();
         String pass = two_pass.getText();
         String confPass = two_passconf.getText();
         int uID = newUserID();//==0?1001:newUserID()+1;
-        completeProfileController.IDLoggedIn = job.equals("Doctor")?"DOC"+uID:"LAB"+uID;
-        System.out.println(completeProfileController.nameLoggedIn+" "+ completeProfileController.IDLoggedIn);
+        String fullUID;
+        if (job.equals("Doctor")) {
+            fullUID = "DOC"+uID;
+        } else {
+            if (job.equals("Admin")) {
+                fullUID = ("ADM"+uID);
+            } else {
+                if (job.equals("Receptionist")) fullUID = "RCP" + uID;
+                else {
+                    if (job.equals("Lab Technician")) fullUID = "LBT" + uID;
+                    else fullUID = "MDC" + uID;
+                }
+            }
+        }
+        System.out.println(userName +" "+ completeProfileController.IDLoggedIn);
         if(pass.equals(confPass)){
             passnotmatch.setText("");
             try{
                 Connection con = getConnect();
                 Statement st = con.createStatement();
                 Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord) VALUES " +
-                        "('" + completeProfileController.nameLoggedIn + "','" + completeProfileController.IDLoggedIn + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass +"')";
+                        "('" + completeProfileController.nameLoggedIn + "','" + fullUID + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass +"')";
                 st.executeUpdate(Query);
+                {
+                    String userAddedGreet = "User Account for "+userName+" has been created.\nUSER ID : "+fullUID+"\nPASSWORD : "+confPass;
+                    userAddedTxt.setText(userAddedGreet);
+                    Name.setText("");
+                    email.setText("");
+                    two_pass.setText("");
+                    two_passconf.setText("");
+                }
                 closeConnect(con);
             }catch(Exception e){
                 e.printStackTrace();
             }
-            Stage stage = (Stage)two_SignUPbtn.getScene().getWindow();
-            profileComplete(stage);
+
         }else{
             passnotmatch.setText("passwords don't match!!!");
         }

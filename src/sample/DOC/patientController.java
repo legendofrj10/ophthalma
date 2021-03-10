@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -24,6 +25,10 @@ public class patientController {
 
     static String patID="";
     public Label patientAge;
+    public Button editRemarksBtn;
+    public Button generatePrescriptionBTN;
+    public TextField labtestName;
+    public Button assignLabtestBTN;
 
     @FXML
     private Button backBtn;
@@ -129,4 +134,14 @@ public class patientController {
 
     }
 
+    public void callGeneratePrescription() throws IOException {
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("prescription.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
+    }
+
+    public void callAssignLabtest() {
+    }
 }

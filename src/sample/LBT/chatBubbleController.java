@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class chatBubbleController {
+    public Button labtestsBTN;
     @FXML
     private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
 
@@ -30,18 +31,11 @@ public class chatBubbleController {
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
-
-    @FXML
-    void callHelpAndFaq() throws IOException {
-        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-    }
-
+    
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
@@ -61,15 +55,6 @@ public class chatBubbleController {
     }
 
     @FXML
-    void callAccountsManagement() throws IOException {
-        Stage stage = (Stage) accountsManagementBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("accountsManagement.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
     void callSettings() throws IOException {
         Stage stage = (Stage) settingsBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
@@ -78,6 +63,12 @@ public class chatBubbleController {
         stage.setScene(scene);
     }
 
-    public void callAppointment(ActionEvent actionEvent) {
+    @FXML
+    public void callLabtests(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("labtests.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 }

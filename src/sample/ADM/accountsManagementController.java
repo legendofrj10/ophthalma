@@ -46,12 +46,8 @@ public class accountsManagementController {
 
     @FXML
     void callAddUser() throws IOException {
-       // Stage st = (Stage) innerStage.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("addUser.fxml"));
         innerStage.setCenter(root);
-        /*Scene sc = st.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        st.setScene(scene);*/
     }
 
     @FXML

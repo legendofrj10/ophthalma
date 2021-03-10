@@ -14,6 +14,7 @@ public class dashboardController {
 
     public Button receiptSystemBTN;
     public Button appointmentBTN;
+    public Button labtestsBTN;
     @FXML
     private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
 
@@ -102,5 +103,8 @@ public class dashboardController {
     }
 
     public void callReceiptSystem(ActionEvent actionEvent) {
+    }
+
+    public void callLabtests(ActionEvent actionEvent) {
     }
 }

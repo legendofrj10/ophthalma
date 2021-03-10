@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class chatBubbleController {
+    public Button receiptSystemBTN;
+    public Button appointmentBTN;
+    public Button medicineBillBTN;
     @FXML
     private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
 
@@ -30,7 +33,8 @@ public class chatBubbleController {
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
 
@@ -79,5 +83,17 @@ public class chatBubbleController {
     }
 
     public void callAppointment(ActionEvent actionEvent) {
+    }
+
+    public void callReceiptSystem(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void callMedicineBill(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("medicineBill.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 }

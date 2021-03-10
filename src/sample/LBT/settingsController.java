@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class settingsController {
+    public Button labtestsBTN;
     @FXML
     private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
 
@@ -30,7 +31,8 @@ public class settingsController {
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene scene = new Scene(root);
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
 
@@ -81,5 +83,14 @@ public class settingsController {
     }
 
     public void callAppointment(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void callLabtests(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("labtests.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 }

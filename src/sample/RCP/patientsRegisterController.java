@@ -1,4 +1,4 @@
-package sample.DOC;
+package sample.RCP;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -107,10 +107,11 @@ public class patientsRegisterController {
     @FXML
     void callBack() throws IOException {
         Stage stage = (Stage) backBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("appointment.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
+
     }
 
     @FXML
@@ -144,12 +145,6 @@ public class patientsRegisterController {
             st.executeUpdate(Query);
 
             closeConnect(con);
-            patientController.patID = patient_id;
-            Stage stage = (Stage) registerBTN.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
-            Scene sc = registerBTN.getScene();
-            Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-            stage.setScene(scene);
         }catch(Exception e){
             e.printStackTrace();
         }

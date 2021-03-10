@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -9,81 +11,59 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-           prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="sample.DOC.patientsRegisterController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.patientsRegisterController">
    <Button fx:id="backBTN" mnemonicParsing="false" onAction="#callBack" text="BACK" StackPane.alignment="TOP_LEFT">
       <StackPane.margin>
-         <Insets left="20.0" top="20.0"/>
+         <Insets left="20.0" top="20.0" />
       </StackPane.margin>
    </Button>
    <Button fx:id="registerBTN" mnemonicParsing="false" onAction="#callRegister" text="REGISTER">
       <StackPane.margin>
-         <Insets top="200.0"/>
+         <Insets top="200.0" />
       </StackPane.margin>
    </Button>
    <Label text="PATIENT REGISTER" StackPane.alignment="TOP_CENTER">
       <font>
-         <Font name="System Bold" size="22.0"/>
+         <Font name="System Bold" size="22.0" />
       </font>
       <StackPane.margin>
-         <Insets top="20.0"/>
+         <Insets top="20.0" />
       </StackPane.margin>
    </Label>
    <Label text="NAME">
       <StackPane.margin>
-         <Insets bottom="200.0" right="450.0"/>
+         <Insets bottom="200.0" right="450.0" />
       </StackPane.margin>
    </Label>
    <Label text="GENDER">
       <StackPane.margin>
-         <Insets bottom="100.0" right="435.0"/>
+         <Insets bottom="100.0" right="435.0" />
       </StackPane.margin>
    </Label>
    <Label text="DOB">
       <StackPane.margin>
-         <Insets right="460.0"/>
-      </StackPane.margin>
-   </Label>
-   <Label text="PROBLEMATIC EYE">
-      <StackPane.margin>
-         <Insets right="370.0" top="100.0"/>
+         <Insets right="460.0" />
       </StackPane.margin>
    </Label>
    <TextField fx:id="patientNameField" maxWidth="300.0" promptText="NAME">
       <StackPane.margin>
-         <Insets bottom="200.0" left="100.0"/>
+         <Insets bottom="200.0" left="100.0" />
       </StackPane.margin>
    </TextField>
    <ComboBox fx:id="patientGenderCB" editable="true" maxWidth="300.0" prefWidth="150.0" promptText="GENDER">
       <StackPane.margin>
-         <Insets bottom="100.0" left="100.0"/>
+         <Insets bottom="100.0" left="100.0" />
       </StackPane.margin>
       <items>
          <FXCollections fx:factory="observableArrayList">
-            <String fx:value="male"/>
-            <String fx:value="female"/>
+            <String fx:value="male" />
+            <String fx:value="female" />
          </FXCollections>
       </items>
    </ComboBox>
    <DatePicker fx:id="patientDOB" maxWidth="300.0" promptText="MM/DD/YYYY">
       <StackPane.margin>
-         <Insets left="100.0"/>
+         <Insets left="100.0" />
       </StackPane.margin>
    </DatePicker>
-   <ComboBox fx:id="patientEyeCB" editable="true" layoutX="210.0" layoutY="147.0" maxWidth="300.0" prefWidth="150.0"
-             promptText="LEFT/RIGHT/BOTH">
-      <StackPane.margin>
-         <Insets left="100.0" top="100.0"/>
-      </StackPane.margin>
-      <items>
-         <FXCollections fx:factory="observableArrayList">
-            <String fx:value="LEFT"/>
-            <String fx:value="RIGHT"/>
-            <String fx:value="BOTH"/>
-         </FXCollections>
-      </items>
-   </ComboBox>
 </StackPane>

@@ -42,9 +42,11 @@
         </StackPane.margin>
         <items>
             <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Admin" />
+                <String fx:value="Receptionist" />
                 <String fx:value="Doctor" />
                 <String fx:value="Lab technician" />
-                <String fx:value="" />
+                <String fx:value="Medical Storekeeper" />
             </FXCollections>
         </items>
     </ComboBox>
@@ -81,4 +83,9 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </Label>
+   <Label fx:id="userAddedTxt" textFill="#09c305" StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets top="10.0" />
+      </StackPane.margin>
+   </Label>
 </StackPane>

@@ -8,15 +8,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 
-
-<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.newAppointmentController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.newAppointmentController">
    <children>
       <Label text="Patient ID" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets bottom="200.0" right="300.0" />
          </StackPane.margin>
       </Label>
-      <TextField fx:id="patientIDTxt" maxWidth="200.0" minWidth="100.0">
+      <TextField fx:id="patientIDTxt" maxWidth="200.0" minWidth="100.0" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets bottom="200.0" />
          </StackPane.margin>
@@ -29,22 +28,22 @@
             <Insets right="25.0" />
          </padding>
       </Label>
-      <ComboBox fx:id="chooseDepartmentCB" maxWidth="200.0" minWidth="100.0" prefWidth="200.0">
+      <ComboBox fx:id="chooseDepartmentCB" maxWidth="200.0" minWidth="100.0" prefWidth="200.0" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets bottom="100.0" />
          </StackPane.margin>
       </ComboBox>
       <Button fx:id="newPatientBTN" mnemonicParsing="false" onAction="#callNewPatient" text="New Patient" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
-            <Insets right="50.0" top="20.0" />
+            <Insets right="20.0" top="20.0" />
          </StackPane.margin>
       </Button>
-      <Button fx:id="submitBTN" layoutX="463.0" layoutY="30.0" mnemonicParsing="false" onAction="#callSubmit" text="Submit">
+      <Button fx:id="submitBTN" layoutX="463.0" layoutY="30.0" mnemonicParsing="false" onAction="#callSubmit" text="Submit" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets top="100.0" />
          </StackPane.margin>
       </Button>
-      <DatePicker fx:id="datePicker" />
+      <DatePicker fx:id="datePicker" StackPane.alignment="CENTER" />
       <Label layoutX="60.0" layoutY="152.0" text="Date" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets right="300.0" />

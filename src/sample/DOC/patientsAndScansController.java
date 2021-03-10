@@ -121,7 +121,7 @@ public class patientsAndScansController {
     @FXML
     void callRegisterPatient() throws IOException {
         Stage stage = (Stage) registerPatientBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsRegister.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../RCP/patientsRegister.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

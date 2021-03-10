@@ -118,4 +118,5 @@ public class appointmentController {
         Parent root = FXMLLoader.load(getClass().getResource("modifyAppointment.fxml"));
         appointmentPane.setCenter(root);
     }
+
 }

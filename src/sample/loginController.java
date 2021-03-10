@@ -38,17 +38,7 @@ public class loginController {
         primaryStage.show();
     }
 
-    @FXML
-    void signUp() throws Exception{
-        Stage stage;
-        Parent root;
-        stage = (Stage) signupbtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("DOC/signup.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(), sc.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
+
 
     @FXML
     void Dashboard(Stage stage) throws Exception{

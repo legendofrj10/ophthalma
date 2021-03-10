@@ -9,24 +9,53 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientsAndScansController">
-    <Button fx:id="registerPatientBTN" focusTraversable="false" mnemonicParsing="false" onAction="#callRegisterPatient" text="Register patient" StackPane.alignment="TOP_RIGHT">
+    <TextField fx:id="searchPatientField" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient (patient id)" StackPane.alignment="TOP_LEFT">
         <StackPane.margin>
-            <Insets right="20.0" top="70.0" />
+          <Insets left="20.0" top="70.0" />
         </StackPane.margin>
+    </TextField>
+    <Button fx:id="searchBtn" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSearch" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_LEFT">
+        <StackPane.margin>
+          <Insets left="230.0" top="70.0" />
+        </StackPane.margin>
+        <graphic>
+            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../photos/search.png" />
+            </ImageView>
+        </graphic>
     </Button>
-    <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
-        <Button fx:id="helpAndFaqBTN" focusTraversable="false" minHeight="25.0" mnemonicParsing="false" onAction="#callHelpAndFaq" text="Help &amp; FAQ" StackPane.alignment="TOP_LEFT">
-            <font>
-                <Font size="10.0" />
-            </font>
+    <Label fx:id="noPatientMatchLbl" prefHeight="16.0" prefWidth="0.0" textFill="RED" StackPane.alignment="TOP_LEFT">
+        <StackPane.margin>
+          <Insets left="270.0" top="80.0" />
+        </StackPane.margin>
+    </Label>
+   <StackPane>
+      <StackPane.margin>
+         <Insets top="100.0" />
+      </StackPane.margin>
+      <children>
+           <HBox maxWidth="1.7976931348623157E308" prefHeight="280.0" prefWidth="600.0">
+               <ListView fx:id="patientListName" cacheShape="false" centerShape="false" focusTraversable="false" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS" />
+               <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ListView>
+               <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+                   <HBox.margin>
+                       <Insets />
+                   </HBox.margin>
+               </ListView>
             <StackPane.margin>
-                <Insets left="300.0" top="7.0" />
+               <Insets bottom="20.0" left="20.0" right="20.0" />
             </StackPane.margin>
-        </Button>
+           </HBox>
+      </children>
+   </StackPane>
+    <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
         <Button fx:id="patientsAndScansBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
             <font>
                 <Font size="10.0" />
@@ -107,38 +136,4 @@
             </StackPane.margin>
         </Button>
     </StackPane>
-    <VBox prefHeight="200.0" prefWidth="100.0">
-        <StackPane.margin>
-            <Insets top="100.0" />
-        </StackPane.margin>
-        <HBox maxWidth="1.7976931348623157E308" prefHeight="186.0" prefWidth="600.0">
-            <ListView fx:id="patientListName" cacheShape="false" centerShape="false" focusTraversable="false" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS" />
-            <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS" />
-            <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" scaleShape="false" HBox.hgrow="ALWAYS">
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
-            </ListView>
-        </HBox>
-    </VBox>
-    <TextField fx:id="searchPatientField" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="20.0" top="70.0" />
-        </StackPane.margin>
-    </TextField>
-    <Button fx:id="searchBtn" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSearch" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="220.0" top="70.0" />
-        </StackPane.margin>
-        <graphic>
-            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../../photos/search.png" />
-            </ImageView>
-        </graphic>
-    </Button>
-    <Label fx:id="noPatientMatchLbl" textFill="RED" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="250.0" top="80.0" />
-        </StackPane.margin>
-    </Label>
 </StackPane>
