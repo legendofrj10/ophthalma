@@ -46,7 +46,7 @@ public class patientsRegisterController {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA","yashraj","Raj"
+                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
             );
             System.out.println("Connection established");
             return con;

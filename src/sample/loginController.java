@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
 
 
 public class loginController {
@@ -32,9 +35,37 @@ public class loginController {
 
     @FXML
     public static void login(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
+        File fUName = new File("dbUName");
+        File fPass = new File("dbPass");
+        Parent root;
+        root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
+        if(fUName.exists() && fPass.exists()){
+            FileInputStream fisName = new FileInputStream(fUName);
+            FileInputStream fisPass = new FileInputStream(fPass);
+            Scanner reader;
+
+            reader = new Scanner(fisName);
+
+            while(reader.hasNextLine()){
+            common.setN(reader.nextLine());
+            }
+            reader.close();
+            reader = new Scanner(fisPass);
+
+            while (reader.hasNextLine()){
+                common.setP(reader.nextLine());
+            }
+            reader.close();
+
+            System.out.println(sample.common.getN());
+            System.out.println(sample.common.getP());
+        }else{
+            root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
+        }
         primaryStage.setTitle("OPHTHALMA");
-        primaryStage.setScene(new Scene(root));
+        Scene sc = primaryStage.getScene();
+        Scene scene = new Scene(root/*,sc.getWidth(),sc.getHeight()*/);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
@@ -45,18 +76,25 @@ public class loginController {
         String dashboardPath = uid.substring(0, 3);
         System.out.println(dashboardPath);
         Parent root = null;
-        if(dashboardPath.equals("ADM")){
-            root = FXMLLoader.load(getClass().getResource("ADM/dashboard.fxml"));
-        }else if(dashboardPath.equals("RCP")){
-            root = FXMLLoader.load(getClass().getResource("RCP/dashboard.fxml"));
-        }else if(dashboardPath.equals("DOC")){
-            root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
-        }else if(dashboardPath.equals("LBT")){
-            root = FXMLLoader.load(getClass().getResource("LBT/dashboard.fxml"));
-        }else if(dashboardPath.equals("MDC")){
-            root = FXMLLoader.load(getClass().getResource("MDC/dashboard.fxml"));
+        switch (dashboardPath) {
+            case "ADM":
+                root = FXMLLoader.load(getClass().getResource("ADM/dashboard.fxml"));
+                break;
+            case "RCP":
+                root = FXMLLoader.load(getClass().getResource("RCP/dashboard.fxml"));
+                break;
+            case "DOC":
+                root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
+                break;
+            case "LBT":
+                root = FXMLLoader.load(getClass().getResource("LBT/dashboard.fxml"));
+                break;
+            case "MDC":
+                root = FXMLLoader.load(getClass().getResource("MDC/dashboard.fxml"));
+                break;
         }
         Scene sc = stage.getScene();
+        assert root != null;
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
         stage.show();
@@ -66,7 +104,7 @@ public class loginController {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA","yashraj","Raj"
+                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
             );
             System.out.println("Connection established");
             return con;

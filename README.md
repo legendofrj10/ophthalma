@@ -1,7 +1,9 @@
 # ophthalma
-Retina Anomaly Detection Application(RADA)
+A software that can be used in a hospital.
 ##Description
-RADA is a Hospital dedicated software, prepared to work as an user interface for health workers and connect to other machines and software. This is a desktop based application that allows registered users to store appointments/register new patients/scan their body organs/ do analysis on numbers in desktop. The advantage with this is Health Workers can access their accounts with proper access control. The app is built in such a way that there are four types of accounts according to the Hierarchy .
+
+###SRS
+
 ###Prerequisites
 ####Dependencies
     software : Mysql client
