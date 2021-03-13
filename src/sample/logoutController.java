@@ -1,4 +1,4 @@
-package sample.ADM;
+package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,8 @@ public class logoutController {
     @FXML
     void callNo() throws IOException {
         Stage stage = (Stage) noBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        String dir = common.getUserLoggedIn().substring(0,3);
+        Parent root = FXMLLoader.load(getClass().getResource(dir+"/dashboard.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -29,7 +30,7 @@ public class logoutController {
     @FXML
     void callYes() throws IOException {
         Stage stage = (Stage) yesBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

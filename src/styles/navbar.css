@@ -1,0 +1,12 @@
+#navbarStackpane{
+    -fx-background-color: #323232;
+}
+
+.button{
+    -fx-background-color: #323232;
+
+}
+
+.button:hover{
+    -fx-background-color: #2b2121;
+}

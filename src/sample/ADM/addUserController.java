@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 public class addUserController {
 
@@ -28,7 +29,6 @@ public class addUserController {
 
     @FXML
     private Button backButton,two_SignUPbtn;
-
 
 
     static Connection getConnect(){
@@ -101,8 +101,8 @@ public class addUserController {
             try{
                 Connection con = getConnect();
                 Statement st = con.createStatement();
-                Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord) VALUES " +
-                        "('" + completeProfileController.nameLoggedIn + "','" + fullUID + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass +"')";
+                Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord,Joining) VALUES " +
+                        "('" + completeProfileController.nameLoggedIn + "','" + fullUID + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass + "','" + LocalDate.now() +"')";
                 st.executeUpdate(Query);
                 {
                     String userAddedGreet = "User Account for "+userName+" has been created.\nUSER ID : "+fullUID+"\nPASSWORD : "+confPass;

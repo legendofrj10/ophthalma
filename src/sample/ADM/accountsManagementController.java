@@ -48,6 +48,8 @@ public class accountsManagementController {
     void callAddUser() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("addUser.fxml"));
         innerStage.setCenter(root);
+        addUserBtn.setDisable(true);
+        modifyUserBtn.setDisable(false);
     }
 
     @FXML
@@ -70,7 +72,7 @@ public class accountsManagementController {
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("logout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -80,6 +82,8 @@ public class accountsManagementController {
     void callModifyUser() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("modifyUser.fxml"));
         innerStage.setCenter(root);
+        addUserBtn.setDisable(false);
+        modifyUserBtn.setDisable(true);
     }
 
     @FXML

@@ -7,38 +7,52 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.addUserController">
-    <TextField fx:id="Name" maxWidth="150.0" promptText="Full Name">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.addUserController">
+    <TextField fx:id="Name" maxWidth="225.0" promptText="Full Name">
         <StackPane.margin>
-            <Insets bottom="200.0" right="75.0" />
+            <Insets bottom="200.0" left="25.0" />
         </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </TextField>
-    <TextField fx:id="email" maxWidth="250.0" promptText="Email Address">
+    <TextField fx:id="email" maxWidth="225.0" promptText="Email Address">
         <StackPane.margin>
             <Insets left="25.0" />
         </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </TextField>
     <Label prefWidth="29.0" text="Role">
         <StackPane.margin>
             <Insets bottom="100.0" right="310.0" />
         </StackPane.margin>
     </Label>
-    <Button fx:id="two_SignUPbtn" mnemonicParsing="false" onAction="#submitSignUp" text="Submit">
+    <Button fx:id="two_SignUPbtn" maxWidth="225.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="225.0" text="Submit">
         <StackPane.margin>
-            <Insets top="300.0" />
+            <Insets left="25.0" top="300.0" />
         </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </Button>
-    <TextField fx:id="two_pass" maxWidth="250.0" promptText="Password">
+    <TextField fx:id="two_pass" maxWidth="225.0" promptText="Password">
         <StackPane.margin>
             <Insets left="25.0" top="100.0" />
         </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </TextField>
-    <ComboBox fx:id="jobChoice" prefWidth="150.0">
+    <ComboBox fx:id="jobChoice" editable="true" maxWidth="225.0" prefWidth="150.0" promptText="Job Of User" stylesheets="@../../styles/style3.css">
         <StackPane.margin>
-            <Insets bottom="100.0" right="75.0" />
+            <Insets bottom="100.0" left="25.0" />
         </StackPane.margin>
         <items>
             <FXCollections fx:factory="observableArrayList">
@@ -49,6 +63,9 @@
                 <String fx:value="Medical Storekeeper" />
             </FXCollections>
         </items>
+      <effect>
+         <DropShadow />
+      </effect>
     </ComboBox>
     <Label layoutX="346.0" layoutY="152.0" prefWidth="39.0" text="Name">
         <StackPane.margin>
@@ -65,10 +82,13 @@
             <Insets right="340.0" top="100.0" />
         </StackPane.margin>
     </Label>
-    <TextField fx:id="two_passconf" layoutX="148.0" layoutY="247.0" maxWidth="250.0" promptText="Confirm Password">
+    <TextField fx:id="two_passconf" layoutX="148.0" layoutY="247.0" maxWidth="225.0" prefHeight="26.0" prefWidth="224.0" promptText="Confirm Password">
         <StackPane.margin>
             <Insets left="25.0" top="200.0" />
         </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </TextField>
     <Label layoutX="79.0" layoutY="252.0" text="Confirm Password">
         <StackPane.margin>
@@ -87,5 +107,16 @@
       <StackPane.margin>
          <Insets top="10.0" />
       </StackPane.margin>
+   </Label>
+   <Label text="ADD USER" StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets left="25.0" top="70.0" />
+      </StackPane.margin>
+      <font>
+         <Font size="46.0" />
+      </font>
+      <effect>
+         <Reflection fraction="0.51" topOpacity="0.13" />
+      </effect>
    </Label>
 </StackPane>

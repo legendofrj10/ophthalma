@@ -7,10 +7,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
    <TextField fx:id="loginIdField" focusTraversable="false" layoutX="50.0" layoutY="50.0" maxHeight="10.0" maxWidth="250.0" prefHeight="10.0" prefWidth="117.0" promptText="ID">
       <StackPane.margin>
          <Insets bottom="150.0" />
@@ -43,17 +45,23 @@
          <Insets bottom="50.0" right="343.0" />
       </StackPane.margin>
    </Label>
-   <Button fx:id="loginbtn" maxWidth="250.0" mnemonicParsing="false" onAction="#checkLogin" prefWidth="250.0" text="LOGIN">
+   <Button fx:id="loginbtn" maxWidth="250.0" mnemonicParsing="false" onAction="#checkLogin" prefWidth="250.0" text="LOGIN" textFill="WHITE">
       <StackPane.margin>
          <Insets top="50.0" />
       </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
    </Button>
-   <Button fx:id="troublebtn" maxWidth="250.0" mnemonicParsing="false" onAction="#troubleLogin" prefHeight="26.0" prefWidth="250.0" text="Trouble in login" StackPane.alignment="CENTER">
+   <Button fx:id="troublebtn" maxWidth="250.0" mnemonicParsing="false" onAction="#troubleLogin" prefHeight="26.0" prefWidth="250.0" text="Trouble in login" textFill="WHITE" StackPane.alignment="CENTER">
       <StackPane.margin>
          <Insets top="150.0" />
       </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
    </Button>
-   <Label text="OPHTHALMA">
+   <Label text="OPHTHALMA" textFill="WHITE">
       <StackPane.margin>
          <Insets bottom="300.0" />
       </StackPane.margin>
@@ -64,9 +72,21 @@
          <Reflection topOpacity="0.06" />
       </effect>
    </Label>
-   <Label fx:id="loginerror" textAlignment="CENTER" textFill="RED">
+   <Label fx:id="loginerror" textAlignment="CENTER" textFill="#ff0009">
       <StackPane.margin>
          <Insets top="100.0" />
       </StackPane.margin>
    </Label>
+   <Button fx:id="quitBTN" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#callQuit" style="-fx-background-radius: 15px;" visible="false" StackPane.alignment="TOP_RIGHT">
+      <StackPane.margin>
+         <Insets />
+      </StackPane.margin>
+      <graphic>
+         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../photos/quitDark.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 </StackPane>

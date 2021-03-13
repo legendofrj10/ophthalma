@@ -46,7 +46,7 @@ public class notificationsController {
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("logout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

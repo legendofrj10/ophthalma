@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ import java.util.Scanner;
 
 public class loginController {
 
+    public Button quitBTN;
     String uid="";
     String pass="";
 
@@ -31,7 +33,9 @@ public class loginController {
     private PasswordField loginPassField;
 
     @FXML
-    private Button loginbtn,signupbtn,troublebtn;
+    private Button loginbtn;
+    @FXML
+    private Button troublebtn;
 
     @FXML
     public static void login(Stage primaryStage) throws Exception{
@@ -63,8 +67,7 @@ public class loginController {
             root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
         }
         primaryStage.setTitle("OPHTHALMA");
-        Scene sc = primaryStage.getScene();
-        Scene scene = new Scene(root/*,sc.getWidth(),sc.getHeight()*/);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -143,6 +146,7 @@ public class loginController {
 
                 if(pass.equals(password)){
                     Stage stage = (Stage)loginbtn.getScene().getWindow();
+                    common.setUserLoggedIn(uid);
                     Dashboard(stage);
                 }else{
                     loginerror.setText("Wrong password!!!!");
@@ -160,8 +164,10 @@ public class loginController {
 
     @FXML
     void troubleLogin() {
-
     }
 
 
+    public void callQuit(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }

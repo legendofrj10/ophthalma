@@ -11,38 +11,38 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
-    <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
-        <Button fx:id="accountsManagementBtn" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callAccountsManagement" text="Accounts Management" StackPane.alignment="TOP_LEFT">
+<StackPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
+    <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../../styles/navbar.css" StackPane.alignment="TOP_CENTER">
+        <Button fx:id="accountsManagementBtn" disable="true" minHeight="40.0" mnemonicParsing="false" onAction="#callAccountsManagement" text="Accounts Management" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <font>
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets left="190.0" top="7.0" />
+                <Insets left="190.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="dashboardBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callDashboard" text="DashBoard" StackPane.alignment="TOP_LEFT">
+        <Button fx:id="dashboardBTN" minHeight="40.0" mnemonicParsing="false" onAction="#callDashboard" prefHeight="40.0" prefWidth="79.0" text="DashBoard" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <font>
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets left="110.0" top="7.0" />
+                <Insets left="110.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/logout.png" />
+                    <Image url="@../../photos/logoutDark.png" />
                 </ImageView>
             </graphic>
             <font>
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets right="15.0" top="7.0" />
+                <Insets />
             </StackPane.margin>
         </Button>
-        <Label prefHeight="16.0" prefWidth="99.0" text="OPHTHALMA" StackPane.alignment="TOP_LEFT">
+        <Label prefHeight="16.0" prefWidth="99.0" text="OPHTHALMA" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <padding>
                 <Insets left="10.0" />
             </padding>
@@ -53,58 +53,61 @@
                 <Insets top="11.0" />
             </StackPane.margin>
         </Label>
-        <Button fx:id="settingsBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="settingsBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <font>
                 <Font size="10.0" />
             </font>
             <graphic>
                 <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/settings.png" />
+                    <Image url="@../../photos/settingDark.png" />
                 </ImageView>
             </graphic>
             <StackPane.margin>
-                <Insets right="55.0" top="7.0" />
+                <Insets right="40.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="notificationBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="notificationBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/notifications.png" />
+                    <Image url="@../../photos/notificationDark.png" />
                 </ImageView>
             </graphic>
             <font>
                 <Font size="9.0" />
             </font>
             <StackPane.margin>
-                <Insets right="95.0" top="7.0" />
+                <Insets right="80.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="chatBubbleBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="chatBubbleBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/chat.png" />
+                    <Image url="@../../photos/chatDark.png" />
                 </ImageView>
             </graphic>
             <font>
                 <Font size="9.0" />
             </font>
             <StackPane.margin>
-                <Insets right="135.0" top="7.0" />
+                <Insets right="120.0" />
             </StackPane.margin>
         </Button>
     </StackPane>
-   <SplitPane dividerPositions="0.2993311036789298" prefHeight="364.0" prefWidth="600.0">
+   <SplitPane dividerPositions="0.2993311036789298" prefHeight="364.0" prefWidth="600.0" stylesheets="@../../styles/style3.css">
      <items>
-       <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="348.0" prefWidth="175.0">
+       <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="348.0" prefWidth="175.0" stylesheets="@../../styles/style3.css">
             <children>
-               <Button fx:id="addUserBtn" layoutX="48.0" layoutY="29.0" mnemonicParsing="false" onAction="#callAddUser" text="Add User" />
-               <Button fx:id="modifyUserBtn" layoutX="22.0" layoutY="92.0" mnemonicParsing="false" onAction="#callModifyUser" text="Modify User Data" />
+               <Button fx:id="addUserBtn" layoutX="-3.0" layoutY="-6.0" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" onAction="#callAddUser" prefHeight="40.0" prefWidth="182.0" text="Add User" AnchorPane.topAnchor="0.0">
+                  <font>
+                     <Font name="FreeSans" size="13.0" />
+                  </font></Button>
+               <Button fx:id="modifyUserBtn" layoutX="-3.0" layoutY="34.0" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#callModifyUser" prefHeight="40.0" prefWidth="182.0" text="Modify User Data" AnchorPane.topAnchor="41.0" />
             </children>
          </AnchorPane>
-         <BorderPane fx:id="innerStage" />
+         <BorderPane fx:id="innerStage" stylesheets="@../../styles/style3.css" />
      </items>
       <StackPane.margin>
-         <Insets top="50.0" />
+         <Insets top="40.0" />
       </StackPane.margin>
    </SplitPane>
 </StackPane>

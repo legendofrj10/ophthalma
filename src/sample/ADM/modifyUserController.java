@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 import java.sql.*;
@@ -26,6 +28,8 @@ public class modifyUserController {
     public StackPane deletePane;
     public Button noDeleteBTN;
     public Button yesDeleteBTN;
+    public ImageView lockImg;
+    Image image;
     @FXML
     private TextField userIDTxt;
 
@@ -62,6 +66,7 @@ public class modifyUserController {
     @FXML
     private Button saveBtn;
 
+
     static Connection getConnect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -93,43 +98,35 @@ public class modifyUserController {
     }
 
     @FXML
-    void callEditAddress() {
-        addressTxt.setEditable(true);
-    }
+    void callEdit() {
+        if(!userNameTxt.isEditable()){
+            addressTxt.setEditable(true);
+            designationTxt.setEditable(true);
+            genderTxt.setEditable(true);
+            userNameTxt.setEditable(true);
+            passwordTxt.setEditable(true);
+            phnoTxt.setEditable(true);
+            roleTxt.setEditable(true);
+            workEmailTxt.setEditable(true);
 
-    @FXML
-    void callEditDesignation() {
-        designationTxt.setEditable(true);
-    }
+            image = new Image("file:src/photos/unlockDark.png");
 
-    @FXML
-    void callEditGender( ) {
-        genderTxt.setEditable(true);
-    }
+            lockImg.setImage(image);
+        }else{
+            addressTxt.setEditable(false);
+            designationTxt.setEditable(false);
+            genderTxt.setEditable(false);
+            userNameTxt.setEditable(false);
+            passwordTxt.setEditable(false);
+            phnoTxt.setEditable(false);
+            roleTxt.setEditable(false);
+            workEmailTxt.setEditable(false);
 
-    @FXML
-    void callEditName( ) {
-        userNameTxt.setEditable(true);
-    }
+            image = new Image("file:src/photos/lockDark.png");
+            lockImg.setImage(image);
+        }
 
-    @FXML
-    void callEditPassword( ) {
-        passwordTxt.setEditable(true);
-    }
 
-    @FXML
-    void callEditPhone( ) {
-        phnoTxt.setEditable(true);
-    }
-
-    @FXML
-    void callEditRole( ) {
-        roleTxt.setEditable(true);
-    }
-
-    @FXML
-    void callEditWorkEmail( ) {
-        workEmailTxt.setEditable(true);
     }
 
     @FXML

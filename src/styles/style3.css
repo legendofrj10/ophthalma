@@ -1,0 +1,65 @@
+.text-field {
+    -fx-border-style: none;
+    -fx-background-color: #464546;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+    -fx-text-fill: whitesmoke;
+}
+
+.text-field:hover {
+    -fx-background-color: #403434;
+}
+
+#addressTxt{
+}
+
+.text-area{
+    -fx-text-fill: whitesmoke;
+    -fx-control-inner-background: #464546;
+}
+
+.text-area:hover{
+    -fx-control-inner-background: #403434;
+}
+
+.choice-box,.combo-box{
+    -fx-border-style: none;
+    -fx-background-color: #464546;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+
+}
+
+.combo-box:hover,.choice-box:hover{
+    -fx-background-color: #403434;
+}
+
+.root{
+    -fx-background-color: #3d3d3d;
+
+}
+.split-pane{
+    -fx-background-color: #3b3b3b;
+}
+
+.label{
+    -fx-text-fill: whitesmoke;
+}
+
+.button{
+    -fx-border-style: none;
+    -fx-background-color: #464546;
+    -fx-text-fill: whitesmoke;
+}
+
+.button:hover{
+    -fx-background-color: #403434;
+    -fx-text-fill: aqua;
+}
+
+.button:pressed{
+    -fx-border-style: solid;
+    -fx-border-color: #013223;
+    -fx-effect: none;
+    -fx-text-fill: #124242;
+    -fx-border-radius: 3px;
+}

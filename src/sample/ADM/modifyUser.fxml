@@ -5,18 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.modifyUserController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.modifyUserController">
    <children>
-      <TextField fx:id="userIDTxt" maxWidth="175.0" minWidth="175.0" StackPane.alignment="TOP_CENTER">
+      <TextField fx:id="userIDTxt" maxWidth="175.0" minWidth="175.0" promptText="User ID" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
             <Insets top="15.0" />
          </StackPane.margin>
       </TextField>
-      <Label text="User ID" StackPane.alignment="TOP_CENTER">
+      <Label text="User ID" textFill="WHITE" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
             <Insets right="250.0" top="18.0" />
          </StackPane.margin>
@@ -25,8 +26,11 @@
          <StackPane.margin>
             <Insets left="250.0" top="15.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <StackPane fx:id="detailsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" visible="false">
+      <StackPane fx:id="detailsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" stylesheets="@../../styles/style3.css" visible="false">
          <StackPane.margin>
             <Insets top="50.0" />
          </StackPane.margin>
@@ -110,108 +114,54 @@
                <StackPane.margin>
                   <Insets left="200.0" right="100.0" top="215.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </TextArea>
-            <Button fx:id="editAddressBtn" mnemonicParsing="false" onAction="#callEditAddress" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets right="25.0" top="210.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editWorkEmailBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditWorkEmail" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets right="25.0" top="120.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editGenderBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditGender" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets right="25.0" top="50.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editPhoneBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditPhone" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets bottom="20.0" right="25.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editDesignationBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditDesignation" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets bottom="90.0" right="25.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editRoleBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditRole" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets bottom="160.0" right="25.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editPasswordBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditPassword" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets bottom="230.0" right="25.0" />
-               </StackPane.margin>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../photos/edit.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="editNameBtn" layoutX="279.0" layoutY="172.0" mnemonicParsing="false" onAction="#callEditName" StackPane.alignment="CENTER_RIGHT">
+            <Button fx:id="editBtn" mnemonicParsing="false" onAction="#callEdit" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets bottom="300.0" right="25.0" />
                </StackPane.margin>
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../photos/edit.png" />
+                        <Image url="@../../photos/editDark.png" />
                      </image></ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
             <Button fx:id="deleteUserBtn" mnemonicParsing="false" onAction="#callDeleteUser" text="Delete Account" StackPane.alignment="BOTTOM_LEFT">
                <StackPane.margin>
                   <Insets bottom="20.0" left="20.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
             <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#callSave" text="Save Changes" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="20.0" right="20.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
+            <ImageView fx:id="lockImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="200.0" right="30.0" />
+               </StackPane.margin>
+               <image>
+                  <Image url="@../../photos/lockDark.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
          </children>
       </StackPane>
-      <StackPane fx:id="savePane" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: white;" visible="false" StackPane.alignment="TOP_CENTER">
+      <StackPane fx:id="savePane" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #464546;" stylesheets="@../../styles/style3.css" visible="false" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
             <Insets top="15.0" />
          </StackPane.margin>
@@ -220,11 +170,17 @@
                <StackPane.margin>
                   <Insets bottom="15.0" right="50.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Button fx:id="noBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNo" text="No" StackPane.alignment="BOTTOM_CENTER">
+            <Button fx:id="noBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNo" prefHeight="26.0" prefWidth="38.0" text="No" StackPane.alignment="BOTTOM_CENTER">
                <StackPane.margin>
                   <Insets bottom="15.0" left="50.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
             <Label text="The below details will be saved." textAlignment="CENTER">
                <StackPane.margin>
@@ -237,18 +193,27 @@
                </StackPane.margin>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </StackPane>
-      <StackPane fx:id="deletePane" layoutX="135.0" layoutY="25.0" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: white;" visible="false" StackPane.alignment="TOP_CENTER">
+      <StackPane fx:id="deletePane" layoutX="135.0" layoutY="25.0" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #464546;" stylesheets="@../../styles/style3.css" visible="false" StackPane.alignment="TOP_CENTER">
          <children>
             <Button fx:id="yesDeleteBTN" mnemonicParsing="false" onAction="#callYesDelete" text="Yes" StackPane.alignment="BOTTOM_CENTER">
                <StackPane.margin>
                   <Insets bottom="15.0" right="50.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Button fx:id="noDeleteBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNoDelete" text="No" StackPane.alignment="BOTTOM_CENTER">
+            <Button fx:id="noDeleteBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNoDelete" prefHeight="26.0" prefWidth="38.0" text="No" StackPane.alignment="BOTTOM_CENTER">
                <StackPane.margin>
                   <Insets bottom="15.0" left="50.0" />
                </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
             <Label text="User Account for below user will be deleted." textAlignment="CENTER">
                <StackPane.margin>
@@ -264,6 +229,9 @@
          <StackPane.margin>
             <Insets top="15.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </StackPane>
    </children>
 </StackPane>
