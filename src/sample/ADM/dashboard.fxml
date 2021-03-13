@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.dashboardController">
-   <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #3b3b3b;" stylesheets="@../../styles/style.css" StackPane.alignment="TOP_CENTER">
-      <Button fx:id="accountsManagementBTN" minHeight="40.0" mnemonicParsing="false" onAction="#callAccountsManagement" stylesheets="@../../styles/style.css" text="Accounts Management" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.dashboardController">
+   <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../../styles/navbar.css" StackPane.alignment="TOP_CENTER">
+      <Button fx:id="accountsManagementBTN" minHeight="40.0" mnemonicParsing="false" onAction="#callAccountsManagement" text="Accounts Management" textFill="WHITE" StackPane.alignment="TOP_LEFT">
          <font>
             <Font size="10.0" />
          </font>
@@ -100,7 +100,7 @@
          <DropShadow />
       </effect>
    </StackPane>
-   <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #2e2e2e;" stylesheets="@../../styles/style.css">
+   <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" stylesheets="@../../styles/style3.css">
       <StackPane.margin>
          <Insets top="40.0" />
       </StackPane.margin>
@@ -110,7 +110,7 @@
                <Insets bottom="40.0" left="20.0" right="20.0" top="200.0" />
             </StackPane.margin>
             <children>
-               <BarChart fx:id="patientsBarChart" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" title="Patients Visits">
+               <BarChart fx:id="patientsBarChart" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../../styles/style4.css" title="Patients Visits">
                  <xAxis>
                    <CategoryAxis fx:id="barX" side="BOTTOM" />
                  </xAxis>
@@ -120,55 +120,73 @@
                   <HBox.margin>
                      <Insets right="20.0" top="20.0" />
                   </HBox.margin>
+                  <effect>
+                     <DropShadow />
+                  </effect>
                </BarChart>
-               <PieChart fx:id="genderPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" title="Patients Ratio (Gender)">
+               <PieChart fx:id="genderPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../../styles/style4.css" title="Patients Ratio (Gender)">
                   <HBox.margin>
                      <Insets right="20.0" top="20.0" />
                   </HBox.margin>
+                  <effect>
+                     <DropShadow />
+                  </effect>
                </PieChart>
-               <PieChart fx:id="ratioPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" title="Patients Ratio (Age Group)">
+               <PieChart fx:id="ratioPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../../styles/style4.css" title="Patients Ratio (Age Group)">
                   <HBox.margin>
                      <Insets top="20.0" />
                   </HBox.margin>
+                  <effect>
+                     <DropShadow />
+                  </effect>
                </PieChart>
             </children>
          </HBox>
-         <Button fx:id="yearlyBTN" mnemonicParsing="false" onAction="#callYearly" style="-fx-background-color: #3b3b3b;" text="YEAR" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+         <Button fx:id="yearlyBTN" mnemonicParsing="false" onAction="#callYearly" style="-fx-background-color: #3b3b3b;" text="ALL TIME" StackPane.alignment="BOTTOM_LEFT">
             <StackPane.margin>
                <Insets bottom="10.0" left="20.0" />
             </StackPane.margin>
+            <effect>
+               <DropShadow />
+            </effect>
          </Button>
-         <Button fx:id="monthlyBTN" layoutX="30.0" layoutY="537.0" mnemonicParsing="false" onAction="#callMonthly" style="-fx-background-color: #3b3b3b;" text="MONTH" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+         <Button fx:id="monthlyBTN" layoutX="30.0" layoutY="537.0" mnemonicParsing="false" onAction="#callMonthly" style="-fx-background-color: #3b3b3b;" text="YEAR" StackPane.alignment="BOTTOM_LEFT">
             <StackPane.margin>
-               <Insets bottom="10.0" left="90.0" />
+               <Insets bottom="10.0" left="115.0" />
             </StackPane.margin>
+            <effect>
+               <DropShadow />
+            </effect>
          </Button>
-         <Button fx:id="weaklyBTN" layoutX="105.0" layoutY="537.0" mnemonicParsing="false" onAction="#callWeakly" style="-fx-background-color: #3b3b3b;" text="WEAKLY" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+         <Button fx:id="weaklyBTN" layoutX="105.0" layoutY="537.0" mnemonicParsing="false" onAction="#callWeakly" style="-fx-background-color: #3b3b3b;" text="MONTH" StackPane.alignment="BOTTOM_LEFT">
             <StackPane.margin>
-               <Insets bottom="10.0" left="175.0" />
+               <Insets bottom="10.0" left="185.0" />
             </StackPane.margin>
+            <effect>
+               <DropShadow />
+            </effect>
          </Button>
          <StackPane maxHeight="180.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #16ff9e;" StackPane.alignment="TOP_CENTER">
             <StackPane.margin>
                <Insets left="20.0" right="20.0" top="20.0" />
             </StackPane.margin>
             <children>
-               <Label alignment="CENTER" minWidth="110.0" text="EMAIL              : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="EMAIL              : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="195.0" top="60.0" />
                   </StackPane.margin>
                </Label>
-               <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" minWidth="110.0" text="CONTACT NO. : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" minWidth="110.0" style="-fx-text-fill: black;" text="CONTACT NO. : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="195.0" top="95.0" />
                   </StackPane.margin>
                </Label>
-               <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" minWidth="110.0" text="JOINING DATE : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" minWidth="110.0" style="-fx-text-fill: black;" text="JOINING DATE : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="195.0" top="130.0" />
                   </StackPane.margin>
                </Label>
-               <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" maxWidth="110.0" minWidth="110.0" text="DESIGNATIION : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: black;" text="DESIGNATIION : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="195.0" top="25.0" />
                   </StackPane.margin>
@@ -180,29 +198,29 @@
                            <Image url="@../../photos/user.jpeg" />
                         </image>
                      </ImageView>
-                     <Label fx:id="userNameTxt" alignment="CENTER" layoutY="136.0" prefHeight="16.0" prefWidth="156.0" text="Name" textAlignment="CENTER" />
-                     <Label fx:id="roleTxt" alignment="CENTER" layoutY="158.0" opacity="0.63" prefHeight="16.0" prefWidth="156.0" text="Role" textAlignment="CENTER" />
+                     <Label fx:id="userNameTxt" alignment="CENTER" layoutY="136.0" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Name" textAlignment="CENTER" />
+                     <Label fx:id="roleTxt" alignment="CENTER" layoutY="158.0" opacity="0.63" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Role" textAlignment="CENTER" />
                   </children>
                   <StackPane.margin>
                      <Insets />
                   </StackPane.margin>
                </AnchorPane>
-               <Label fx:id="designationTxt" alignment="CENTER" layoutX="205.0" layoutY="35.0" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label fx:id="designationTxt" alignment="CENTER" layoutX="205.0" layoutY="35.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="310.0" top="25.0" />
                   </StackPane.margin>
                </Label>
-               <Label fx:id="emailTxt" alignment="CENTER" layoutX="205.0" layoutY="60.0" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label fx:id="emailTxt" alignment="CENTER" layoutX="205.0" layoutY="60.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="310.0" top="60.0" />
                   </StackPane.margin>
                </Label>
-               <Label fx:id="phnoTxt" alignment="CENTER" layoutX="205.0" layoutY="85.0" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label fx:id="phnoTxt" alignment="CENTER" layoutX="205.0" layoutY="85.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="310.0" top="95.0" />
                   </StackPane.margin>
                </Label>
-               <Label fx:id="joiningDateTxt" alignment="CENTER" layoutX="205.0" layoutY="110.0" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+               <Label fx:id="joiningDateTxt" alignment="CENTER" layoutX="205.0" layoutY="110.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
                   <StackPane.margin>
                      <Insets left="310.0" top="130.0" />
                   </StackPane.margin>

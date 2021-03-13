@@ -42,29 +42,7 @@ public class patientController {
     @FXML
     private ImageView gender;
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
 
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     public void initialize() {
@@ -77,7 +55,7 @@ public class patientController {
         String Query = "SELECT * FROM patients WHERE patient_id='" + patID + "'";
         System.out.println(Query);
         try{
-            Connection con = getConnect();
+            Connection con = sample.common.getConnect();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(Query);
             while (rs.next()) {
@@ -86,7 +64,7 @@ public class patientController {
                 pRemark = rs.getString("remarks");
                 pAge = rs.getString("age");
             }
-            closeConnect(con);
+            con.close();
 
         }catch(Exception e){
             e.printStackTrace();
@@ -122,11 +100,11 @@ public class patientController {
                 + LocalDate.now() + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now())
                 + "' WHERE patient_id = '" + patID + "'";
         try{
-            Connection con = getConnect();
+            Connection con = sample.common.getConnect();
             Statement st = con.createStatement();
             st.executeUpdate(Query);
 
-            closeConnect(con);
+            con.close();
         }catch (Exception e){
             e.printStackTrace();
         }

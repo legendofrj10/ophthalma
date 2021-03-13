@@ -34,29 +34,7 @@ public class completeProfileController {
     @FXML
     private Button three_skip;
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
 
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     void Dashboard(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
@@ -74,14 +52,14 @@ public class completeProfileController {
         String Addr = Address.getText();
 
         try{
-            Connection con = getConnect();
+            Connection con = common.getConnect();
             Query = "UPDATE HMS SET gender='"+Gender+"',Designation='"
                     +Desig+"',mobileNumber="+PHNo+",workEmail='"+secmail
                     +"',Address='"+Addr+"' WHERE UserID='"+IDLoggedIn+"'";
             Statement st = con.createStatement();
             System.out.println(Query);
             st.executeUpdate(Query);
-            closeConnect(con);
+            con.close();
             Stage stage = (Stage)three_submit.getScene().getWindow();
             Dashboard(stage);
 

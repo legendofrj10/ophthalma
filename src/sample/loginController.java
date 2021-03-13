@@ -1,17 +1,18 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -103,29 +104,7 @@ public class loginController {
         stage.show();
     }
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
 
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
     @FXML
@@ -136,7 +115,7 @@ public class loginController {
         if(uid.length()!=0 && pass.length()!=0){
             String Query = "SELECT PassWord FROM HMS WHERE userID='"+uid+"'";
             try{
-                Connection con = getConnect();
+                Connection con = sample.common.getConnect();
                 Statement st = con.createStatement();
                 ResultSet rs=st.executeQuery(Query);
                 String password="";
@@ -151,7 +130,7 @@ public class loginController {
                 }else{
                     loginerror.setText("Wrong password!!!!");
                 }
-                closeConnect(con);
+                con.close();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -167,7 +146,7 @@ public class loginController {
     }
 
 
-    public void callQuit(ActionEvent actionEvent) {
+    public void callQuit() {
         System.exit(0);
     }
 }

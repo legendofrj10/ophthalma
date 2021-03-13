@@ -3,9 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.modifyAppointmentController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.modifyAppointmentController">
    <children>
       <TextField fx:id="patientIDTxt" maxWidth="200.0" minWidth="100.0" promptText="Enter Patient ID" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
@@ -16,16 +17,25 @@
          <StackPane.margin>
             <Insets left="250.0" top="40.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <Button fx:id="saveBTN" layoutX="404.0" layoutY="50.0" mnemonicParsing="false" onAction="#callSave" text="save" StackPane.alignment="BOTTOM_RIGHT">
          <StackPane.margin>
             <Insets bottom="30.0" right="150.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <Button fx:id="deleteBTN" layoutX="348.0" layoutY="354.0" mnemonicParsing="false" onAction="#callDelete" text="delete" StackPane.alignment="BOTTOM_RIGHT">
          <StackPane.margin>
             <Insets bottom="30.0" right="50.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <StackPane fx:id="innerStack" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" StackPane.alignment="CENTER">
          <StackPane.margin>

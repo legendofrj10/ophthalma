@@ -20,6 +20,8 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
+import static sample.common.getConnect;
+
 public class patientsRegisterController {
 
     String Query;
@@ -42,29 +44,7 @@ public class patientsRegisterController {
     @FXML
     private Button backBTN;
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
 
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     /*String newPatient(){
         int ID=1000;
@@ -88,7 +68,7 @@ public class patientsRegisterController {
         int ID=1000;
         int IDt;
         try{
-            Connection con1 = getConnect();
+            Connection con1 = sample.common.getConnect();
             Statement stmt = con1.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT numeric_id FROM patients");
             while(rs.next()){
@@ -144,7 +124,7 @@ public class patientsRegisterController {
             }
             st.executeUpdate(Query);
 
-            closeConnect(con);
+            con.close();
         }catch(Exception e){
             e.printStackTrace();
         }

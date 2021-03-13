@@ -11,7 +11,15 @@ import java.io.IOException;
 
 public class chatBubbleController {
     @FXML
-    private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
+    private Button dashboardBTN;
+    @FXML
+    private Button logOutBTN;
+    @FXML
+    private Button settingsBTN;
+    @FXML
+    private Button notificationBTN;
+    @FXML
+    private Button chatBubbleBTN;
 
     @FXML
     private Button accountsManagementBTN;
@@ -31,14 +39,6 @@ public class chatBubbleController {
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    void callHelpAndFaq() throws IOException {
-        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
-        Scene scene = new Scene(root);
         stage.setScene(scene);
     }
 

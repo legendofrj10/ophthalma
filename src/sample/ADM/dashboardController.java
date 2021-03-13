@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class dashboardController {
 
     public BarChart patientsBarChart;
@@ -51,35 +52,11 @@ public class dashboardController {
     @FXML
     private Button accountsManagementBTN;
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
-
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     public void initialize(){
         String user = sample.common.getUserLoggedIn();
 
-        Connection con = getConnect();
+        Connection con = common.getConnect();
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM HMS WHERE UserID='"+user+"'");
@@ -91,10 +68,11 @@ public class dashboardController {
                 designationTxt.setText(rs.getString("Designation"));
                 joiningDateTxt.setText(rs.getString("Joining"));
             }
+            con.close();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            closeConnect(con);
         }
 
         callYearly();
@@ -159,15 +137,12 @@ public class dashboardController {
         monthlyBTN.setDisable(false);
         yearlyBTN.setDisable(true);
         weaklyBTN.setDisable(false);
-        //patientsBarChart.getData().add(null);
         barX.setLabel("Year");
         barY.setLabel("Number of patients");
-        Connection con = getConnect();
-
-        int currentYear = common.getToday().getYear();
+        Connection con = common.getConnect();
 
         int yearCount=0;
-        List<Integer> yearList = new ArrayList<Integer>();
+        List<Integer> yearList = new ArrayList<>();
         Statement st;
 
         XYChart.Series series = new XYChart.Series();
@@ -187,6 +162,8 @@ public class dashboardController {
                     yearList.add(lastYear);
                 }
             }
+
+            common.setYearsOfData(yearCount);
 
             int[] malePatients = new int[yearCount];
             int[] femalePatients = new int[yearCount];
@@ -222,6 +199,17 @@ public class dashboardController {
 
             }
 
+            int totalMaleAllTime = common.getArraySum(malePatients,malePatients.length);
+            int totalFemaleAllTime = common.getArraySum(femalePatients,femalePatients.length);
+            int totalGrp1AllTime = common.getArraySum(agegrp1,agegrp1.length);
+            int totalGrp2AllTime = common.getArraySum(agegrp2,agegrp2.length);
+            int totalGrp3AllTime = common.getArraySum(agegrp3,agegrp3.length);
+            int totalGrp4AllTime = common.getArraySum(agegrp4,agegrp4.length);
+            int totalGrp5AllTime = common.getArraySum(agegrp5,agegrp5.length);
+            int totalGrp6AllTime = common.getArraySum(agegrp6,agegrp6.length);
+            int totalGrp7AllTime = common.getArraySum(agegrp7,agegrp7.length);
+            int totalTotalAllTime = totalFemaleAllTime+totalMaleAllTime;
+
             series.setName("patients");
             for(int j=0;j<yearCount;j++){
                 series.getData().add(new XYChart.Data(String.valueOf(yearList.get(j)),totalPatients[j]));
@@ -230,8 +218,8 @@ public class dashboardController {
             patientsBarChart.getData().addAll(series);
 
             ObservableList<PieChart.Data> pieChartGender = FXCollections.observableArrayList(
-              new PieChart.Data("Male",malePatients[0]),
-              new PieChart.Data("Female",femalePatients[0])
+              new PieChart.Data("Male",totalMaleAllTime),
+              new PieChart.Data("Female",totalFemaleAllTime)
             );
 
             genderPieChart.setData(pieChartGender);
@@ -239,36 +227,125 @@ public class dashboardController {
             genderPieChart.setClockwise(true);
 
             ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(
-                    new PieChart.Data("1-10",agegrp1[0]),
-                    new PieChart.Data("11-20",agegrp2[0]),
-                    new PieChart.Data("21-30",agegrp3[0]),
-                    new PieChart.Data("31-40",agegrp4[0]),
-                    new PieChart.Data("41-50",agegrp5[0]),
-                    new PieChart.Data("51-60",agegrp6[0]),
-                    new PieChart.Data("61+",agegrp7[0])
+                    new PieChart.Data("1-10",totalGrp1AllTime),
+                    new PieChart.Data("11-20",totalGrp2AllTime),
+                    new PieChart.Data("21-30",totalGrp3AllTime),
+                    new PieChart.Data("31-40",totalGrp4AllTime),
+                    new PieChart.Data("41-50",totalGrp5AllTime),
+                    new PieChart.Data("51-60",totalGrp6AllTime),
+                    new PieChart.Data("61+",totalGrp7AllTime)
             );
 
             ratioPieChart.setData(pieChartAge);
             ratioPieChart.setClockwise(true);
+            con.close();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
-
-
-
-
     }
 
-    public void callMonthly(ActionEvent actionEvent) {
+    public void callMonthly() {
         monthlyBTN.setDisable(true);
         yearlyBTN.setDisable(false);
         weaklyBTN.setDisable(false);
         barX.setLabel("Month");
         barY.setLabel("Number of patients");
         patientsBarChart.getData().clear();
+
+        Connection con = common.getConnect();
+
+        int lastMonth = common.getToday().getMonthValue();
+        List<Integer> monthList = new ArrayList<>();
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM visits");
+
+            int[] malePatients = new int[12];
+            int[] femalePatients = new int[12];
+            int[] agegrp1 = new int[12];
+            int[] agegrp2 = new int[12];
+            int[] agegrp3 = new int[12];
+            int[] agegrp4 = new int[12];
+            int[] agegrp5 = new int[12];
+            int[] agegrp6 = new int[12];
+            int[] agegrp7 = new int[12];
+            int[] totalPatients = new int[12];
+
+            int i = 0;
+
+            while(rs.next()){
+                int month = rs.getDate(1).toLocalDate().getMonthValue();
+                monthList.add(month);
+                if(month!=lastMonth){
+                    i++;
+                    lastMonth=month;
+                }
+                malePatients[i]+=rs.getInt(2);
+                femalePatients[i]+=rs.getInt(3);
+                agegrp1[i]+=rs.getInt(4);
+                agegrp2[i]+=rs.getInt(5);
+                agegrp3[i]+=rs.getInt(6);
+                agegrp4[i]+=rs.getInt(7);
+                agegrp5[i]+=rs.getInt(8);
+                agegrp6[i]+=rs.getInt(9);
+                agegrp7[i]+=rs.getInt(10);
+                totalPatients[i]=malePatients[i]+femalePatients[i];
+            }
+
+            int totalMaleThisYear = common.getArraySum(malePatients,malePatients.length);
+            int totalFemaleThisYear = common.getArraySum(femalePatients,femalePatients.length);
+            int totalGrp1ThisYear = common.getArraySum(agegrp1,agegrp1.length);
+            int totalGrp2ThisYear = common.getArraySum(agegrp2,agegrp2.length);
+            int totalGrp3ThisYear = common.getArraySum(agegrp3,agegrp3.length);
+            int totalGrp4ThisYear = common.getArraySum(agegrp4,agegrp4.length);
+            int totalGrp5ThisYear = common.getArraySum(agegrp5,agegrp5.length);
+            int totalGrp6ThisYear = common.getArraySum(agegrp6,agegrp6.length);
+            int totalGrp7ThisYear = common.getArraySum(agegrp7,agegrp7.length);
+            int totalTotalThisYear = totalFemaleThisYear+totalMaleThisYear;
+
+
+            XYChart.Series series = new XYChart.Series();
+            series.setName("patients");
+            lastMonth=0;
+            for(int j=0;j<monthList.size();j++) {
+                if (monthList.get(j) != lastMonth) {
+                    lastMonth=monthList.get(j);
+                    System.out.println(malePatients[j] + "  " + femalePatients[j]);
+                    series.getData().add(new XYChart.Data(String.valueOf(common.getMonthName(monthList.get(j)-1)), totalPatients[0]));
+                }
+            }
+
+            patientsBarChart.getData().addAll(series);
+
+            ObservableList<PieChart.Data> pieChartGender = FXCollections.observableArrayList(
+                    new PieChart.Data("Male",totalMaleThisYear),
+                    new PieChart.Data("Female",totalFemaleThisYear)
+            );
+
+            genderPieChart.setData(pieChartGender);
+            //ratioPieChart = new PieChart(pieChartGender);
+            genderPieChart.setClockwise(true);
+
+            ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(
+                    new PieChart.Data("1-10",totalGrp1ThisYear),
+                    new PieChart.Data("11-20",totalGrp2ThisYear),
+                    new PieChart.Data("21-30",totalGrp3ThisYear),
+                    new PieChart.Data("31-40",totalGrp4ThisYear),
+                    new PieChart.Data("41-50",totalGrp5ThisYear),
+                    new PieChart.Data("51-60",totalGrp6ThisYear),
+                    new PieChart.Data("61+",totalGrp7ThisYear)
+            );
+
+            ratioPieChart.setData(pieChartAge);
+            ratioPieChart.setClockwise(true);
+            con.close();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
 
     }
 
@@ -280,5 +357,94 @@ public class dashboardController {
         barY.setLabel("Number of patients");
         patientsBarChart.getData().clear();
 
+
+        Connection con = common.getConnect();
+
+        int lastMonth = common.getToday().getMonthValue();
+        List<Integer> DaysList = new ArrayList<Integer>();
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM visits");
+
+            int[] malePatients = new int[28];
+            int[] femalePatients = new int[28];
+            int[] agegrp1 = new int[28];
+            int[] agegrp2 = new int[28];
+            int[] agegrp3 = new int[28];
+            int[] agegrp4 = new int[28];
+            int[] agegrp5 = new int[28];
+            int[] agegrp6 = new int[28];
+            int[] agegrp7 = new int[28];
+            int[] totalPatients = new int[28];
+
+            int i = 0;
+
+            while(rs.next() && i<28){
+                int day = rs.getDate(1).toLocalDate().getDayOfMonth();
+                DaysList.add(day);
+
+                malePatients[i]+=rs.getInt(2);
+                femalePatients[i]+=rs.getInt(3);
+                agegrp1[i]+=rs.getInt(4);
+                agegrp2[i]+=rs.getInt(5);
+                agegrp3[i]+=rs.getInt(6);
+                agegrp4[i]+=rs.getInt(7);
+                agegrp5[i]+=rs.getInt(8);
+                agegrp6[i]+=rs.getInt(9);
+                agegrp7[i]+=rs.getInt(10);
+                totalPatients[i]=malePatients[i]+femalePatients[i];
+                i++;
+            }
+
+            int totalMaleThisMonth = common.getArraySum(malePatients,malePatients.length);
+            int totalFemaleThisMonth = common.getArraySum(femalePatients,femalePatients.length);
+            int totalGrp1ThisMonth = common.getArraySum(agegrp1,agegrp1.length);
+            int totalGrp2ThisMonth = common.getArraySum(agegrp2,agegrp2.length);
+            int totalGrp3ThisMonth = common.getArraySum(agegrp3,agegrp3.length);
+            int totalGrp4ThisMonth = common.getArraySum(agegrp4,agegrp4.length);
+            int totalGrp5ThisMonth = common.getArraySum(agegrp5,agegrp5.length);
+            int totalGrp6ThisMonth = common.getArraySum(agegrp6,agegrp6.length);
+            int totalGrp7ThisMonth = common.getArraySum(agegrp7,agegrp7.length);
+            int totalTotalThisMonth = totalFemaleThisMonth+totalMaleThisMonth;
+
+            XYChart.Series series = new XYChart.Series();
+            series.setName("patients");
+            lastMonth=0;
+            for(int j=0;j<DaysList.size();j++) {
+                System.out.println(malePatients[j] + "  " + femalePatients[j]);
+                series.getData().add(new XYChart.Data(String.valueOf(DaysList.get(j)), totalPatients[j]));
+            }
+
+            patientsBarChart.getData().addAll(series);
+
+
+
+            ObservableList<PieChart.Data> pieChartGender = FXCollections.observableArrayList(
+                    new PieChart.Data("Male",totalMaleThisMonth),
+                    new PieChart.Data("Female",totalFemaleThisMonth)
+            );
+
+            genderPieChart.setData(pieChartGender);
+            //ratioPieChart = new PieChart(pieChartGender);
+            genderPieChart.setClockwise(true);
+
+            ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(
+                    new PieChart.Data("1-10",totalGrp1ThisMonth),
+                    new PieChart.Data("11-20",totalGrp2ThisMonth),
+                    new PieChart.Data("21-30",totalGrp3ThisMonth),
+                    new PieChart.Data("31-40",totalGrp4ThisMonth),
+                    new PieChart.Data("41-50",totalGrp5ThisMonth),
+                    new PieChart.Data("51-60",totalGrp6ThisMonth),
+                    new PieChart.Data("61+",totalGrp7ThisMonth)
+            );
+
+            ratioPieChart.setData(pieChartAge);
+            ratioPieChart.setClockwise(true);
+
+            con.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
+
 }

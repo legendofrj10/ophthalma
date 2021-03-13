@@ -45,6 +45,11 @@ public class accountsManagementController {
     }
 
     @FXML
+    public void initialize() throws IOException {
+        callAddUser();
+    }
+
+    @FXML
     void callAddUser() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("addUser.fxml"));
         innerStage.setCenter(root);

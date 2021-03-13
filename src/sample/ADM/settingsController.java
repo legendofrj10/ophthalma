@@ -11,7 +11,15 @@ import java.io.IOException;
 
 public class settingsController {
     @FXML
-    private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
+    private Button dashboardBTN;
+    @FXML
+    private Button logOutBTN;
+    @FXML
+    private Button settingsBTN;
+    @FXML
+    private Button notificationBTN;
+    @FXML
+    private Button chatBubbleBTN;
 
     @FXML
     private Button accountsManagementBTN;
@@ -59,16 +67,6 @@ public class settingsController {
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
-    }
-
-    @FXML
-    void callPatientsAndScans() throws IOException {
-        Stage stage = (Stage) patientsAndScansBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-
     }
 
     @FXML

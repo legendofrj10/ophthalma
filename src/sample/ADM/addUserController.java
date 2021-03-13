@@ -31,35 +31,13 @@ public class addUserController {
     private Button backButton,two_SignUPbtn;
 
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
 
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
     int newUserID(){
         int ID=1000;
         try{
-            Connection con1 = getConnect();
+            Connection con1 = sample.common.getConnect();
             Statement stmt = con1.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT NumericID FROM HMS");
             while(rs.next()){
@@ -99,7 +77,7 @@ public class addUserController {
         if(pass.equals(confPass)){
             passnotmatch.setText("");
             try{
-                Connection con = getConnect();
+                Connection con = sample.common.getConnect();
                 Statement st = con.createStatement();
                 Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord,Joining) VALUES " +
                         "('" + completeProfileController.nameLoggedIn + "','" + fullUID + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass + "','" + LocalDate.now() +"')";
@@ -112,7 +90,7 @@ public class addUserController {
                     two_pass.setText("");
                     two_passconf.setText("");
                 }
-                closeConnect(con);
+                con.close();
             }catch(Exception e){
                 e.printStackTrace();
             }

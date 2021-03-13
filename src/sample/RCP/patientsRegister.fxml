@@ -8,19 +8,27 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.patientsRegisterController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.patientsRegisterController">
    <Button fx:id="backBTN" mnemonicParsing="false" onAction="#callBack" text="BACK" StackPane.alignment="TOP_LEFT">
       <StackPane.margin>
          <Insets left="20.0" top="20.0" />
       </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
    </Button>
    <Button fx:id="registerBTN" mnemonicParsing="false" onAction="#callRegister" text="REGISTER">
       <StackPane.margin>
-         <Insets top="200.0" />
+         <Insets top="300.0" />
       </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
    </Button>
    <Label text="PATIENT REGISTER" StackPane.alignment="TOP_CENTER">
       <font>
@@ -29,30 +37,33 @@
       <StackPane.margin>
          <Insets top="20.0" />
       </StackPane.margin>
+      <effect>
+         <Reflection topOpacity="0.12" />
+      </effect>
    </Label>
    <Label text="NAME">
       <StackPane.margin>
-         <Insets bottom="200.0" right="450.0" />
+         <Insets bottom="100.0" right="450.0" />
       </StackPane.margin>
    </Label>
    <Label text="GENDER">
       <StackPane.margin>
-         <Insets bottom="100.0" right="435.0" />
+         <Insets right="435.0" />
       </StackPane.margin>
    </Label>
    <Label text="DOB">
       <StackPane.margin>
-         <Insets right="460.0" />
+         <Insets right="460.0" top="100.0" />
       </StackPane.margin>
    </Label>
    <TextField fx:id="patientNameField" maxWidth="300.0" promptText="NAME">
       <StackPane.margin>
-         <Insets bottom="200.0" left="100.0" />
+         <Insets bottom="100.0" left="100.0" />
       </StackPane.margin>
    </TextField>
    <ComboBox fx:id="patientGenderCB" editable="true" maxWidth="300.0" prefWidth="150.0" promptText="GENDER">
       <StackPane.margin>
-         <Insets bottom="100.0" left="100.0" />
+         <Insets left="100.0" />
       </StackPane.margin>
       <items>
          <FXCollections fx:factory="observableArrayList">
@@ -60,10 +71,16 @@
             <String fx:value="female" />
          </FXCollections>
       </items>
+      <effect>
+         <DropShadow />
+      </effect>
    </ComboBox>
    <DatePicker fx:id="patientDOB" maxWidth="300.0" promptText="MM/DD/YYYY">
       <StackPane.margin>
-         <Insets left="100.0" />
+         <Insets left="100.0" top="100.0" />
       </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
    </DatePicker>
 </StackPane>

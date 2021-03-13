@@ -6,9 +6,10 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.newAppointmentController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.newAppointmentController">
    <children>
       <Label text="Patient ID" StackPane.alignment="CENTER">
          <StackPane.margin>
@@ -32,18 +33,30 @@
          <StackPane.margin>
             <Insets bottom="100.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </ComboBox>
       <Button fx:id="newPatientBTN" mnemonicParsing="false" onAction="#callNewPatient" text="New Patient" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="20.0" top="20.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <Button fx:id="submitBTN" layoutX="463.0" layoutY="30.0" mnemonicParsing="false" onAction="#callSubmit" text="Submit" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets top="100.0" />
          </StackPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <DatePicker fx:id="datePicker" StackPane.alignment="CENTER" />
+      <DatePicker fx:id="datePicker" promptText="date" showWeekNumbers="true" StackPane.alignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect></DatePicker>
       <Label layoutX="60.0" layoutY="152.0" text="Date" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets right="300.0" />

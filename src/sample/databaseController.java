@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +24,7 @@ public class databaseController {
     private PasswordField passwordTxt;
 
     @FXML
-    void callLogin(ActionEvent event) throws Exception {
+    void callLogin() {
         String uname = userIdTxt.getText();
         char[] Uname = uname.toCharArray();
         String password = passwordTxt.getText();
@@ -70,15 +69,10 @@ public class databaseController {
 
                     databaseFound=true;
                     con.close();
-                    //System.out.println(rst.getString(1));
-                    /*ResultSet rstt = con.getMetaData().getTables(null,null,null,null);
-                    while(rstt.next() && rst.getString(1).equals("OPHTHALMA")){
-                        System.out.println(rstt.getString("TABLE_NAME"));
-                    }*/
                 }
 
             }
-            if(databaseFound==true){
+            if(databaseFound){
                 System.out.println("Database Found");
                 //NOW CHECK FOR TABLES
                 con = DriverManager.getConnection(

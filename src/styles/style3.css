@@ -24,7 +24,7 @@
 .choice-box,.combo-box{
     -fx-border-style: none;
     -fx-background-color: #464546;
-    -fx-text-fill: white;
+    -fx-text-fill: whitesmoke;
     -fx-prompt-text-fill: white;
 
 }
@@ -37,6 +37,8 @@
     -fx-background-color: #3d3d3d;
 
 }
+
+
 .split-pane{
     -fx-background-color: #3b3b3b;
 }

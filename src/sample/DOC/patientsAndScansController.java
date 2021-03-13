@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.common;
 
 import java.io.IOException;
 import java.sql.*;
@@ -22,35 +23,20 @@ public class patientsAndScansController {
     public Button searchBtn;
     public TextField searchPatientField;
     public Label noPatientMatchLbl;
-    @FXML
-    private Button registerPatientBTN;
 
     @FXML
-    private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
+    private Button patientsAndScansBTN;
+    @FXML
+    private Button dashboardBTN;
+    @FXML
+    private Button logOutBTN;
+    @FXML
+    private Button settingsBTN;
+    @FXML
+    private Button notificationBTN;
+    @FXML
+    private Button chatBubbleBTN;
 
-    static Connection getConnect(){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/OPHTHALMA",sample.common.getN(),sample.common.getP()
-            );
-            System.out.println("Connection established");
-            return con;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        System.exit(0);
-        return getConnect();
-    }
-
-    static void closeConnect(Connection con){
-        try{
-            con.close();
-            System.out.println("Connection closed");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     void callChatBubble() throws IOException {
@@ -67,15 +53,6 @@ public class patientsAndScansController {
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    void callHelpAndFaq() throws IOException {
-        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -118,18 +95,11 @@ public class patientsAndScansController {
         stage.setScene(scene);
     }
 
-    @FXML
-    void callRegisterPatient() throws IOException {
-        Stage stage = (Stage) registerPatientBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../RCP/patientsRegister.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
+
     @FXML
     public void initialize() throws SQLException {
         i=0;
-        Connection con = getConnect();
+        Connection con = common.getConnect();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from patients order by last_diagnosed desc");
 
@@ -155,12 +125,12 @@ public class patientsAndScansController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        closeConnect(con);
+        con.close();
     }
 
     public void callSearch() throws SQLException, IOException {
         String id = searchPatientField.getText();
-        Connection con = getConnect();
+        Connection con = common.getConnect();
         Statement st = con.createStatement();
         String Query = "SELECT * FROM patients WHERE patient_id='" + id + "'";
         ResultSet rs = st.executeQuery(Query);
@@ -175,6 +145,6 @@ public class patientsAndScansController {
         else{
             noPatientMatchLbl.setText("No such patient registered!");
         }
-        closeConnect(con);
+        con.close();
     }
 }
