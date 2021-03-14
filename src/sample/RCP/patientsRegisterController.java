@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -103,7 +102,7 @@ public class patientsRegisterController {
         LocalDate lastCheckup = LocalDate.now();
         Period age = Period.between(DOB,lastCheckup);
         int PatientNumeric_id;
-        String patient_id = "";
+        String patient_id;
         int ageYears = age.getYears();
         System.out.println(name+"  "+gender+"  "+DOB+"  "+eye+"  "+ageYears);
         try{

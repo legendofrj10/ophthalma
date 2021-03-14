@@ -8,11 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import javafx.stage.Stage;
-import sample.RCP.appointmentController;
 
 
 public class newAppointmentController {

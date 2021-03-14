@@ -73,9 +73,9 @@ public class patientController {
         patientAge.setText("( " + pAge + " )");
         Image image;
         if(pGender.equals("male")){
-            image = new Image("file:src/photos/male.png");
+            image = new Image("file:src/sample.photos/male.png");
         }else{
-            image = new Image("file:src/photos/female.png");
+            image = new Image("file:src/sample.photos/female.png");
         }
         gender.setImage(image);
 

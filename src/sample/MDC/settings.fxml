@@ -27,7 +27,7 @@
         <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/logoutDark.png" />
+                    <Image url="@../Assets/logoutDark.png" />
                 </ImageView>
             </graphic>
             <font>
@@ -54,7 +54,7 @@
             </font>
             <graphic>
                 <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/settingDark.png" />
+                    <Image url="@../Assets/settingDark.png" />
                 </ImageView>
             </graphic>
             <StackPane.margin>
@@ -64,7 +64,7 @@
         <Button fx:id="notificationBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/notificationDark.png" />
+                    <Image url="@../Assets/notificationDark.png" />
                 </ImageView>
             </graphic>
             <font>
@@ -77,7 +77,7 @@
         <Button fx:id="chatBubbleBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../photos/chatDark.png" />
+                    <Image url="@../Assets/chatDark.png" />
                 </ImageView>
             </graphic>
             <font>

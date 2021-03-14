@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class chatBubbleController {
     @FXML
@@ -45,7 +46,8 @@ public class chatBubbleController {
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
+));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

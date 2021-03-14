@@ -48,7 +48,8 @@ public class settingsController {
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
+);
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

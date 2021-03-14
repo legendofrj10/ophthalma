@@ -3,14 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.dashboardController">
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.dashboardController">
    <Label text="dashboard" />
-   <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../../styles/navbar.css" StackPane.alignment="TOP_CENTER">
+   <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
       <Button fx:id="appointmentBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callAppointment" prefWidth="80.0" text="Appointment" StackPane.alignment="TOP_LEFT">
          <font>
             <Font size="10.0" />
@@ -30,7 +32,7 @@
       <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../photos/logoutDark.png" />
+               <Image url="@../Assets/logoutDark.png" />
             </ImageView>
          </graphic>
          <font>
@@ -57,7 +59,7 @@
          </font>
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../photos/settingDark.png" />
+               <Image url="@../Assets/settingDark.png" />
             </ImageView>
          </graphic>
          <StackPane.margin>
@@ -67,7 +69,7 @@
       <Button fx:id="notificationBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../photos/notificationDark.png" />
+               <Image url="@../Assets/notificationDark.png" />
             </ImageView>
          </graphic>
          <font>
@@ -80,7 +82,7 @@
       <Button fx:id="chatBubbleBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../photos/chatDark.png" />
+               <Image url="@../Assets/chatDark.png" />
             </ImageView>
          </graphic>
          <font>
@@ -99,4 +101,85 @@
          </StackPane.margin>
       </Button>
    </StackPane>
+   <StackPane>
+      <StackPane.margin>
+         <Insets top="40.0"/>
+      </StackPane.margin>
+      <StackPane maxHeight="180.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #16ff9e;"
+                 StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets left="20.0" right="20.0" top="20.0"/>
+         </StackPane.margin>
+         <effect>
+            <DropShadow/>
+         </effect>
+         <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="EMAIL              : "
+                textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="195.0" top="60.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" minWidth="110.0" style="-fx-text-fill: black;"
+                text="CONTACT NO. : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="195.0" top="95.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" minWidth="110.0" style="-fx-text-fill: black;"
+                text="JOINING DATE : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="195.0" top="130.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" maxWidth="110.0" minWidth="110.0"
+                style="-fx-text-fill: black;" text="DESIGNATIION : " textAlignment="CENTER"
+                StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="195.0" top="25.0"/>
+            </StackPane.margin>
+         </Label>
+         <AnchorPane maxHeight="180.0" maxWidth="150.0" style="-fx-background-color: #16FF9E;"
+                     StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets/>
+            </StackPane.margin>
+            <ImageView fx:id="userImg" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="26.0"
+                       pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="25.0"
+                       AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+               <Image url="@../Assets/user.jpeg"/>
+            </ImageView>
+            <Label fx:id="userNameTxt" alignment="CENTER" layoutY="136.0" prefHeight="16.0" prefWidth="156.0"
+                   style="-fx-text-fill: black;" text="Name" textAlignment="CENTER"/>
+            <Label fx:id="roleTxt" alignment="CENTER" layoutY="158.0" opacity="0.63" prefHeight="16.0"
+                   prefWidth="156.0" style="-fx-text-fill: black;" text="Role" textAlignment="CENTER"/>
+         </AnchorPane>
+         <Label fx:id="designationTxt" alignment="CENTER" layoutX="205.0" layoutY="35.0" style="-fx-text-fill: black;"
+                text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="310.0" top="25.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label fx:id="emailTxt" alignment="CENTER" layoutX="205.0" layoutY="60.0" style="-fx-text-fill: black;"
+                text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="310.0" top="60.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label fx:id="phnoTxt" alignment="CENTER" layoutX="205.0" layoutY="85.0" style="-fx-text-fill: black;" text="l"
+                textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="310.0" top="95.0"/>
+            </StackPane.margin>
+         </Label>
+         <Label fx:id="joiningDateTxt" alignment="CENTER" layoutX="205.0" layoutY="110.0" style="-fx-text-fill: black;"
+                text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+               <Insets left="310.0" top="130.0"/>
+            </StackPane.margin>
+         </Label>
+      </StackPane>
+   </StackPane>
+   <StackPane.margin>
+      <Insets top="40.0" />
+   </StackPane.margin>
 </StackPane>

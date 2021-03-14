@@ -61,7 +61,7 @@ public class modifyUserController {
             roleTxt.setEditable(true);
             workEmailTxt.setEditable(true);
 
-            image = new Image("file:src/photos/unlockDark.png");
+            image = new Image("file:src/sample/Assets/unlockDark.png");
 
         }else{
             addressTxt.setEditable(false);
@@ -73,7 +73,7 @@ public class modifyUserController {
             roleTxt.setEditable(false);
             workEmailTxt.setEditable(false);
 
-            image = new Image("file:src/photos/lockDark.png");
+            image = new Image("file:src/sample/Assets/lockDark.png");
         }
         lockImg.setImage(image);
 

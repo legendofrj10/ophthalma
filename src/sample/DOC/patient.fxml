@@ -41,7 +41,7 @@
          <StackPane.margin>
             <Insets bottom="200.0" />
          </StackPane.margin>
-         <Image url="@../../photos/male.png" />
+         <Image url="@../Assets/male.png" />
       </ImageView>
       <Button fx:id="editRemarksBtn" mnemonicParsing="false" onAction="#callEditRemarks" prefHeight="26.0" prefWidth="61.0" text="SAVE">
          <StackPane.margin>

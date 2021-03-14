@@ -5,68 +5,84 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.databaseController">
-   <children>
-      <Label text="DATABASE SETUP" StackPane.alignment="CENTER">
-         <font>
-            <Font size="27.0" />
-         </font>
-         <StackPane.margin>
-            <Insets bottom="150.0" />
-         </StackPane.margin>
-      </Label>
-      <Label text="WELCOME TO OPHTHALMA" StackPane.alignment="TOP_CENTER">
-         <font>
-            <Font size="27.0" />
-         </font>
-         <StackPane.margin>
-            <Insets top="20.0" />
-         </StackPane.margin>
-      </Label>
-      <Label layoutX="128.0" layoutY="30.0" text="Please proceed from here" StackPane.alignment="TOP_CENTER">
-         <font>
-            <Font size="27.0" />
-         </font>
-         <StackPane.margin>
-            <Insets top="60.0" />
-         </StackPane.margin>
-      </Label>
-      <TextField fx:id="userIdTxt" maxWidth="200.0" minWidth="200.0">
-         <StackPane.margin>
-            <Insets top="100.0" />
-         </StackPane.margin></TextField>
-      <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#callLogin" text="Login" StackPane.alignment="CENTER">
-         <StackPane.margin>
-            <Insets top="300.0" />
-         </StackPane.margin>
-      </Button>
-      <Label text="PASSWORD">
-         <StackPane.margin>
-            <Insets right="300.0" top="200.0" />
-         </StackPane.margin>
-      </Label>
-      <Label text="USER ID" StackPane.alignment="CENTER">
-         <StackPane.margin>
-            <Insets right="300.0" top="100.0" />
-         </StackPane.margin>
-      </Label>
-      <Label layoutX="122.0" layoutY="252.0" text="Please Enter your MySQL credentials">
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-      </Label>
-      <PasswordField fx:id="passwordTxt" maxWidth="200.0" minWidth="200.0">
-         <StackPane.margin>
-            <Insets top="200.0" />
-         </StackPane.margin>
-      </PasswordField>
-      <Label fx:id="errorLoginTxt" textAlignment="CENTER" textFill="RED">
-         <StackPane.margin>
-            <Insets top="250.0" />
-         </StackPane.margin>
-      </Label>
-   </children>
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css"
+           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="sample.databaseController">
+   <Label text="DATABASE SETUP" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="27.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets bottom="150.0" top="180.0"/>
+      </StackPane.margin>
+      <effect>
+         <Reflection topOpacity="0.18"/>
+      </effect>
+   </Label>
+   <Label text="WELCOME TO OPHTHALMA" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="27.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets top="20.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Label>
+   <Label layoutX="128.0" layoutY="30.0" text="THIS IS A ONE TIME PROCESS" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="27.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets top="100.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Label>
+   <TextField fx:id="userIdTxt" maxWidth="200.0" minWidth="200.0">
+      <StackPane.margin>
+         <Insets top="100.0"/>
+      </StackPane.margin>
+   </TextField>
+   <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#callLogin" text="Login" StackPane.alignment="CENTER">
+      <StackPane.margin>
+         <Insets top="300.0"/>
+      </StackPane.margin>
+   </Button>
+   <Label text="PASSWORD">
+      <StackPane.margin>
+         <Insets right="300.0" top="200.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label text="USER ID" StackPane.alignment="CENTER">
+      <StackPane.margin>
+         <Insets right="300.0" top="100.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label layoutX="122.0" layoutY="252.0" text="Please Enter your MySQL credentials">
+      <StackPane.margin>
+         <Insets/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Label>
+   <PasswordField fx:id="passwordTxt" maxWidth="200.0" minWidth="200.0">
+      <StackPane.margin>
+         <Insets top="200.0"/>
+      </StackPane.margin>
+   </PasswordField>
+   <Label fx:id="errorLoginTxt" textAlignment="CENTER" textFill="RED">
+      <StackPane.margin>
+         <Insets top="250.0"/>
+      </StackPane.margin>
+   </Label>
 </StackPane>

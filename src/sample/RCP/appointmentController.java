@@ -1,6 +1,5 @@
 package sample.RCP;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class appointmentController {
 
@@ -20,10 +20,20 @@ public class appointmentController {
     @FXML
     public BorderPane appointmentPane;
     @FXML
-    private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
+    private Button dashboardBTN;
+    @FXML
+    private Button logOutBTN;
+    @FXML
+    private Button settingsBTN;
+    @FXML
+    private Button notificationBTN;
+    @FXML
+    private Button chatBubbleBTN;
 
     @FXML
-    private Button accountsManagementBTN;
+    public void initialize() throws IOException {
+        callNewAppointment();
+    }
 
     @FXML
     void callChatBubble() throws IOException {
@@ -44,18 +54,10 @@ public class appointmentController {
     }
 
     @FXML
-    void callHelpAndFaq() throws IOException {
-        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
+));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -71,25 +73,6 @@ public class appointmentController {
     }
 
     @FXML
-    void callPatientsAndScans() throws IOException {
-        Stage stage = (Stage) patientsAndScansBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-
-    }
-
-    @FXML
-    void callAccountsManagement() throws IOException {
-        Stage stage = (Stage) accountsManagementBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("accountsManagement.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
     void callSettings() throws IOException {
         Stage stage = (Stage) settingsBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
@@ -98,10 +81,10 @@ public class appointmentController {
         stage.setScene(scene);
     }
 
-    public void callAppointment(ActionEvent actionEvent) {
+    public void callAppointment() {
     }
 
-    public void callReceiptSystem(ActionEvent actionEvent) throws IOException {
+    public void callReceiptSystem() throws IOException {
         Stage stage = (Stage) receiptSystemBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("receipt.fxml"));
         Scene sc = stage.getScene();
@@ -109,12 +92,12 @@ public class appointmentController {
         stage.setScene(scene);
     }
 
-    public void callNewAppointment(ActionEvent actionEvent) throws IOException {
+    public void callNewAppointment() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("newAppointment.fxml"));
         appointmentPane.setCenter(root);
     }
 
-    public void callModifyAppointment(ActionEvent actionEvent) throws IOException {
+    public void callModifyAppointment() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("modifyAppointment.fxml"));
         appointmentPane.setCenter(root);
     }

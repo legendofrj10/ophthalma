@@ -11,6 +11,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import sample.common;
 
@@ -19,6 +20,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @SuppressWarnings("ALL")
 public class dashboardController {
@@ -38,6 +40,7 @@ public class dashboardController {
     public Button weaklyBTN;
     public CategoryAxis barX;
     public NumberAxis barY;
+    public StackPane navbarStackpane;
     @FXML
     private Button dashboardBTN;
     @FXML
@@ -99,7 +102,8 @@ public class dashboardController {
     @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../logout.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
+);
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

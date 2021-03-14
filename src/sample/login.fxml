@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" stylesheets="@Styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
    <TextField fx:id="loginIdField" focusTraversable="false" layoutX="50.0" layoutY="50.0" maxHeight="10.0" maxWidth="250.0" prefHeight="10.0" prefWidth="117.0" promptText="ID">
       <StackPane.margin>
          <Insets bottom="150.0" />
@@ -84,7 +84,7 @@
       <graphic>
          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../photos/quitDark.png" />
+               <Image url="@Assets/quitDark.png" />
             </image>
          </ImageView>
       </graphic>
