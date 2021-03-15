@@ -62,10 +62,15 @@ public class common {
     "may","june","july","august","september","october",
     "november","december"};
 
+    private static final String[] days = {"monday","tuesday","wednesday","thursday","friday","saturday"};
+
     public static String getMonthName(int i){
         return months[i];
     }
 
+    public static String getDays(int i) {
+        return days[i];
+    }
 
     public static int getArraySum(int[] arr, int size) {
         int sum = 0;

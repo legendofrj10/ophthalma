@@ -32,7 +32,7 @@
         <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Assets/logoutDark.png" />
+                    <Image url="/sample/Assets/logoutDark.png" />
                 </ImageView>
             </graphic>
             <font>
@@ -42,7 +42,7 @@
                 <Insets />
             </StackPane.margin>
         </Button>
-        <Label prefHeight="16.0" prefWidth="99.0" text="OPHTHALMA" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+        <Label prefHeight="16.0" prefWidth="99.0" text="OSPITALITY" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <padding>
                 <Insets left="10.0" />
             </padding>

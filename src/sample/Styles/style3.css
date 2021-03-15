@@ -33,6 +33,12 @@
     -fx-background-color: #403434;
 }
 
+.list-view{
+    -fx-background-color: inherit;
+
+}
+
+
 .root{
     -fx-background-color: #3d3d3d;
 

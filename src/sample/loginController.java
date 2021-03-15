@@ -67,7 +67,7 @@ public class loginController {
         }else{
             root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
         }
-        primaryStage.setTitle("OPHTHALMA");
+        primaryStage.setTitle("OSPITALITY");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -113,7 +113,7 @@ public class loginController {
         pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);
         if(uid.length()!=0 && pass.length()!=0){
-            String Query = "SELECT PassWord FROM HMS WHERE userID='"+uid+"'";
+            String Query = "SELECT * FROM HMS WHERE userID='"+uid+"'";
             try{
                 Connection con = sample.common.getConnect();
                 Statement st = con.createStatement();
@@ -121,10 +121,21 @@ public class loginController {
                 String password="";
                 while(rs.next()){
                     password=rs.getString("PassWord");
+                    user.userName=rs.getString("userName");
+                    user.userID=rs.getString("UserID");
+                    user.gender=rs.getString("gender");
+                    user.role=rs.getString("Role");
+                    user.designation=rs.getString("Designation");
+                    user.phno=rs.getString("mobileNumber");
+                    user.workEmail=rs.getString("workEmail");
+                    user.personalEmail=rs.getString("personalEmail");
+                    user.address=rs.getString("Address");
+                    user.joiningDate=rs.getString("Joining");
                 }
 
                 if(pass.equals(password)){
                     Stage stage = (Stage)loginbtn.getScene().getWindow();
+
                     common.setUserLoggedIn(uid);
                     Dashboard(stage);
                 }else{

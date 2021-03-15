@@ -40,7 +40,7 @@
                 <Insets />
             </StackPane.margin>
         </Button>
-        <Label prefHeight="16.0" prefWidth="99.0" text="OPHTHALMA" StackPane.alignment="TOP_LEFT">
+        <Label prefHeight="16.0" prefWidth="99.0" text="OSPITALITY" StackPane.alignment="TOP_LEFT">
             <padding>
                 <Insets left="10.0" />
             </padding>

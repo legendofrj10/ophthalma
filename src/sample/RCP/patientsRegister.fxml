@@ -83,4 +83,12 @@
          <DropShadow />
       </effect>
    </DatePicker>
+   <Label fx:id="patientAddedTxt" style="-fx-text-fill: #35f935;">
+      <StackPane.margin>
+         <Insets top="200.0" />
+      </StackPane.margin>
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
 </StackPane>

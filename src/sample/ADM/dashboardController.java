@@ -227,7 +227,6 @@ public class dashboardController {
             );
 
             genderPieChart.setData(pieChartGender);
-            //ratioPieChart = new PieChart(pieChartGender);
             genderPieChart.setClockwise(true);
 
             ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(

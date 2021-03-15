@@ -13,6 +13,7 @@ import sample.common;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Objects;
 
 public class patientsAndScansController {
     static int i=0;

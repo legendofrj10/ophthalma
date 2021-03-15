@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class receiptController {
 
@@ -25,10 +26,15 @@ public class receiptController {
     public Label totalBillTxt;
     public Button submitBTN1;
     @FXML
-    private Button helpAndFaqBTN,patientsAndScansBTN,dashboardBTN,logOutBTN,settingsBTN,notificationBTN,chatBubbleBTN;
-
+    private Button dashboardBTN;
     @FXML
-    private Button accountsManagementBTN;
+    private Button logOutBTN;
+    @FXML
+    private Button settingsBTN;
+    @FXML
+    private Button notificationBTN;
+    @FXML
+    private Button chatBubbleBTN;
 
     @FXML
     void callChatBubble() throws IOException {
@@ -49,15 +55,6 @@ public class receiptController {
     }
 
     @FXML
-    void callHelpAndFaq() throws IOException {
-        Stage stage = (Stage) helpAndFaqBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("helpAndFaq.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
     void callLogOut() throws IOException {
         Stage stage = (Stage) logOutBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
@@ -71,25 +68,6 @@ public class receiptController {
     void callNotifications() throws IOException {
         Stage stage = (Stage) notificationBTN.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("notifications.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    void callPatientsAndScans() throws IOException {
-        Stage stage = (Stage) patientsAndScansBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-
-    }
-
-    @FXML
-    void callAccountsManagement() throws IOException {
-        Stage stage = (Stage) accountsManagementBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("accountsManagement.fxml"));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

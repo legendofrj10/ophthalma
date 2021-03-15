@@ -61,7 +61,7 @@
          <DropShadow />
       </effect>
    </Button>
-   <Label text="OPHTHALMA" textFill="WHITE">
+   <Label text="OSPITALITY" textFill="WHITE">
       <StackPane.margin>
          <Insets bottom="300.0" />
       </StackPane.margin>

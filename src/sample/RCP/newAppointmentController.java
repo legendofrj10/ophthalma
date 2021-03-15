@@ -1,20 +1,24 @@
 package sample.RCP;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 
 
 public class newAppointmentController {
 
+    public Label successTxt;
     @FXML
     private TextField patientIDTxt;
 
@@ -41,6 +45,41 @@ public class newAppointmentController {
 
     @FXML
     void callSubmit( ) {
+        String id  = patientIDTxt.getText();
+        String department = (String) chooseDepartmentCB.getValue();
+        LocalDate date = datePicker.getValue();
+
+        Connection con = sample.common.getConnect();
+
+        try {
+            Statement st  = con.createStatement();
+            st.executeUpdate("INSERT INTO appointments (date,patient,department) values('"+date+"','"+id+"','"+department+"')");
+
+            successTxt.setText("Patient "+ id +" now Has an appointment for "+ department +" on "+date+" .");
+            patientIDTxt.setText("");
+            chooseDepartmentCB.setValue(null);
+            datePicker.setValue(null);
+
+            ResultSet rs;
+            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date like '%s'", sample.common.getToday()));
+            int appCount=0;
+            if(rs.next()){
+                appCount = rs.getInt(2);
+                appCount++;
+            }
+            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date like '%s'", sample.common.getToday()));
+            if(rs.next()){
+                st.executeUpdate(String.format("UPDATE everydayDetails SET totalAppointments='%d'", appCount));
+
+            }else{
+                st.executeUpdate(String.format("INSERT INTO everydayDetails VALUES ('%s',1,0,0)", sample.common.getToday()));
+            }
+
+            con.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
 
     }
 

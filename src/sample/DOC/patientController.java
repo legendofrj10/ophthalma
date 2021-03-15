@@ -42,16 +42,17 @@ public class patientController {
     @FXML
     private ImageView gender;
 
+    String pName = "";
+    String pGender = "";
+    String pRemark = "";
+    String pAge = "";
 
 
     @FXML
     public void initialize() {
         remarks.setWrapText(true);
         System.out.println(patID);
-        String pName = "";
-        String pGender = "";
-        String pRemark = "";
-        String pAge = "";
+
         String Query = "SELECT * FROM patients WHERE patient_id='" + patID + "'";
         System.out.println(Query);
         try{
@@ -96,13 +97,53 @@ public class patientController {
     @FXML
     void callEditRemarks() {
         String remark = remarks.getText();
-        String Query = "UPDATE patients SET remarks = '" + remark + "',last_diagnosed = '"
-                + LocalDate.now() + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now())
-                + "' WHERE patient_id = '" + patID + "'";
+        String Query = String.format("UPDATE patients SET remarks = '%s',last_diagnosed " +
+                "= '%s %s' WHERE patient_id = '%s'", remark, LocalDate.now(),
+                DateTimeFormatter.ofPattern("HH:mm:ss").
+                format(LocalTime.now()), patID);
         try{
             Connection con = sample.common.getConnect();
             Statement st = con.createStatement();
             st.executeUpdate(Query);
+
+            ResultSet rs;
+            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails " +
+                    "WHERE date like '%s'", sample.common.getToday()));
+            int visits=0;
+            int males=0;
+            int females=0;
+            if(rs.next()){
+                visits = rs.getInt(4);
+                visits++;
+                males = rs.getInt(5);
+                females = rs.getInt(6);
+
+            }
+            if (pGender.equals("male")) {
+                males++;
+            } else {
+                females++;
+            }
+            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date " +
+                    "like '%s'", sample.common.getToday()));
+            if(rs.next()){
+                st.executeUpdate(String.format("UPDATE everydayDetails SET visitsToday='%d'" +
+                        ",maleVisits='%d',femaleVisits='%d' WHERE date like '%s'",
+                        visits,males,females,sample.common.getToday()));
+
+            }else{
+                st.executeUpdate(String.format("INSERT INTO everydayDetails VALUES " +
+                        "('%s',0,0,1,'%d','%d')",
+                        sample.common.getToday(), males, females));
+            }
+
+            if(!st.executeQuery(String.format("SELECT * FROM visits WHERE Date like '%s'", sample.common.getToday())).next()){
+                st.executeUpdate(String.format("INSERT INTO visits (Date) value ('%s')",sample.common.getToday()));
+            }
+            rs = st.executeQuery(String.format("SELECT * FROM visits WHERE Date like '%s'", sample.common.getToday()));
+            while(rs.next()){
+
+            }
 
             con.close();
         }catch (Exception e){

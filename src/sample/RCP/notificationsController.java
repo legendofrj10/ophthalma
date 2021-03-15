@@ -71,10 +71,20 @@ public class notificationsController {
         stage.setScene(scene);
     }
 
-    public void callAppointment() {
+    public void callAppointment() throws IOException {
+        Stage stage = (Stage) appointmentBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("appointment.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
-    public void callReceiptSystem() {
+    public void callReceiptSystem() throws IOException {
+        Stage stage = (Stage) receiptSystemBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("receipt.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     public void callLabtests() {

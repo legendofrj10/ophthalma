@@ -81,7 +81,12 @@ public class appointmentController {
         stage.setScene(scene);
     }
 
-    public void callAppointment() {
+    public void callAppointment() throws IOException {
+        Stage stage = (Stage) appointmentBTN.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("appointment.fxml"));
+        Scene sc = stage.getScene();
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
     }
 
     public void callReceiptSystem() throws IOException {
@@ -95,11 +100,15 @@ public class appointmentController {
     public void callNewAppointment() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("newAppointment.fxml"));
         appointmentPane.setCenter(root);
+        newAppointmentBTN.setDisable(true);
+        modifyAppointmentBTN.setDisable(false);
     }
 
     public void callModifyAppointment() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("modifyAppointment.fxml"));
         appointmentPane.setCenter(root);
+        newAppointmentBTN.setDisable(false);
+        modifyAppointmentBTN.setDisable(true);
     }
 
 }

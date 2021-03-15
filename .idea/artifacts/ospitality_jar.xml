@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="ophthalma:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ophthalma_jar</output-path>
+  <artifact type="jar" name="ospitality:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ospitality_jar</output-path>
     <root id="archive" name="ophthalma.jar">
-      <element id="module-output" name="ophthalma" />
+      <element id="module-output" name="ospitality" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/mysql-connector-java-8.0.21.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/javafx11/lib/src.zip" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/javafx11/lib/javafx-swt.jar" path-in-jar="/" />
