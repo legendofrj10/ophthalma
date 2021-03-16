@@ -8,6 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        primaryStage = new Stage();
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(800);
 

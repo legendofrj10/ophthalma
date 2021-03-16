@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -38,10 +39,13 @@ public class loginController {
     @FXML
     private Button troublebtn;
 
+
     @FXML
     public static void login(Stage primaryStage) throws Exception{
-        File fUName = new File("dbUName");
-        File fPass = new File("dbPass");
+        Process process = Runtime.getRuntime().exec("mkdir .ospitality");
+        process.destroy();
+        File fUName = new File(".ospitality/dbUName");
+        File fPass = new File(".ospitality/dbPass");
         Parent root;
         root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
         if(fUName.exists() && fPass.exists()){
@@ -67,10 +71,12 @@ public class loginController {
         }else{
             root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
         }
-        primaryStage.setTitle("OSPITALITY");
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("OSPITALITY");
         primaryStage.show();
+
     }
 
 
@@ -109,6 +115,18 @@ public class loginController {
 
     @FXML
     void checkLogin() {
+
+        Scanner reader;
+
+        try (FileInputStream ip = new FileInputStream(".ospitality/ip")) {
+            reader = new Scanner(ip);
+            while (reader.hasNextLine()){
+                common.IP = reader.nextLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         uid = loginIdField.getText();
         pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);

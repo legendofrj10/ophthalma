@@ -110,7 +110,7 @@
             <Insets bottom="40.0" left="20.0" right="20.0" top="200.0"/>
          </StackPane.margin>
          <BarChart fx:id="patientsBarChart" maxWidth="1.7976931348623157E308"
-                   style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../Styles/style4.css"
+                   style="-fx-border-color: blue; -fx-background-color: #365abf;" stylesheets="@../Styles/style4.css"
                    title="Patients Visits">
             <xAxis>
                <CategoryAxis fx:id="barX" side="BOTTOM"/>
@@ -126,7 +126,7 @@
             </effect>
          </BarChart>
          <PieChart fx:id="genderPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../Styles/style4.css"
+                   style="-fx-border-color: blue; -fx-background-color: #f1e93d;" stylesheets="@../Styles/style4.css"
                    title="Patients Ratio (Gender)">
             <HBox.margin>
                <Insets right="20.0" top="20.0"/>
@@ -136,7 +136,7 @@
             </effect>
          </PieChart>
          <PieChart fx:id="ratioPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   style="-fx-border-color: blue; -fx-background-color: white;" stylesheets="@../Styles/style4.css"
+                   style="-fx-border-color: blue; -fx-background-color: #fd6565;" stylesheets="@../Styles/style4.css"
                    title="Patients Ratio (Age Group)">
             <HBox.margin>
                <Insets top="20.0"/>
