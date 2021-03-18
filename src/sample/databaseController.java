@@ -31,8 +31,11 @@ public class databaseController {
     @FXML
     void callLogin() throws Exception {
 
+        createScript();
+
+
         common.IP =ipTxt.getText();
-        FileOutputStream ip = new FileOutputStream(".ospitality/ip");
+        FileOutputStream ip = new FileOutputStream(common.getWorkingDirectory()+"ip");
         char[] ipS = common.getIP().toCharArray();
         int p=0;
         while(p<ipS.length){
@@ -57,7 +60,7 @@ public class databaseController {
             rst = dbm.getCatalogs();
 
 
-            try(FileOutputStream fos = new FileOutputStream(".ospitality/dbUName")) {
+            try(FileOutputStream fos = new FileOutputStream(common.getWorkingDirectory()+"dbUName")) {
                 int i=0;
                 while (i< Uname.length){
                     fos.write(Uname[i]);
@@ -66,7 +69,7 @@ public class databaseController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            try(FileOutputStream fos = new FileOutputStream(".ospitality/dbPass")) {
+            try(FileOutputStream fos = new FileOutputStream(common.getWorkingDirectory()+"dbPass")) {
                 int i=0;
                 while (i<password.length()){
                     fos.write(Password[i]);
@@ -99,20 +102,11 @@ public class databaseController {
                 con = DriverManager.getConnection(
                         "jdbc:mysql://"+common.getIP()+":3306", uname, password
                 );
-                con.createStatement().executeUpdate("CREATE DATABASE OSPITALITY");
-                con.close();
-
-                databaseFoundTxt.setText("DATABASE CREATED SUCCESSFULLY.");
-                settingDatabaseTxt.setText("CREATING TABLES...");
-                con = DriverManager.getConnection(
-                        "jdbc:mysql://"+common.getIP()+":3306/OSPITALITY", uname, password
-                );
-
-                createScript();
 
                 ScriptRunner sr = new ScriptRunner(con,false,false);
-                sr.runScript(".ospitality/script.sql");
+                sr.runScript(common.getWorkingDirectory()+".ospitality/script.sql");
                 con.createStatement().executeUpdate(String.format("INSERT INTO HMS VALUES ('ADMIN','ADM1001',1001,0,'aa','male','Admin','DBA','+01234567890','email@example.com','NULL','exmaple@gmial.com','%s')", common.getToday()));
+                databaseFoundTxt.setText("DATABASE CREATED SUCCESSFULLY.");
                 settingDatabaseTxt.setText("TABLES CREATED SUCCESSFULLY.\nBASIC ADMIN ACCOUNT CREATED.\n" +
                         "USER ID : ADM1001   PASSWORD : aa");
                 con.close();
@@ -126,14 +120,16 @@ public class databaseController {
             e.printStackTrace();
         }
 
-        loginController.login((Stage)loginBTN.getScene().getWindow());
+        loginController.init((Stage)loginBTN.getScene().getWindow());
 
 
     }
 
 
     private void createScript() throws IOException {
-        String script = "create table HMS\n" +
+        String script = "create database OSPITALITY;\n" +
+                "use OSPITALITY;\n" +
+                "create table HMS\n" +
                 "(\n" +
                 "    userName        varchar(25)  default 'NULL' not null,\n" +
                 "    UserID          varchar(30)                 not null,\n" +
@@ -241,7 +237,7 @@ public class databaseController {
 
         char[] scr = script.toCharArray();
 
-        FileOutputStream scriptGen = new FileOutputStream(".ospitality/script.sql");
+        FileOutputStream scriptGen = new FileOutputStream(common.getWorkingDirectory()+"script.sql");
         int i=0;
         while(i<scr.length){
             scriptGen.write(scr[i]);

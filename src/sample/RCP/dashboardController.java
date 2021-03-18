@@ -1,13 +1,10 @@
 package sample.RCP;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,7 +20,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class dashboardController {
@@ -40,9 +36,7 @@ public class dashboardController {
     public Label phnoTxt;
     public Label joiningDateTxt;
     public LineChart weaklyLineChart;
-    public PieChart genderPieChart;
     public Label newPatientsTxt;
-    public Label newAppointmentsTxt;
     public Label appointmentsTodayTxt;
     @FXML
     private Button dashboardBTN;
@@ -64,10 +58,6 @@ public class dashboardController {
         emailTxt.setText(user.getWorkEmail());
         joiningDateTxt.setText(user.getJoiningDate());
 
-        int maleToday=0;
-        int femaleToday=0;
-
-        int total=0;
 
         Connection con = common.getConnect();
 
@@ -76,22 +66,12 @@ public class dashboardController {
             ResultSet rs = st.executeQuery(String.format("select * from everydayDetails where date='%s'",sample.common.getToday()));
 
             while(rs.next()){
-                maleToday=rs.getInt(5);
-                femaleToday=rs.getInt(6);
-                total=maleToday+femaleToday;
                 appointmentsTodayTxt.setText(String.valueOf(rs.getInt(2)));
                 newPatientsTxt.setText(String.valueOf(rs.getInt(3)));
             }
 
 
 
-            ObservableList<PieChart.Data> pieChartGender = FXCollections.observableArrayList(
-                    new PieChart.Data("Male",maleToday),
-                    new PieChart.Data("Female",femaleToday)
-            );
-
-            genderPieChart.setData(pieChartGender);
-            genderPieChart.setClockwise(true);
 
             rs = st.executeQuery("SELECT * FROM everydayDetails");
 
@@ -104,8 +84,8 @@ public class dashboardController {
             LocalDate lastDay = common.getToday();
             int i=0;
             while(rs.next() && i<7){
-                seriesAppointment.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().toString(),rs.getInt(2)));
-                seriesNewPatients.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().toString(),rs.getInt(3)));
+                seriesAppointment.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().name(),rs.getInt(2)));
+                seriesNewPatients.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().name(),rs.getInt(3)));
                 if(!rs.getDate(1).toLocalDate().equals(lastDay)) i++;
             }
             weaklyLineChart.getData().add(seriesAppointment);

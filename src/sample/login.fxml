@@ -45,7 +45,7 @@
          <Insets bottom="50.0" right="343.0" />
       </StackPane.margin>
    </Label>
-   <Button fx:id="loginbtn" maxWidth="250.0" mnemonicParsing="false" onAction="#checkLogin" prefWidth="250.0" text="LOGIN" textFill="WHITE">
+   <Button fx:id="loginbtn" maxWidth="250.0" mnemonicParsing="false" onAction="#callLogin" prefWidth="250.0" text="LOGIN" textFill="WHITE">
       <StackPane.margin>
          <Insets top="50.0" />
       </StackPane.margin>

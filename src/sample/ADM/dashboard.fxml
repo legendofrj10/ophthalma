@@ -146,7 +146,7 @@
             </effect>
          </PieChart>
       </HBox>
-      <Button fx:id="yearlyBTN" mnemonicParsing="false" onAction="#callYearly" style="-fx-background-color: #3b3b3b;"
+      <Button fx:id="yearlyBTN" mnemonicParsing="false" onAction="#callAllTime" style="-fx-background-color: #3b3b3b;"
               text="ALL TIME" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="10.0" left="20.0"/>
@@ -155,7 +155,7 @@
             <DropShadow/>
          </effect>
       </Button>
-      <Button fx:id="monthlyBTN" layoutX="30.0" layoutY="537.0" mnemonicParsing="false" onAction="#callMonthly"
+      <Button fx:id="monthlyBTN" layoutX="30.0" layoutY="537.0" mnemonicParsing="false" onAction="#callYearly"
               style="-fx-background-color: #3b3b3b;" text="YEAR" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="10.0" left="115.0"/>
@@ -164,7 +164,7 @@
             <DropShadow/>
          </effect>
       </Button>
-      <Button fx:id="weaklyBTN" layoutX="105.0" layoutY="537.0" mnemonicParsing="false" onAction="#callWeakly"
+      <Button fx:id="weaklyBTN" layoutX="105.0" layoutY="537.0" mnemonicParsing="false" onAction="#callMonthly"
               style="-fx-background-color: #3b3b3b;" text="MONTH" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="10.0" left="185.0"/>

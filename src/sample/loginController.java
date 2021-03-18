@@ -16,13 +16,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Locale;
 import java.util.Scanner;
 
 
 public class loginController {
 
     public Button quitBTN;
-    String uid="";
+    static String uid="";
     String pass="";
 
     @FXML
@@ -39,15 +40,16 @@ public class loginController {
     @FXML
     private Button troublebtn;
 
+    public static boolean profile=false;
+
 
     @FXML
-    public static void login(Stage primaryStage) throws Exception{
-        Process process = Runtime.getRuntime().exec("mkdir .ospitality");
-        process.destroy();
-        File fUName = new File(".ospitality/dbUName");
-        File fPass = new File(".ospitality/dbPass");
+    public static void init(Stage primaryStage) throws Exception{
+        File fUName = new File(common.getWorkingDirectory()+"dbUName");
+        File fPass = new File(common.getWorkingDirectory()+"dbPass");
         Parent root;
         root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
+
         if(fUName.exists() && fPass.exists()){
             FileInputStream fisName = new FileInputStream(fUName);
             FileInputStream fisPass = new FileInputStream(fPass);
@@ -79,47 +81,12 @@ public class loginController {
 
     }
 
-
-
     @FXML
-    void Dashboard(Stage stage) throws Exception{
-        String dashboardPath = uid.substring(0, 3);
-        System.out.println(dashboardPath);
-        Parent root = null;
-        switch (dashboardPath) {
-            case "ADM":
-                root = FXMLLoader.load(getClass().getResource("ADM/dashboard.fxml"));
-                break;
-            case "RCP":
-                root = FXMLLoader.load(getClass().getResource("RCP/dashboard.fxml"));
-                break;
-            case "DOC":
-                root = FXMLLoader.load(getClass().getResource("DOC/dashboard.fxml"));
-                break;
-            case "LBT":
-                root = FXMLLoader.load(getClass().getResource("LBT/dashboard.fxml"));
-                break;
-            case "MDC":
-                root = FXMLLoader.load(getClass().getResource("MDC/dashboard.fxml"));
-                break;
-        }
-        Scene sc = stage.getScene();
-        assert root != null;
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-
-
-    @FXML
-    void checkLogin() {
-
+    void callLogin() {
         Scanner reader;
 
-        try (FileInputStream ip = new FileInputStream(".ospitality/ip")) {
-            reader = new Scanner(ip);
+        try (FileInputStream ipFile = new FileInputStream(sample.common.getWorkingDirectory()+"ip")) {
+            reader = new Scanner(ipFile);
             while (reader.hasNextLine()){
                 common.IP = reader.nextLine();
             }
@@ -131,11 +98,11 @@ public class loginController {
         pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);
         if(uid.length()!=0 && pass.length()!=0){
-            String Query = "SELECT * FROM HMS WHERE userID='"+uid+"'";
+            String Query;
             try{
                 Connection con = sample.common.getConnect();
                 Statement st = con.createStatement();
-                ResultSet rs=st.executeQuery(Query);
+                ResultSet rs=st.executeQuery(String.format("SELECT * FROM HMS WHERE userID='%s'", uid));
                 String password="";
                 while(rs.next()){
                     password=rs.getString("PassWord");
@@ -149,15 +116,17 @@ public class loginController {
                     user.personalEmail=rs.getString("personalEmail");
                     user.address=rs.getString("Address");
                     user.joiningDate=rs.getString("Joining");
+                    user.profileCompleted=rs.getInt(4)==1;
                 }
 
                 if(pass.equals(password)){
+                    user.setPassword(password);
                     Stage stage = (Stage)loginbtn.getScene().getWindow();
 
                     common.setUserLoggedIn(uid);
                     Dashboard(stage);
                 }else{
-                    loginerror.setText("Wrong password!!!!");
+                    loginerror.setText("PLEASE CHECK CREDENTIALS!!!!");
                 }
                 con.close();
             }catch (Exception e){
@@ -165,10 +134,28 @@ public class loginController {
             }
         }
         else{
-            loginerror.setText("ID or Password Cannot be empty!!!!");
+            loginerror.setText("ID OR PASSWORD CAN'T BE EMPTY!!!!");
         }
 
     }
+
+
+    @FXML
+    static void Dashboard(Stage stage) throws Exception{
+        String dashboardPath = user.userID.substring(0, 3);
+        System.out.println(dashboardPath);
+        Parent root = FXMLLoader.load(loginController.class.getResource(dashboardPath + "/dashboard.fxml"));
+
+        if(!user.profileCompleted){
+            root=FXMLLoader.load(loginController.class.getResource("completeProfile.fxml"));
+        }
+        Scene sc = stage.getScene();
+        assert root != null;
+        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
     @FXML
     void troubleLogin() {

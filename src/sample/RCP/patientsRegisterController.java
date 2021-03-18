@@ -27,16 +27,10 @@ public class patientsRegisterController {
     private TextField patientNameField;
 
     @FXML
-    private ComboBox patientGenderCB;
+    private ComboBox<?> patientGenderCB;
 
     @FXML
     private DatePicker patientDOB;
-
-    @FXML
-    private ComboBox<?> patientEyeCB;
-
-    @FXML
-    private Button registerBTN;
 
     @FXML
     private Button backBTN;
@@ -78,43 +72,31 @@ public class patientsRegisterController {
         String gender = (String) patientGenderCB.getValue();
         LocalDate DOB = patientDOB.getValue();
         LocalDate lastCheckup = LocalDate.now();
-        Period age = Period.between(DOB,lastCheckup);
+        int ageYears = Period.between(DOB,sample.common.getToday()).getYears();
         int PatientNumeric_id;
-        String patient_id = null;
-        int ageYears = age.getYears();
+        String patient_id;
         System.out.println(name+"  "+gender+"  "+DOB+"  "+ageYears);
         try{
             Connection con= getConnect();
             Statement st = con.createStatement();
-            Query = "SELECT * FROM patients WHERE name='"+name+"' AND dob='"+DOB+"'";
-            ResultSet rs = st.executeQuery(Query);
-            if(rs.next()){
-                Query = "UPDATE patients SET last_diagnosed='" + lastCheckup + " " +
-                        DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "' WHERE name='"+name+"' AND dob='"+DOB+"'";
-            }
-            else{
-                PatientNumeric_id=newPatientID();
-                patient_id = "Pat"+PatientNumeric_id;
-                Query = "INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,patient_id) VALUES " +
-                        "('" + name + "','" + ageYears + "','" + DOB + "','" + gender + "','" + PatientNumeric_id + "','" +
-                        lastCheckup + " " + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()) + "','" + patient_id + "')";
-                
-            }
+            ResultSet rs;
+            PatientNumeric_id=newPatientID();
+            patient_id = "Pat"+PatientNumeric_id;
+
+            Query = String.format("INSERT INTO patients (name,age,dob,gender,numeric_id,last_diagnosed,patient_id) VALUES ('%s','%d','%s','%s','%d','%s %s','%s')", name, ageYears, DOB, gender, PatientNumeric_id, lastCheckup, DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()), patient_id);
             st.executeUpdate(Query);
+
             patientAddedTxt.setText("New Patient Registered\nPatient ID : "+patient_id);
             patientNameField.setText("");
-            patientGenderCB.setValue("");
+            patientGenderCB.setValue(null);
             patientDOB.setValue(null);
 
             rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date like '%s'", sample.common.getToday()));
-            int patCount=0;
+            int patCount;
             if(rs.next()){
                 patCount = rs.getInt(3);
                 patCount++;
-            }
-            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date like '%s'", sample.common.getToday()));
-            if(rs.next()){
-                st.executeUpdate(String.format("UPDATE everydayDetails SET newPatients='%d'", patCount));
+                st.executeUpdate(String.format("UPDATE everydayDetails SET newPatients='%d' WHERE date like '%s'", patCount, sample.common.getToday()));
 
             }else{
                 st.executeUpdate(String.format("INSERT INTO everydayDetails VALUES ('%s',0,1,0)", sample.common.getToday()));

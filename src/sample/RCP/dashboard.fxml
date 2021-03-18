@@ -4,16 +4,13 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.dashboardController">
@@ -172,57 +169,46 @@
          <StackPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="220.0" />
          </StackPane.margin>
-         <HBox prefHeight="100.0" prefWidth="200.0">
-            <VBox prefHeight="320.0" prefWidth="264.0">
-               <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #eac71b;">
-                  <effect>
-                     <DropShadow />
-                  </effect>
-                  <Label layoutX="14.0" layoutY="21.0" style="-fx-text-fill: black;" text="Appointments Today : ">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="56.0" style="-fx-text-fill: black;" text="New Patients Today : ">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="appointmentsTodayTxt" layoutX="189.0" layoutY="21.0" style="-fx-text-fill: black;" text="app">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="newPatientsTxt" layoutX="178.0" layoutY="56.0" style="-fx-text-fill: black;" text="pat">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </AnchorPane>
-               <PieChart fx:id="genderPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #9e4aff;" styleClass="label" stylesheets="@../Styles/style4.css" title="Appointments Male/Female">
-                  <VBox.margin>
-                     <Insets top="20.0" />
-                  </VBox.margin>
-                  <effect>
-                     <DropShadow />
-                  </effect>
-               </PieChart>
-            </VBox>
-            <LineChart fx:id="weaklyLineChart" style="-fx-background-color: #29a37f;" stylesheets="@../Styles/style4.css" title="This Weaks Visits">
-               <xAxis>
-                  <CategoryAxis side="BOTTOM" />
-               </xAxis>
-               <yAxis>
-                  <NumberAxis side="LEFT" />
-               </yAxis>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </LineChart>
-         </HBox>
+         <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="230.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="230.0" style="-fx-background-color: #eac71b;" StackPane.alignment="CENTER_LEFT">
+            <effect>
+               <DropShadow />
+            </effect>
+            <Label layoutX="14.0" layoutY="21.0" style="-fx-text-fill: black;" text="Appointments Today : ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="151.0" style="-fx-text-fill: black;" text="New Patients Today : ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="appointmentsTodayTxt" layoutX="189.0" layoutY="21.0" style="-fx-text-fill: black;" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="newPatientsTxt" layoutX="189.0" layoutY="151.0" style="-fx-text-fill: black;" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </AnchorPane>
+         <LineChart fx:id="weaklyLineChart" prefHeight="321.0" prefWidth="516.0" style="-fx-background-color: #29a37f;" stylesheets="@../Styles/style4.css" title="This Weaks Visits">
+            <xAxis>
+               <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis side="LEFT" />
+            </yAxis>
+            <effect>
+               <DropShadow />
+            </effect>
+
+            <StackPane.margin>
+               <Insets left="250.0" />
+            </StackPane.margin>
+         </LineChart>
       </StackPane>
    </StackPane>
    <StackPane.margin>

@@ -1,8 +1,10 @@
 package sample;
 
 public class user {
+    public static boolean profileCompleted;
     static String userName="";
     static String userID="";
+    static String password="";
     static String gender="";
     static String role="";
     static String designation="";
@@ -11,6 +13,14 @@ public class user {
     static String personalEmail="";
     static String address="";
     static String joiningDate="";
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        user.password = password;
+    }
 
     public static String getUserName() {
         return userName;

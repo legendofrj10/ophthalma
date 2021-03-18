@@ -12,7 +12,48 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.addUserController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.addUserController">
+   <Label fx:id="userAddedTxt" textFill="#09c305" StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets top="10.0" />
+      </StackPane.margin>
+   </Label>
+   <Label text="ADD USER" StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets left="25.0" top="50.0" />
+      </StackPane.margin>
+      <font>
+         <Font size="46.0" />
+      </font>
+      <effect>
+         <Reflection fraction="0.51" topOpacity="0.13" />
+      </effect>
+   </Label>
+    <Label layoutX="346.0" layoutY="152.0" prefWidth="39.0" text="Name">
+        <StackPane.margin>
+            <Insets bottom="200.0" right="320.0" />
+        </StackPane.margin>
+    </Label>
+    <Label prefWidth="29.0" text="Role">
+        <StackPane.margin>
+            <Insets bottom="100.0" right="310.0" />
+        </StackPane.margin>
+    </Label>
+    <Label layoutX="96.0" layoutY="152.0" prefWidth="37.0" text="Email">
+        <StackPane.margin>
+            <Insets right="315.0" />
+        </StackPane.margin>
+    </Label>
+    <Label layoutX="92.0" layoutY="202.0" text="Password">
+        <StackPane.margin>
+            <Insets right="340.0" top="100.0" />
+        </StackPane.margin>
+    </Label>
+    <Label layoutX="79.0" layoutY="252.0" text="Confirm Password">
+        <StackPane.margin>
+            <Insets right="400.0" top="200.0" />
+        </StackPane.margin>
+    </Label>
     <TextField fx:id="Name" maxWidth="225.0" promptText="Full Name">
         <StackPane.margin>
             <Insets bottom="200.0" left="25.0" />
@@ -21,36 +62,7 @@
          <DropShadow />
       </effect>
     </TextField>
-    <TextField fx:id="email" maxWidth="225.0" promptText="Email Address">
-        <StackPane.margin>
-            <Insets left="25.0" />
-        </StackPane.margin>
-      <effect>
-         <DropShadow />
-      </effect>
-    </TextField>
-    <Label prefWidth="29.0" text="Role">
-        <StackPane.margin>
-            <Insets bottom="100.0" right="310.0" />
-        </StackPane.margin>
-    </Label>
-    <Button fx:id="two_SignUPbtn" maxWidth="225.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="225.0" text="Submit">
-        <StackPane.margin>
-            <Insets left="25.0" top="300.0" />
-        </StackPane.margin>
-      <effect>
-         <DropShadow />
-      </effect>
-    </Button>
-    <TextField fx:id="two_pass" maxWidth="225.0" promptText="Password">
-        <StackPane.margin>
-            <Insets left="25.0" top="100.0" />
-        </StackPane.margin>
-      <effect>
-         <DropShadow />
-      </effect>
-    </TextField>
-    <ComboBox fx:id="jobChoice" editable="true" maxWidth="225.0" prefWidth="150.0" promptText="Job Of User" stylesheets="@../Styles/style3.css">
+    <ComboBox fx:id="jobChoice" editable="true" maxWidth="225.0" onAction="#callCheckRole" prefWidth="150.0" promptText="Job Of User" stylesheets="@../Styles/style3.css">
         <StackPane.margin>
             <Insets bottom="100.0" left="25.0" />
         </StackPane.margin>
@@ -67,21 +79,45 @@
          <DropShadow />
       </effect>
     </ComboBox>
-    <Label layoutX="346.0" layoutY="152.0" prefWidth="39.0" text="Name">
+   <ComboBox fx:id="departmentCB" editable="true" layoutX="210.0" layoutY="197.0" maxWidth="150.0" prefWidth="150.0" promptText="Department" stylesheets="@../Styles/style3.css" visible="false">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Pediatrician" />
+               <String fx:value="Dermatologist" />
+               <String fx:value="Ophthalmologist" />
+               <String fx:value="Psychiatrist" />
+               <String fx:value="Allergist/Immunologist" />
+               <String fx:value="Urologist" />
+               <String fx:value="Neurologist" />
+               <String fx:value="Cardiologist" />
+               <String fx:value="Otolaryngologist" />
+               <String fx:value="Endocrinologist" />
+               <String fx:value="Podiatrist" />
+           </FXCollections>
+       </items>
+      <effect>
+         <DropShadow />
+      </effect>
+      <StackPane.margin>
+         <Insets bottom="100.0" left="420.0" />
+      </StackPane.margin>
+   </ComboBox>
+    <TextField fx:id="email" maxWidth="225.0" promptText="Email Address">
         <StackPane.margin>
-            <Insets bottom="200.0" right="320.0" />
+            <Insets left="25.0" />
         </StackPane.margin>
-    </Label>
-    <Label layoutX="96.0" layoutY="152.0" prefWidth="37.0" text="Email">
+      <effect>
+         <DropShadow />
+      </effect>
+    </TextField>
+    <TextField fx:id="two_pass" maxWidth="225.0" promptText="Password">
         <StackPane.margin>
-            <Insets right="315.0" />
+            <Insets left="25.0" top="100.0" />
         </StackPane.margin>
-    </Label>
-    <Label layoutX="92.0" layoutY="202.0" text="Password">
-        <StackPane.margin>
-            <Insets right="340.0" top="100.0" />
-        </StackPane.margin>
-    </Label>
+      <effect>
+         <DropShadow />
+      </effect>
+    </TextField>
     <TextField fx:id="two_passconf" layoutX="148.0" layoutY="247.0" maxWidth="225.0" prefHeight="26.0" prefWidth="224.0" promptText="Confirm Password">
         <StackPane.margin>
             <Insets left="25.0" top="200.0" />
@@ -90,11 +126,6 @@
          <DropShadow />
       </effect>
     </TextField>
-    <Label layoutX="79.0" layoutY="252.0" text="Confirm Password">
-        <StackPane.margin>
-            <Insets right="400.0" top="200.0" />
-        </StackPane.margin>
-    </Label>
     <Label fx:id="passnotmatch" textAlignment="CENTER" textFill="RED">
         <StackPane.margin>
             <Insets top="250.0" />
@@ -103,20 +134,12 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </Label>
-   <Label fx:id="userAddedTxt" textFill="#09c305" StackPane.alignment="TOP_CENTER">
-      <StackPane.margin>
-         <Insets top="10.0" />
-      </StackPane.margin>
-   </Label>
-   <Label text="ADD USER" StackPane.alignment="TOP_CENTER">
-      <StackPane.margin>
-         <Insets left="25.0" top="70.0" />
-      </StackPane.margin>
-      <font>
-         <Font size="46.0" />
-      </font>
+    <Button fx:id="two_SignUPbtn" maxWidth="225.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="225.0" text="Submit">
+        <StackPane.margin>
+            <Insets left="25.0" top="300.0" />
+        </StackPane.margin>
       <effect>
-         <Reflection fraction="0.51" topOpacity="0.13" />
+         <DropShadow />
       </effect>
-   </Label>
+    </Button>
 </StackPane>

@@ -78,7 +78,7 @@ public class dashboardController {
         }finally {
         }
 
-        callYearly();
+        callAllTime();
     }
 
     @FXML
@@ -137,7 +137,7 @@ public class dashboardController {
         stage.setScene(scene);
     }
 
-    public void callYearly( ) {
+    public void callAllTime( ) {
         monthlyBTN.setDisable(false);
         yearlyBTN.setDisable(true);
         weaklyBTN.setDisable(false);
@@ -248,7 +248,7 @@ public class dashboardController {
         }
     }
 
-    public void callMonthly() {
+    public void callYearly() {
         monthlyBTN.setDisable(true);
         yearlyBTN.setDisable(false);
         weaklyBTN.setDisable(false);
@@ -258,8 +258,8 @@ public class dashboardController {
 
         Connection con = common.getConnect();
 
-        int lastMonth = common.getToday().getMonthValue();
-        List<Integer> monthList = new ArrayList<>();
+        String lastMonth = "";
+        List<String> monthList = new ArrayList<>();
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM visits");
@@ -275,15 +275,18 @@ public class dashboardController {
             int[] agegrp7 = new int[12];
             int[] totalPatients = new int[12];
 
-            int i = 0;
+            int i = -1;
 
             while(rs.next()){
-                int month = rs.getDate(1).toLocalDate().getMonthValue();
-                monthList.add(month);
-                if(month!=lastMonth){
+                if(monthList.size()==12) break;
+
+                String  month = rs.getDate(1).toLocalDate().getMonth().name();
+                if(!month.equals(lastMonth)){
                     i++;
+                    monthList.add(month);
                     lastMonth=month;
                 }
+
                 malePatients[i]+=rs.getInt(2);
                 femalePatients[i]+=rs.getInt(3);
                 agegrp1[i]+=rs.getInt(4);
@@ -310,13 +313,9 @@ public class dashboardController {
 
             XYChart.Series series = new XYChart.Series();
             series.setName("patients");
-            lastMonth=0;
+            lastMonth="";
             for(int j=0;j<monthList.size();j++) {
-                if (monthList.get(j) != lastMonth) {
-                    lastMonth=monthList.get(j);
-                    System.out.println(malePatients[j] + "  " + femalePatients[j]);
-                    series.getData().add(new XYChart.Data(String.valueOf(common.getMonthName(monthList.get(j)-1)), totalPatients[0]));
-                }
+                series.getData().add(new XYChart.Data(monthList.get(j), totalPatients[j]));
             }
 
             patientsBarChart.getData().addAll(series);
@@ -327,7 +326,6 @@ public class dashboardController {
             );
 
             genderPieChart.setData(pieChartGender);
-            //ratioPieChart = new PieChart(pieChartGender);
             genderPieChart.setClockwise(true);
 
             ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(
@@ -352,7 +350,7 @@ public class dashboardController {
 
     }
 
-    public void callWeakly(ActionEvent actionEvent) {
+    public void callMonthly(ActionEvent actionEvent) {
         monthlyBTN.setDisable(false);
         yearlyBTN.setDisable(false);
         weaklyBTN.setDisable(true);
@@ -414,7 +412,6 @@ public class dashboardController {
             series.setName("patients");
             lastMonth=0;
             for(int j=0;j<DaysList.size();j++) {
-                System.out.println(malePatients[j] + "  " + femalePatients[j]);
                 series.getData().add(new XYChart.Data(String.valueOf(DaysList.get(j)), totalPatients[j]));
             }
 
@@ -428,7 +425,6 @@ public class dashboardController {
             );
 
             genderPieChart.setData(pieChartGender);
-            //ratioPieChart = new PieChart(pieChartGender);
             genderPieChart.setClockwise(true);
 
             ObservableList<PieChart.Data> pieChartAge = FXCollections.observableArrayList(

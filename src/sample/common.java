@@ -6,6 +6,16 @@ import java.time.LocalDate;
 
 public class common {
 
+    public static String workingDirectory="";
+
+    public static String getWorkingDirectory() {
+        return workingDirectory;
+    }
+
+    public static void setWorkingDirectory(String workingDirectory) {
+        common.workingDirectory = workingDirectory;
+    }
+
     public static String getIP() {
         return IP;
     }

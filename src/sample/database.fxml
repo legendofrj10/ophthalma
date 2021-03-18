@@ -11,17 +11,6 @@
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.databaseController">
-   <Label text="DATABASE SETUP" StackPane.alignment="TOP_CENTER">
-      <font>
-         <Font size="27.0" />
-      </font>
-      <StackPane.margin>
-         <Insets bottom="150.0" top="180.0" />
-      </StackPane.margin>
-      <effect>
-         <Reflection topOpacity="0.18" />
-      </effect>
-   </Label>
    <Label text="WELCOME TO OSPITALITY" StackPane.alignment="TOP_CENTER">
       <font>
          <Font size="27.0" />
@@ -44,25 +33,16 @@
          <DropShadow />
       </effect>
    </Label>
-   <TextField fx:id="userIdTxt" maxWidth="200.0" minWidth="200.0">
+   <Label text="DATABASE SETUP" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="27.0" />
+      </font>
       <StackPane.margin>
-         <Insets top="100.0" />
+         <Insets bottom="150.0" top="180.0" />
       </StackPane.margin>
-   </TextField>
-   <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#callLogin" text="Login" StackPane.alignment="CENTER">
-      <StackPane.margin>
-         <Insets top="300.0" />
-      </StackPane.margin>
-   </Button>
-   <Label text="PASSWORD">
-      <StackPane.margin>
-         <Insets right="330.0" top="200.0" />
-      </StackPane.margin>
-   </Label>
-   <Label text="USER ID" StackPane.alignment="CENTER">
-      <StackPane.margin>
-         <Insets right="305.0" top="100.0" />
-      </StackPane.margin>
+      <effect>
+         <Reflection topOpacity="0.18" />
+      </effect>
    </Label>
    <Label layoutX="122.0" layoutY="252.0" text="Please Enter your MySQL credentials">
       <StackPane.margin>
@@ -72,6 +52,27 @@
          <DropShadow />
       </effect>
    </Label>
+   <Label layoutX="234.0" layoutY="352.0" text="IP OF SERVER">
+      <StackPane.margin>
+         <Insets right="335.0" />
+      </StackPane.margin>
+   </Label>
+   <Label text="USER ID" StackPane.alignment="CENTER">
+      <StackPane.margin>
+         <Insets right="305.0" top="100.0" />
+      </StackPane.margin>
+   </Label>
+   <Label text="PASSWORD">
+      <StackPane.margin>
+         <Insets right="330.0" top="200.0" />
+      </StackPane.margin>
+   </Label>
+   <TextField fx:id="ipTxt" layoutX="310.0" layoutY="347.0" maxWidth="200.0" minWidth="200.0" />
+   <TextField fx:id="userIdTxt" maxWidth="200.0" minWidth="200.0">
+      <StackPane.margin>
+         <Insets top="100.0" />
+      </StackPane.margin>
+   </TextField>
    <PasswordField fx:id="passwordTxt" maxWidth="200.0" minWidth="200.0">
       <StackPane.margin>
          <Insets top="200.0" />
@@ -82,6 +83,11 @@
          <Insets top="250.0" />
       </StackPane.margin>
    </Label>
+   <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#callLogin" text="Login" StackPane.alignment="CENTER">
+      <StackPane.margin>
+         <Insets top="300.0" />
+      </StackPane.margin>
+   </Button>
    <StackPane fx:id="databaseStackpane" maxHeight="120.0" minHeight="120.0" prefHeight="120.0" prefWidth="200.0" visible="false" StackPane.alignment="BOTTOM_CENTER">
       <StackPane.margin>
          <Insets top="500.0" />
@@ -105,10 +111,4 @@
          </Label>
       </children>
    </StackPane>
-   <TextField fx:id="ipTxt" layoutX="310.0" layoutY="347.0" maxWidth="200.0" minWidth="200.0" />
-   <Label layoutX="234.0" layoutY="352.0" text="IP OF SERVER">
-      <StackPane.margin>
-         <Insets right="335.0" />
-      </StackPane.margin>
-   </Label>
 </StackPane>

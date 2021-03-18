@@ -1,7 +1,6 @@
 package sample.ADM;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,6 +14,7 @@ import java.time.LocalDate;
 public class addUserController {
 
     public Label userAddedTxt;
+    public ComboBox departmentCB;
     String Query;
 
     @FXML
@@ -26,12 +26,6 @@ public class addUserController {
     @FXML
     private TextField Name,email,two_pass,two_passconf;
 
-    @FXML
-    private Button backButton,two_SignUPbtn;
-
-
-
-
 
     int newUserID(){
         int ID=1000;
@@ -40,7 +34,7 @@ public class addUserController {
             Statement stmt = con1.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT NumericID FROM HMS");
             while(rs.next()){
-                ID=rs.getInt("NumericID");
+                if(rs.getInt("NumericID")>ID) ID=rs.getInt("NumericID");
             }
             con1.close();
         }catch (Exception e){
@@ -78,11 +72,11 @@ public class addUserController {
             try{
                 Connection con = sample.common.getConnect();
                 Statement st = con.createStatement();
-                Query = "INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord,Joining) VALUES " +
-                        "('" + completeProfileController.nameLoggedIn + "','" + fullUID + "','" + uID + "','" + job + "','" + emailAddress + "','" + pass + "','" + LocalDate.now() +"')";
+                Query = String.format("INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord,Joining) VALUES ('%s','%s','%d','%s','%s','%s','%s')", userName, fullUID, uID, job, emailAddress, pass, LocalDate.now());
+                if(job.equals("Doctor")) Query = String.format("INSERT INTO HMS (userName,UserID,NumericID,Role,personalEmail,PassWord,Joining,Designation) VALUES ('%s','%s','%d','%s','%s','%s','%s','%s')", userName, fullUID, uID, job, emailAddress, pass, LocalDate.now(), departmentCB.getValue());
                 st.executeUpdate(Query);
                 {
-                    String userAddedGreet = "User Account for "+userName+" has been created.\nUSER ID : "+fullUID+"\nPASSWORD : "+confPass;
+                    String userAddedGreet = String.format("User Account for %s has been created.\nUSER ID : %s\nPASSWORD : %s", userName, fullUID, confPass);
                     userAddedTxt.setText(userAddedGreet);
                     Name.setText("");
                     email.setText("");
@@ -101,4 +95,8 @@ public class addUserController {
 
     }
 
+    public void callCheckRole() {
+        String job= (String) jobChoice.getValue();
+        departmentCB.setVisible(job.equals("Doctor"));
+    }
 }
