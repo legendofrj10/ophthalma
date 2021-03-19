@@ -5,74 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientsAndScansController">
-    <TextField fx:id="searchPatientField" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient (patient id)" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="20.0" top="70.0" />
-        </StackPane.margin>
-    </TextField>
-    <Button fx:id="searchBtn" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSearch" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="230.0" top="70.0" />
-        </StackPane.margin>
-        <graphic>
-            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../Assets/search.png" />
-            </ImageView>
-        </graphic>
-    </Button>
-    <Label fx:id="noPatientMatchLbl" prefHeight="16.0" prefWidth="0.0" textFill="RED" StackPane.alignment="TOP_LEFT">
-        <StackPane.margin>
-          <Insets left="270.0" top="80.0" />
-        </StackPane.margin>
-    </Label>
-   <StackPane>
-      <StackPane.margin>
-         <Insets top="100.0" />
-      </StackPane.margin>
-      <children>
-           <HBox maxWidth="1.7976931348623157E308" prefHeight="280.0" prefWidth="600.0">
-               <ListView fx:id="patientListName" cacheShape="false" centerShape="false" focusTraversable="false" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS" />
-               <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </ListView>
-               <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
-                   <HBox.margin>
-                       <Insets />
-                   </HBox.margin>
-               </ListView>
-            <StackPane.margin>
-               <Insets bottom="20.0" left="20.0" right="20.0" />
-            </StackPane.margin>
-           </HBox>
-      </children>
-   </StackPane>
-    <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientsAndScansController">
+    <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="patientsAndScansBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
             <font>
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets left="190.0" top="7.0" />
+                <Insets left="190.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="dashboardBTN" focusTraversable="false" minHeight="25.0" mnemonicParsing="false" onAction="#callDashboard" text="DashBoard" StackPane.alignment="TOP_LEFT">
+        <Button fx:id="dashboardBTN" focusTraversable="false" mnemonicParsing="false" onAction="#callDashboard" prefHeight="40.0" prefWidth="79.0" text="DashBoard" StackPane.alignment="TOP_LEFT">
             <font>
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets left="110.0" top="7.0" />
+                <Insets left="110.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="logOutBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="logOutBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../Assets/logoutDark.png" />
@@ -82,7 +41,7 @@
                 <Font size="10.0" />
             </font>
             <StackPane.margin>
-                <Insets right="15.0" top="7.0" />
+                <Insets />
             </StackPane.margin>
         </Button>
         <Label prefHeight="16.0" prefWidth="99.0" text="OSPITALITY" StackPane.alignment="TOP_LEFT">
@@ -96,7 +55,7 @@
                 <Insets top="11.0" />
             </StackPane.margin>
         </Label>
-        <Button fx:id="settingsBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="settingsBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <font>
                 <Font size="10.0" />
             </font>
@@ -106,10 +65,10 @@
                 </ImageView>
             </graphic>
             <StackPane.margin>
-                <Insets right="55.0" top="7.0" />
+                <Insets right="40.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="notificationBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="notificationBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../Assets/notificationDark.png" />
@@ -119,10 +78,10 @@
                 <Font size="9.0" />
             </font>
             <StackPane.margin>
-                <Insets right="95.0" top="7.0" />
+                <Insets right="80.0" />
             </StackPane.margin>
         </Button>
-        <Button fx:id="chatBubbleBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="chatBubbleBTN" focusTraversable="false" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../Assets/chatDark.png" />
@@ -132,8 +91,71 @@
                 <Font size="9.0" />
             </font>
             <StackPane.margin>
-                <Insets right="135.0" top="7.0" />
+                <Insets right="120.0" />
             </StackPane.margin>
         </Button>
     </StackPane>
+    <TextField fx:id="searchPatientField" focusTraversable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient (patient id)" StackPane.alignment="TOP_CENTER">
+        <StackPane.margin>
+          <Insets right="30.0" top="50.0" />
+        </StackPane.margin>
+    </TextField>
+    <Button fx:id="searchBtn" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#callSearch" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_CENTER">
+        <StackPane.margin>
+          <Insets left="205.0" top="50.0" />
+        </StackPane.margin>
+        <graphic>
+            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Assets/search.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Label fx:id="noPatientMatchLbl" style="-fx-text-fill: red;" textFill="RED" StackPane.alignment="TOP_CENTER">
+        <StackPane.margin>
+          <Insets top="85.0" />
+        </StackPane.margin>
+    </Label>
+   <StackPane>
+      <StackPane.margin>
+         <Insets top="150.0" />
+      </StackPane.margin>
+      <children>
+           <HBox maxWidth="1.7976931348623157E308" prefHeight="280.0" prefWidth="600.0">
+               <ListView fx:id="patientListName" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+               <effect>
+                  <DropShadow />
+               </effect></ListView>
+               <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ListView>
+               <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+                   <HBox.margin>
+                       <Insets />
+                   </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+               </ListView>
+            <StackPane.margin>
+               <Insets bottom="20.0" left="20.0" right="20.0" />
+            </StackPane.margin>
+           </HBox>
+      </children>
+   </StackPane>
+   <Label text="RECENTLY EXAMINED" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="22.0" />
+      </font>
+      <effect>
+         <Glow level="0.61" />
+      </effect>
+      <StackPane.margin>
+         <Insets top="110.0" />
+      </StackPane.margin>
+   </Label>
 </StackPane>

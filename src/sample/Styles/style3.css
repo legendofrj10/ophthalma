@@ -35,9 +35,19 @@
 
 .list-view{
     -fx-background-color: inherit;
+    -fx-border-color: #464546;
 
 }
 
+.list-cell:odd{
+    -fx-background-color: #212a2b;
+    -fx-text-fill: whitesmoke;
+}
+
+.list-cell:even{
+    -fx-background-color: #2b2121;
+    -fx-text-fill: whitesmoke;
+}
 
 .root{
     -fx-background-color: #3d3d3d;
@@ -57,6 +67,7 @@
     -fx-border-style: none;
     -fx-background-color: #464546;
     -fx-text-fill: whitesmoke;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10, 0, 0, 0);
 }
 
 .button:hover{
@@ -64,10 +75,14 @@
     -fx-text-fill: aqua;
 }
 
-.button:pressed{
+.button:pressed {
     -fx-border-style: solid;
     -fx-border-color: #013223;
     -fx-effect: none;
     -fx-text-fill: #124242;
     -fx-border-radius: 3px;
+}
+
+.date-picker .label{
+    -fx-text-fill: black;
 }

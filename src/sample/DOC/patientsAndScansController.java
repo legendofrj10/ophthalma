@@ -18,6 +18,7 @@ import java.util.Objects;
 public class patientsAndScansController {
     static int i=0;
 
+
     public ListView<String> patientListName;
     public ListView<String> patientListLD;
     public ListView<String> patientListPE;
@@ -103,7 +104,6 @@ public class patientsAndScansController {
         i=0;
         Connection con = common.getConnect();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from patients order by last_diagnosed desc");
 
         patientListName.getItems().add("NAME");
         patientListName.getItems().add("  ");
@@ -114,39 +114,50 @@ public class patientsAndScansController {
         patientListPE.getItems().add("PATIENT ID");
         patientListPE.getItems().add("  ");
 
-        try{
-            while(rs.next() && i<5){
-                String name = rs.getString("name");
-                String lD = rs.getString("last_diagnosed");
-                String pE = rs.getString("patient_id");
-                patientListName.getItems().add(name);
-                patientListLD.getItems().add(lD);
-                patientListPE.getItems().add(pE);
-                i++;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+        ResultSet rs = st.executeQuery(String.format("SELECT * FROM visited WHERE department like '%s'",sample.user.getDesignation()));
+
+        while(rs.next() && i<5){
+            patientListPE.getItems().add(rs.getString(2));
+
+            ResultSet rs1 = sample.common.getConnect().createStatement().executeQuery(
+                    String.format("SELECT name,last_diagnosed FROM patients WHERE patient_id like '%s'", rs.getString("patient"))
+            );
+            String name="";
+            String lD="";
+            if(rs1.next()){
+                name = rs1.getString("name");
+                lD = rs1.getString("last_diagnosed");
+            }rs1.close();
+            patientListName.getItems().add(name);
+            patientListLD.getItems().add(lD);
+            i++;
         }
+
         con.close();
     }
 
     public void callSearch() throws SQLException, IOException {
-        String id = searchPatientField.getText();
-        Connection con = common.getConnect();
+        Connection con = sample.common.getConnect();
         Statement st = con.createStatement();
-        String Query = "SELECT * FROM patients WHERE patient_id='" + id + "'";
-        ResultSet rs = st.executeQuery(Query);
-        if(rs.next()){
-            patientController.patID = id;
-            Stage stage = (Stage) searchBtn.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
-            Scene sc = stage.getScene();
-            Scene scene  = new Scene(root,sc.getWidth(),sc.getHeight());
-            stage.setScene(scene);
+
+        if(st.executeQuery(String.format("SELECT * FROM appointments WHERE patient like '%s' AND date like '%s'", searchPatientField.getText(),sample.common.getToday())).next()){
+            String id = searchPatientField.getText();
+            String Query = String.format("SELECT * FROM patients WHERE patient_id='%s'", id);
+            ResultSet rs = st.executeQuery(Query);
+            if(rs.next()){
+                patientController.patID = id;
+                Stage stage = (Stage) searchBtn.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
+                Scene sc = stage.getScene();
+                Scene scene  = new Scene(root,sc.getWidth(),sc.getHeight());
+                stage.setScene(scene);
+            }
+            else{
+                noPatientMatchLbl.setText("No such patient registered!");
+            }
+            con.close();
+        }else{
+            noPatientMatchLbl.setText("No appointment Today For Patient "+searchPatientField.getText());
         }
-        else{
-            noPatientMatchLbl.setText("No such patient registered!");
-        }
-        con.close();
     }
 }

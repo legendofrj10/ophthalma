@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -29,6 +28,7 @@ public class patientController {
     public Button generatePrescriptionBTN;
     public TextField labtestName;
     public Button assignLabtestBTN;
+
 
     @FXML
     private Button backBtn;
@@ -45,7 +45,7 @@ public class patientController {
     String pName = "";
     String pGender = "";
     String pRemark = "";
-    String pAge = "";
+    int pAge = 0;
 
 
     @FXML
@@ -53,7 +53,7 @@ public class patientController {
         remarks.setWrapText(true);
         System.out.println(patID);
 
-        String Query = "SELECT * FROM patients WHERE patient_id='" + patID + "'";
+        String Query = String.format("SELECT * FROM patients WHERE patient_id='%s'", patID);
         System.out.println(Query);
         try{
             Connection con = sample.common.getConnect();
@@ -63,7 +63,7 @@ public class patientController {
                 pName = rs.getString("name");
                 pGender = rs.getString("gender");
                 pRemark = rs.getString("remarks");
-                pAge = rs.getString("age");
+                pAge = rs.getInt("age");
             }
             con.close();
 
@@ -71,15 +71,12 @@ public class patientController {
             e.printStackTrace();
         }
         patientName.setText(pName);
-        patientAge.setText("( " + pAge + " )");
-        Image image;
+        patientAge.setText(String.valueOf(pAge));
         if(pGender.equals("male")){
-            image = new Image("file:src/sample/photos/male.png");
+            gender.setImage(new Image("sample/Assets/male.png"));
         }else{
-            image = new Image("file:src/sample/photos/female.png");
+            gender.setImage(new Image("sample/Assets/female.png"));
         }
-        gender.setImage(image);
-
         remarks.setText(pRemark);
 
     }
@@ -96,6 +93,7 @@ public class patientController {
 
     @FXML
     void callEditRemarks() {
+
         String remark = remarks.getText();
         String Query = String.format("UPDATE patients SET remarks = '%s',last_diagnosed " +
                 "= '%s %s' WHERE patient_id = '%s'", remark, LocalDate.now(),
@@ -110,40 +108,32 @@ public class patientController {
             rs = st.executeQuery(String.format("SELECT * FROM everydayDetails " +
                     "WHERE date like '%s'", sample.common.getToday()));
             int visits=0;
-            int males=0;
-            int females=0;
             if(rs.next()){
                 visits = rs.getInt(4);
                 visits++;
-                males = rs.getInt(5);
-                females = rs.getInt(6);
-
-            }
-            if (pGender.equals("male")) {
-                males++;
-            } else {
-                females++;
-            }
-            rs = st.executeQuery(String.format("SELECT * FROM everydayDetails WHERE date " +
-                    "like '%s'", sample.common.getToday()));
-            if(rs.next()){
                 st.executeUpdate(String.format("UPDATE everydayDetails SET visitsToday='%d'" +
-                        ",maleVisits='%d',femaleVisits='%d' WHERE date like '%s'",
-                        visits,males,females,sample.common.getToday()));
-
+                                " WHERE date like '%s'",
+                        visits,sample.common.getToday()));
             }else{
                 st.executeUpdate(String.format("INSERT INTO everydayDetails VALUES " +
-                        "('%s',0,0,1,'%d','%d')",
-                        sample.common.getToday(), males, females));
+                        "('%s',0,0,1)",
+                        sample.common.getToday()));
             }
 
-            if(!st.executeQuery(String.format("SELECT * FROM visits WHERE Date like '%s'", sample.common.getToday())).next()){
-                st.executeUpdate(String.format("INSERT INTO visits (Date) value ('%s')",sample.common.getToday()));
-            }
             rs = st.executeQuery(String.format("SELECT * FROM visits WHERE Date like '%s'", sample.common.getToday()));
-            while(rs.next()){
-
+            String ageGrp= String.format("patientAge%d_%d", pAge + 1 - pAge % 10, pAge + 10 - pAge%10) ;
+            String gender= String.format("%sVisits",pGender.equals("male")?"male":"female");
+            if(rs.next()){
+                int genderCount = rs.getInt(gender);
+                genderCount++;
+                int count = rs.getInt(ageGrp);
+                count++;
+                st.executeUpdate(String.format("UPDATE visits SET %s='%d',%s='%d' WHERE Date like '%s'",ageGrp,count,gender,genderCount,sample.common.getToday()));
+            }else{
+                st.executeUpdate(String.format("INSERT INTO visits (Date,%s,%s) value ('%s',1,1)",ageGrp,gender,sample.common.getToday()));
             }
+
+            st.executeUpdate(String.format("INSERT INTO visited VALUES ('%s','%s','%s','%s')",sample.common.getToday(),patID,sample.user.getDesignation(),sample.user.getUserName()));
 
             con.close();
         }catch (Exception e){

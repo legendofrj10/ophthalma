@@ -81,16 +81,20 @@ public class dashboardController {
             XYChart.Series seriesNewPatients = new XYChart.Series();
             seriesNewPatients.setName("New Patients");
 
+            XYChart.Series seriesVisits = new XYChart.Series();
+            seriesVisits.setName("Visits");
+
             LocalDate lastDay = common.getToday();
             int i=0;
             while(rs.next() && i<7){
                 seriesAppointment.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().name(),rs.getInt(2)));
                 seriesNewPatients.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().name(),rs.getInt(3)));
+                seriesVisits.getData().add(new XYChart.Data(rs.getDate(1).toLocalDate().getDayOfWeek().name(),rs.getInt(4)));
                 if(!rs.getDate(1).toLocalDate().equals(lastDay)) i++;
             }
             weaklyLineChart.getData().add(seriesAppointment);
             weaklyLineChart.getData().add(seriesNewPatients);
-
+            weaklyLineChart.getData().add(seriesVisits);
 
 
         } catch (SQLException throwables) {
