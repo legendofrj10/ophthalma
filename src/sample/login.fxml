@@ -9,10 +9,11 @@
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" stylesheets="@Styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+<StackPane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" stylesheets="@Styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
    <TextField fx:id="loginIdField" focusTraversable="false" layoutX="50.0" layoutY="50.0" maxHeight="10.0" maxWidth="250.0" prefHeight="10.0" prefWidth="117.0" promptText="ID">
       <StackPane.margin>
          <Insets bottom="150.0" />
@@ -53,7 +54,7 @@
          <DropShadow />
       </effect>
    </Button>
-   <Button fx:id="troublebtn" maxWidth="250.0" mnemonicParsing="false" onAction="#troubleLogin" prefHeight="26.0" prefWidth="250.0" text="Trouble in login" textFill="WHITE" StackPane.alignment="CENTER">
+   <Button fx:id="troublebtn" maxWidth="250.0" mnemonicParsing="false" onAction="#troubleLogin" prefHeight="26.0" prefWidth="250.0" style="-fx-text-fill: white;" text="Trouble in login" textFill="WHITE" visible="false" StackPane.alignment="CENTER">
       <StackPane.margin>
          <Insets top="150.0" />
       </StackPane.margin>
@@ -83,10 +84,27 @@
       </StackPane.margin>
       <graphic>
          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@Assets/quitDark.png" />
-            </image>
+            <Image url="@Assets/quitDark.png" />
          </ImageView>
       </graphic>
    </Button>
+   <AnchorPane fx:id="troublePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #3b3b3b;" visible="false">
+      <StackPane.margin>
+         <Insets />
+      </StackPane.margin>
+      <effect>
+         <DropShadow />
+      </effect>
+      <Label layoutX="97.0" layoutY="29.0" text="Contact Your Administrator For New Password!" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="165.0" layoutY="75.0" mnemonicParsing="false" onAction="#callRequest" style="-fx-text-fill: white;" text="Request New Password" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label layoutX="480.0" layoutY="4.0" onMouseClicked="#callHide" text="X" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </AnchorPane>
 </StackPane>

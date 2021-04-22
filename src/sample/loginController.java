@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -15,8 +17,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -24,6 +26,10 @@ public class loginController {
 
     public Button quitBTN;
     static String uid="";
+    public AnchorPane troublePane;
+    public Button callRequest;
+    public Label callHide;
+    public StackPane mainPane;
     String pass="";
 
     @FXML
@@ -50,7 +56,7 @@ public class loginController {
         Parent root;
         root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
 
-        if(fUName.exists() && fPass.exists()){
+        if(fUName.exists() && fPass.exists() && fUName.length()!=0 && fPass.length()!=0){
             FileInputStream fisName = new FileInputStream(fUName);
             FileInputStream fisPass = new FileInputStream(fPass);
             Scanner reader;
@@ -68,10 +74,22 @@ public class loginController {
             }
             reader.close();
 
-            System.out.println(sample.common.getN());
-            System.out.println(sample.common.getP());
+            System.out.println(common.getN());
+            System.out.println(common.getP());
         }else{
             root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
+        }
+
+        Scanner reader;
+
+        try (FileInputStream ipFile = new FileInputStream(sample.common.getWorkingDirectory()+"ip")) {  //1
+            reader = new Scanner(ipFile);   //2
+            while (reader.hasNextLine()){   //3
+                common.IP = reader.nextLine();  //4
+            }   //5
+        }   //6
+        catch (IOException e) {   //7
+            e.printStackTrace();
         }
 
         Scene scene = new Scene(root);
@@ -83,28 +101,18 @@ public class loginController {
 
     @FXML
     void callLogin() {
-        Scanner reader;
 
-        try (FileInputStream ipFile = new FileInputStream(sample.common.getWorkingDirectory()+"ip")) {
-            reader = new Scanner(ipFile);
-            while (reader.hasNextLine()){
-                common.IP = reader.nextLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         uid = loginIdField.getText();
         pass = loginPassField.getText();
         System.out.println(uid+"    "+pass);
-        if(uid.length()!=0 && pass.length()!=0){
-            String Query;
-            try{
+        if(uid.length()!=0 && pass.length()!=0){    //1
+            try{    //2
                 Connection con = sample.common.getConnect();
-                Statement st = con.createStatement();
-                ResultSet rs=st.executeQuery(String.format("SELECT * FROM HMS WHERE userID='%s'", uid));
+                Statement st = con.createStatement();   //3
+                ResultSet rs=st.executeQuery(String.format("SELECT * FROM HMS WHERE userID='%s'", uid));    //4
                 String password="";
-                while(rs.next()){
+                while(rs.next()){   //5
                     password=rs.getString("PassWord");
                     user.userName=rs.getString("userName");
                     user.userID=rs.getString("UserID");
@@ -117,27 +125,29 @@ public class loginController {
                     user.address=rs.getString("Address");
                     user.joiningDate=rs.getString("Joining");
                     user.profileCompleted=rs.getInt(4)==1;
-                }
+                }   //6
 
-                if(pass.equals(password)){
-                    user.setPassword(password);
+                if(pass.equals(password)){  //7
+                    user.setPassword(password); //8
                     Stage stage = (Stage)loginbtn.getScene().getWindow();
 
                     common.setUserLoggedIn(uid);
                     Dashboard(stage);
-                }else{
+                }
+                else{   //9
                     loginerror.setText("PLEASE CHECK CREDENTIALS!!!!");
                 }
                 con.close();
-            }catch (Exception e){
+            }   //10
+            catch (Exception e){    //11
                 e.printStackTrace();
             }
         }
-        else{
+        else{   //12
             loginerror.setText("ID OR PASSWORD CAN'T BE EMPTY!!!!");
         }
 
-    }
+    }   //13
 
 
     @FXML
@@ -159,10 +169,32 @@ public class loginController {
 
     @FXML
     void troubleLogin() {
+        //mainPane.setDisable(true);
+        Connection con = common.getConnect();
+
+        troublePane.setVisible(true);
     }
 
 
     public void callQuit() {
         System.exit(0);
+    }
+
+    public void callRequest() {
+        Connection con = common.getConnect();
+        String id = loginIdField.getText();
+        System.out.println(id);
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(String.format("INSERT INTO passwordRequests VALUES ('%s')", id));
+            con.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void callHide() {
+        troublePane.setVisible(false);
+        mainPane.setDisable(false);
     }
 }

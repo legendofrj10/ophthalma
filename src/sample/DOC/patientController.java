@@ -10,11 +10,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,7 +31,11 @@ public class patientController {
     public Button generatePrescriptionBTN;
     public TextField labtestName;
     public Button assignLabtestBTN;
+    public Label confermationTxt;
+    public Button confermBTN;
+    public StackPane confermPane;
 
+    String test="";
 
     @FXML
     private Button backBtn;
@@ -107,7 +114,7 @@ public class patientController {
             ResultSet rs;
             rs = st.executeQuery(String.format("SELECT * FROM everydayDetails " +
                     "WHERE date like '%s'", sample.common.getToday()));
-            int visits=0;
+            int visits;
             if(rs.next()){
                 visits = rs.getInt(4);
                 visits++;
@@ -152,5 +159,24 @@ public class patientController {
     }
 
     public void callAssignLabtest() {
+        test = labtestName.getText();
+        confermPane.setVisible(true);
+        confermationTxt.setText(String.format("Patient %s will be assigned with\nlabtest %s",patientName.getText(),test));
+    }
+
+    public void callAssignIt( ) {
+        Connection con = sample.common.getConnect();
+        try {
+            con.createStatement().executeUpdate("INSERT INTO labtests (assignmentDate,patient,testName) VALUES ('" + sample.common.getToday() + "','" + patID + "','" + test + "')");
+            con.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        confermPane.setVisible(false);
+    }
+
+    public void callDontAssign(MouseEvent mouseEvent) {
+        confermPane.setVisible(false);
+        labtestName.setText("");
     }
 }

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class completeProfileController {
+    public Label errorphno;
     String Query;
     public static String IDLoggedIn;
     public static String nameLoggedIn;
@@ -46,33 +47,43 @@ public class completeProfileController {
         String secondaryEmail = secEmail.getText();
         String Addr = Address.getText();
 
-        try{
-            Connection con = common.getConnect();
-            Query = String.format("UPDATE HMS SET profileComplete=1, " +
-                    "gender='%s',Designation='%s',mobileNumber=%s," +
-                    "workEmail='%s',Address='%s' WHERE UserID='%s'"
-                    , Gender, Desig, PHNo, secondaryEmail, Addr,
-                    IDLoggedIn);
-            Statement st = con.createStatement();
-            System.out.println(Query);
-            st.executeUpdate(Query);
-            con.close();
-            Stage stage = (Stage) submitBTN.getScene().getWindow();
+        try {
+            double d = Double.parseDouble(PHNo);
+            errorphno.setText("");
+            try{
+                Connection con = common.getConnect();
+                Query = String.format("UPDATE HMS SET profileComplete=1, " +
+                                "gender='%s',Designation='%s',mobileNumber=%s," +
+                                "workEmail='%s',Address='%s' WHERE UserID='%s'"
+                        , Gender, Desig, PHNo, secondaryEmail, Addr,
+                        IDLoggedIn);
+                Statement st = con.createStatement();
+                System.out.println(Query);
+                st.executeUpdate(Query);
+                con.close();
+                Stage stage = (Stage) submitBTN.getScene().getWindow();
 
-            user.profileCompleted=true;
-            user.gender=Gender;
-            user.designation=Desig;
-            user.phno=PHNo;
-            user.workEmail=secondaryEmail;
-            user.address=Addr;
+                user.profileCompleted=true;
+                user.gender=Gender;
+                user.designation=Desig;
+                user.phno=PHNo;
+                user.workEmail=secondaryEmail;
+                user.address=Addr;
 
-            con.close();
+                con.close();
 
-            loginController.Dashboard(stage);
+                loginController.Dashboard(stage);
 
-        }catch (Exception e){
-            e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }catch(NumberFormatException e){
+            errorphno.setText("Enter Correct Number");
         }
+
+
+
+
 
 
     }

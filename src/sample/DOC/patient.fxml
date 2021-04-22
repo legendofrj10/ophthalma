@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientController">
    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="240.0">
       <StackPane.margin>
          <Insets bottom="30.0" />
@@ -77,4 +77,27 @@
          <Insets bottom="20.0" left="20.0" />
       </StackPane.margin>
    </TextField>
+   <StackPane fx:id="confermPane" maxHeight="100.0" maxWidth="400.0" style="-fx-background-color: #323232;"
+              visible="false">
+      <Label fx:id="confermationTxt" textAlignment="CENTER" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="Ubuntu" size="18.0"/>
+         </font>
+         <StackPane.margin>
+            <Insets top="10.0"/>
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="confermBTN" mnemonicParsing="false" onAction="#callAssignIt" text="Assign"
+              StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="10.0"/>
+         </StackPane.margin>
+      </Button>
+      <Label fx:id="cancel" onMouseClicked="#callDontAssign" stylesheets="@../Styles/style3.css" text="X"
+             StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="5.0" top="5.0"/>
+         </StackPane.margin>
+      </Label>
+   </StackPane>
 </StackPane>

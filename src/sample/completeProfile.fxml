@@ -121,5 +121,10 @@
             <Insets top="300.0" />
          </StackPane.margin>
       </Button>
+      <Label fx:id="errorphno" style="-fx-text-fill: red;" textFill="RED">
+         <StackPane.margin>
+            <Insets left="350.0" top="100.0" />
+         </StackPane.margin>
+      </Label>
    </children>
 </StackPane>

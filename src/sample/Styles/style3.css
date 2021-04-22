@@ -54,6 +54,9 @@
 
 }
 
+#cancel:hover{
+    -fx-text-fill: aqua;
+}
 
 .split-pane{
     -fx-background-color: #3b3b3b;
