@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class labtestsController {
 
@@ -28,7 +29,7 @@ public class labtestsController {
     @FXML
     void callBack( ) throws IOException {
         Stage stage = (Stage) backBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

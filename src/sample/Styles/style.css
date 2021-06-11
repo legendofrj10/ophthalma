@@ -9,6 +9,9 @@
     -fx-background-color: #403434;
 }
 
+.button:pressed{
+    -fx-effect: null;
+}
 
 .text-field{
     -fx-background-color: #474546;
@@ -17,4 +20,50 @@
 
 .text-field:hover{
     -fx-background-color: #403434;
+}
+
+#noLogOutBtn:hover{
+    -fx-text-fill: aqua;
+
+}
+
+#noLogOutBtn:pressed{
+    -fx-effect: none;
+}
+
+.tab-pane{
+    -fx-padding: 0 -1 -1 -1;
+    -fx-tab-header-area-background: black;
+}
+
+.tab-pane *.tab-header-area *.tab-header-background {
+    -fx-background-color:transparent;
+
+}
+
+.tab{
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: #2b2121;
+}
+
+.tab:hover{
+    -fx-background-color: #403434;
+
+}
+
+.tab:selected{
+    -fx-background-color: #737373;
+}
+
+.tab-label{
+    -fx-text-fill: white;
+}
+
+.tab-label:hover{
+    -fx-text-fill: aqua;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
 }

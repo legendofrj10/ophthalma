@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -54,7 +55,7 @@ public class loginController {
         File fUName = new File(common.getWorkingDirectory()+"dbUName");
         File fPass = new File(common.getWorkingDirectory()+"dbPass");
         Parent root;
-        root = FXMLLoader.load(loginController.class.getResource("login.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(loginController.class.getResource("login.fxml")));
 
         if(fUName.exists() && fPass.exists() && fUName.length()!=0 && fPass.length()!=0){
             FileInputStream fisName = new FileInputStream(fUName);
@@ -77,7 +78,7 @@ public class loginController {
             System.out.println(common.getN());
             System.out.println(common.getP());
         }else{
-            root = FXMLLoader.load(loginController.class.getResource("database.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(loginController.class.getResource("database.fxml")));
         }
 
         Scanner reader;
@@ -154,10 +155,10 @@ public class loginController {
     static void Dashboard(Stage stage) throws Exception{
         String dashboardPath = user.userID.substring(0, 3);
         System.out.println(dashboardPath);
-        Parent root = FXMLLoader.load(loginController.class.getResource(dashboardPath + "/dashboard.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(loginController.class.getResource(dashboardPath + "/dashboard.fxml")));
 
         if(!user.profileCompleted){
-            root=FXMLLoader.load(loginController.class.getResource("completeProfile.fxml"));
+            root=FXMLLoader.load(Objects.requireNonNull(loginController.class.getResource("completeProfile.fxml")));
         }
         Scene sc = stage.getScene();
         assert root != null;

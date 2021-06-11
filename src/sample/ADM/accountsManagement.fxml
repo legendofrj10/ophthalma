@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
+<StackPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="accountsManagementBtn" disable="true" minHeight="40.0" mnemonicParsing="false" onAction="#callAccountsManagement" text="Accounts Management" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <font>
@@ -32,7 +32,7 @@
         <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="/sample/Assets/logoutDark.png" />
+                    <Image url="@../Assets/logoutDark.png" />
                 </ImageView>
             </graphic>
             <font>
@@ -93,21 +93,25 @@
             </StackPane.margin>
         </Button>
     </StackPane>
-   <SplitPane dividerPositions="0.2993311036789298" prefHeight="364.0" prefWidth="600.0" stylesheets="@../Styles/style3.css">
-     <items>
-       <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="348.0" prefWidth="175.0" stylesheets="@../Styles/style3.css">
-            <children>
-               <Button fx:id="addUserBtn" layoutX="-3.0" layoutY="-6.0" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" onAction="#callAddUser" prefHeight="40.0" prefWidth="182.0" text="Add User" AnchorPane.topAnchor="0.0">
-                  <font>
-                     <Font name="FreeSans" size="13.0" />
-                  </font></Button>
-               <Button fx:id="modifyUserBtn" layoutX="-3.0" layoutY="34.0" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#callModifyUser" prefHeight="40.0" prefWidth="182.0" text="Modify User Data" AnchorPane.topAnchor="41.0" />
-            </children>
-         </AnchorPane>
-         <BorderPane fx:id="innerStage" stylesheets="@../Styles/style3.css" />
-     </items>
-      <StackPane.margin>
-         <Insets top="40.0" />
-      </StackPane.margin>
-   </SplitPane>
+    <SplitPane dividerPositions="0.2993311036789298" prefHeight="364.0" prefWidth="600.0"
+               stylesheets="@../Styles/style3.css">
+        <StackPane.margin>
+            <Insets top="40.0"/>
+        </StackPane.margin>
+        <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="348.0" prefWidth="175.0"
+                    stylesheets="@../Styles/style3.css">
+            <Button fx:id="addUserBtn" layoutX="-3.0" layoutY="-6.0" maxHeight="40.0"
+                    maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="0.0" mnemonicParsing="false"
+                    onAction="#callAddUser" prefHeight="40.0" prefWidth="182.0" text="Add User"
+                    AnchorPane.topAnchor="0.0">
+                <font>
+                    <Font name="FreeSans" size="13.0"/>
+                </font>
+            </Button>
+            <Button fx:id="modifyUserBtn" layoutX="-3.0" layoutY="34.0" maxHeight="40.0" minHeight="40.0"
+                    mnemonicParsing="false" onAction="#callModifyUser" prefHeight="40.0" prefWidth="182.0"
+                    text="Modify User Data" AnchorPane.topAnchor="41.0"/>
+        </AnchorPane>
+        <BorderPane fx:id="innerStage" stylesheets="@../Styles/style3.css"/>
+    </SplitPane>
 </StackPane>

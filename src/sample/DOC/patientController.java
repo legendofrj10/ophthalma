@@ -22,6 +22,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class patientController {
 
@@ -34,6 +35,7 @@ public class patientController {
     public Label confermationTxt;
     public Button confermBTN;
     public StackPane confermPane;
+    public Label cancel;
 
     String test="";
 
@@ -91,7 +93,7 @@ public class patientController {
     @FXML
     void callBack() throws IOException {
         Stage stage = (Stage) backBtn.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("patientsAndScans.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -152,7 +154,7 @@ public class patientController {
 
     public void callGeneratePrescription() throws IOException {
         Stage stage = (Stage) backBtn.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("prescription.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("prescription.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -175,7 +177,7 @@ public class patientController {
         confermPane.setVisible(false);
     }
 
-    public void callDontAssign(MouseEvent mouseEvent) {
+    public void callDontAssign() {
         confermPane.setVisible(false);
         labtestName.setText("");
     }

@@ -13,6 +13,7 @@ public class modifyAppointmentController {
     public Label patientName;
     public ComboBox departmentCB;
     public DatePicker datePicker;
+    public Button searchBTN;
     @FXML
     private TextField patientIDTxt;
 

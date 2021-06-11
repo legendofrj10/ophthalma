@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +21,8 @@ public class appointmentController {
     public Button modifyAppointmentBTN;
     @FXML
     public BorderPane appointmentPane;
+    public StackPane navbarStackpane;
+    public StackPane mainpane;
     @FXML
     private Button dashboardBTN;
     @FXML
@@ -37,17 +41,19 @@ public class appointmentController {
 
     @FXML
     void callChatBubble() throws IOException {
-        Stage stage = (Stage) chatBubbleBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("chatBubble.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
+        Popup popup = new Popup();
 
+        popup.getContent().add(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/chatBubble.fxml"))));
+
+        popup.show(notificationBTN.getScene().getWindow(),
+                mainpane.getWidth()-20,
+                mainpane.getHeight()-20 );
+
+    }
     @FXML
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -65,17 +71,21 @@ public class appointmentController {
 
     @FXML
     void callNotifications() throws IOException {
-        Stage stage = (Stage) notificationBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("notifications.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
+        Popup popup = new Popup();
+
+        popup.getContent().add(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/notifications.fxml"))));
+
+        popup.show(notificationBTN.getScene().getWindow(),
+                mainpane.getWidth()-20,
+                100 );
+
+
     }
 
     @FXML
     void callSettings() throws IOException {
         Stage stage = (Stage) settingsBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/settings.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -83,7 +93,7 @@ public class appointmentController {
 
     public void callAppointment() throws IOException {
         Stage stage = (Stage) appointmentBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("appointment.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("appointment.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -91,21 +101,21 @@ public class appointmentController {
 
     public void callReceiptSystem() throws IOException {
         Stage stage = (Stage) receiptSystemBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("receipt.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("receipt.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
 
     public void callNewAppointment() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("newAppointment.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("newAppointment.fxml")));
         appointmentPane.setCenter(root);
         newAppointmentBTN.setDisable(true);
         modifyAppointmentBTN.setDisable(false);
     }
 
     public void callModifyAppointment() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("modifyAppointment.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("modifyAppointment.fxml")));
         appointmentPane.setCenter(root);
         newAppointmentBTN.setDisable(false);
         modifyAppointmentBTN.setDisable(true);

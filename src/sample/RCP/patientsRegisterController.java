@@ -15,12 +15,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 import static sample.common.getConnect;
 
 public class patientsRegisterController {
 
     public Label patientAddedTxt;
+    public Button registerBTN;
     String Query;
 
     @FXML
@@ -59,7 +61,7 @@ public class patientsRegisterController {
     @FXML
     void callBack() throws IOException {
         Stage stage = (Stage) backBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("appointment.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("appointment.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

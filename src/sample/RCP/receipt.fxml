@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.receiptController">
+<StackPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.receiptController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="appointmentBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callAppointment" prefWidth="80.0" text="Appointment" StackPane.alignment="TOP_LEFT">
             <font>
@@ -116,70 +116,72 @@
          <Insets right="100.0" top="75.0" />
       </StackPane.margin>
    </TextField>
-   <GridPane fx:id="billPane" prefHeight="209.0" prefWidth="600.0">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="317.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <StackPane.margin>
-         <Insets bottom="65.0" top="125.0" />
-      </StackPane.margin>
-      <children>
-         <Label text="Appointment Fee" GridPane.rowIndex="1">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label layoutX="10.0" layoutY="15.0" text="charges" GridPane.columnIndex="2">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label layoutX="10.0" layoutY="50.0" text="Prescription Fee" GridPane.rowIndex="2">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label layoutX="10.0" layoutY="95.0" text="Medicine Bills" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label layoutX="30.0" layoutY="127.0" text="Total" GridPane.rowIndex="4">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label fx:id="appointmentFeeTxt" layoutX="540.0" layoutY="15.0" text="charges" GridPane.columnIndex="2" GridPane.rowIndex="1">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label fx:id="medicineBillTxt" layoutX="520.0" layoutY="42.0" text="charges" GridPane.columnIndex="2" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label fx:id="prescriptionFeeTxt" layoutX="520.0" layoutY="42.0" text="charges" GridPane.columnIndex="2" GridPane.rowIndex="2">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-         <Label fx:id="totalBillTxt" layoutX="520.0" layoutY="137.0" text="charges" GridPane.columnIndex="2" GridPane.rowIndex="4">
-            <GridPane.margin>
-               <Insets left="20.0" />
-            </GridPane.margin>
-         </Label>
-      </children>
-   </GridPane>
+    <GridPane fx:id="billPane" prefHeight="209.0" prefWidth="600.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="317.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <StackPane.margin>
+            <Insets bottom="65.0" top="125.0"/>
+        </StackPane.margin>
+        <Label text="Appointment Fee" GridPane.rowIndex="1">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label layoutX="10.0" layoutY="15.0" text="charges" GridPane.columnIndex="2">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label layoutX="10.0" layoutY="50.0" text="Prescription Fee" GridPane.rowIndex="2">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label layoutX="10.0" layoutY="95.0" text="Medicine Bills" GridPane.rowIndex="3">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label layoutX="30.0" layoutY="127.0" text="Total" GridPane.rowIndex="4">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label fx:id="appointmentFeeTxt" layoutX="540.0" layoutY="15.0" text="charges" GridPane.columnIndex="2"
+               GridPane.rowIndex="1">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label fx:id="medicineBillTxt" layoutX="520.0" layoutY="42.0" text="charges" GridPane.columnIndex="2"
+               GridPane.rowIndex="3">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label fx:id="prescriptionFeeTxt" layoutX="520.0" layoutY="42.0" text="charges" GridPane.columnIndex="2"
+               GridPane.rowIndex="2">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+        <Label fx:id="totalBillTxt" layoutX="520.0" layoutY="137.0" text="charges" GridPane.columnIndex="2"
+               GridPane.rowIndex="4">
+           <GridPane.margin>
+               <Insets left="20.0"/>
+           </GridPane.margin>
+        </Label>
+    </GridPane>
    <Button fx:id="submitBTN1" layoutX="378.0" layoutY="85.0" mnemonicParsing="false" onAction="#callSubmit" text="Print" StackPane.alignment="BOTTOM_RIGHT">
       <StackPane.margin>
          <Insets bottom="20.0" right="50.0" />

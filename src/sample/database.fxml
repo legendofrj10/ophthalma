@@ -84,27 +84,26 @@
          <Insets top="300.0" />
       </StackPane.margin>
    </Button>
-   <StackPane fx:id="databaseStackpane" maxHeight="120.0" minHeight="120.0" prefHeight="120.0" prefWidth="200.0" visible="false" StackPane.alignment="BOTTOM_CENTER">
+   <StackPane fx:id="databaseStackpane" maxHeight="120.0" minHeight="120.0" prefHeight="120.0" prefWidth="200.0"
+              visible="false" StackPane.alignment="BOTTOM_CENTER">
       <StackPane.margin>
-         <Insets top="500.0" />
+         <Insets top="500.0"/>
       </StackPane.margin>
-      <children>
-         <Label fx:id="databaseFoundTxt" StackPane.alignment="TOP_CENTER">
-            <StackPane.margin>
-               <Insets top="20.0" />
-            </StackPane.margin>
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label fx:id="settingDatabaseTxt" layoutX="410.0" layoutY="30.0" StackPane.alignment="TOP_CENTER">
-            <font>
-               <Font size="18.0" />
-            </font>
-            <StackPane.margin>
-               <Insets top="65.0" />
-            </StackPane.margin>
-         </Label>
-      </children>
+      <Label fx:id="databaseFoundTxt" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="20.0"/>
+         </StackPane.margin>
+         <font>
+            <Font size="18.0"/>
+         </font>
+      </Label>
+      <Label fx:id="settingDatabaseTxt" layoutX="410.0" layoutY="30.0" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font size="18.0"/>
+         </font>
+         <StackPane.margin>
+            <Insets top="65.0"/>
+         </StackPane.margin>
+      </Label>
    </StackPane>
 </StackPane>

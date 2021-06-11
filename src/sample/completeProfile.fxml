@@ -12,119 +12,118 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.completeProfileController">
-   <children>
-      <Label text="WELCOME" StackPane.alignment="TOP_LEFT">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <StackPane.margin>
-            <Insets left="20.0" top="20.0" />
-         </StackPane.margin>
-      </Label>
-      <Label fx:id="NameUser" text="userName" StackPane.alignment="TOP_LEFT">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <StackPane.margin>
-            <Insets left="130.0" top="20.0" />
-         </StackPane.margin>
-      </Label>
-      <Label text="COMPLETE YOUR PROFILE" StackPane.alignment="TOP_CENTER">
-         <font>
-            <Font size="29.0" />
-         </font>
-         <StackPane.margin>
-            <Insets top="100.0" />
-         </StackPane.margin>
-         <effect>
-            <Reflection topOpacity="0.11" />
-         </effect>
-      </Label>
-      <Label text="User ID" StackPane.alignment="TOP_RIGHT">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <StackPane.margin>
-            <Insets right="120.0" top="20.0" />
-         </StackPane.margin>
-      </Label>
-      <Label fx:id="UID" text="ADM1001" StackPane.alignment="TOP_RIGHT">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <StackPane.margin>
-            <Insets right="20.0" top="20.0" />
-         </StackPane.margin>
-      </Label>
-      <Label text="Gender">
-         <StackPane.margin>
-            <Insets bottom="200.0" right="300.0" />
-         </StackPane.margin>
-      </Label>
-      <Label prefHeight="16.0" prefWidth="109.0" text="Designation">
-         <StackPane.margin>
-            <Insets bottom="100.0" right="300.0" />
-         </StackPane.margin>
-      </Label>
-      <Label prefHeight="16.0" prefWidth="102.0" text="Mobile Number">
-         <StackPane.margin>
-            <Insets right="350.0" top="100.0" />
-         </StackPane.margin>
-      </Label>
-      <Label prefHeight="16.0" prefWidth="123.0" text="Secondary email">
-         <StackPane.margin>
-            <Insets right="350.0" />
-         </StackPane.margin>
-      </Label>
-      <Label prefHeight="20.0" prefWidth="67.0" text="Address">
-         <StackPane.margin>
-            <Insets right="300.0" top="200.0" />
-         </StackPane.margin>
-      </Label>
-      <ComboBox fx:id="gendr" editable="true" prefWidth="200.0">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="MALE" />
-               <String fx:value="FEMALE" />
-            </FXCollections>
-         </items>
-         <StackPane.margin>
-            <Insets bottom="200.0" />
-         </StackPane.margin>
-      </ComboBox>
-      <TextField fx:id="Designation" maxWidth="200.0">
-         <StackPane.margin>
-            <Insets bottom="100.0" />
-         </StackPane.margin>
-      </TextField>
-      <TextField fx:id="secEmail" maxWidth="200.0">
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-      </TextField>
-      <TextField fx:id="phNo" maxWidth="200.0">
-         <StackPane.margin>
-            <Insets top="100.0" />
-         </StackPane.margin>
-      </TextField>
-      <TextField fx:id="Address" maxWidth="200.0" prefHeight="26.0" prefWidth="279.0">
-         <StackPane.margin>
-            <Insets top="200.0" />
-         </StackPane.margin>
-      </TextField>
-      <Button fx:id="submitBTN" mnemonicParsing="false" onAction="#CompleteSubmit" prefWidth="200.0" text="Submit">
-         <effect>
-            <DropShadow />
-         </effect>
-         <StackPane.margin>
-            <Insets top="300.0" />
-         </StackPane.margin>
-      </Button>
-      <Label fx:id="errorphno" style="-fx-text-fill: red;" textFill="RED">
-         <StackPane.margin>
-            <Insets left="350.0" top="100.0" />
-         </StackPane.margin>
-      </Label>
-   </children>
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.completeProfileController">
+   <Label text="WELCOME" StackPane.alignment="TOP_LEFT">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets left="20.0" top="20.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label fx:id="NameUser" text="userName" StackPane.alignment="TOP_LEFT">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets left="130.0" top="20.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label text="COMPLETE YOUR PROFILE" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font size="29.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets top="100.0"/>
+      </StackPane.margin>
+      <effect>
+         <Reflection topOpacity="0.11"/>
+      </effect>
+   </Label>
+   <Label text="User ID" StackPane.alignment="TOP_RIGHT">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets right="120.0" top="20.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label fx:id="UID" text="ADM1001" StackPane.alignment="TOP_RIGHT">
+      <font>
+         <Font size="18.0"/>
+      </font>
+      <StackPane.margin>
+         <Insets right="20.0" top="20.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label text="Gender">
+      <StackPane.margin>
+         <Insets bottom="200.0" right="300.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label prefHeight="16.0" prefWidth="109.0" text="Designation">
+      <StackPane.margin>
+         <Insets bottom="100.0" right="300.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label prefHeight="16.0" prefWidth="102.0" text="Mobile Number">
+      <StackPane.margin>
+         <Insets right="350.0" top="100.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label prefHeight="16.0" prefWidth="123.0" text="Secondary email">
+      <StackPane.margin>
+         <Insets right="350.0"/>
+      </StackPane.margin>
+   </Label>
+   <Label prefHeight="20.0" prefWidth="67.0" text="Address">
+      <StackPane.margin>
+         <Insets right="300.0" top="200.0"/>
+      </StackPane.margin>
+   </Label>
+   <ComboBox fx:id="gendr" editable="true" prefWidth="200.0">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="MALE"/>
+            <String fx:value="FEMALE"/>
+         </FXCollections>
+      </items>
+      <StackPane.margin>
+         <Insets bottom="200.0"/>
+      </StackPane.margin>
+   </ComboBox>
+   <TextField fx:id="Designation" maxWidth="200.0">
+      <StackPane.margin>
+         <Insets bottom="100.0"/>
+      </StackPane.margin>
+   </TextField>
+   <TextField fx:id="secEmail" maxWidth="200.0">
+      <StackPane.margin>
+         <Insets/>
+      </StackPane.margin>
+   </TextField>
+   <TextField fx:id="phNo" maxWidth="200.0">
+      <StackPane.margin>
+         <Insets top="100.0"/>
+      </StackPane.margin>
+   </TextField>
+   <TextField fx:id="Address" maxWidth="200.0" prefHeight="26.0" prefWidth="279.0">
+      <StackPane.margin>
+         <Insets top="200.0"/>
+      </StackPane.margin>
+   </TextField>
+   <Button fx:id="submitBTN" mnemonicParsing="false" onAction="#CompleteSubmit" prefWidth="200.0" text="Submit">
+      <effect>
+         <DropShadow/>
+      </effect>
+      <StackPane.margin>
+         <Insets top="300.0"/>
+      </StackPane.margin>
+   </Button>
+   <Label fx:id="errorphno" style="-fx-text-fill: red;" textFill="RED">
+      <StackPane.margin>
+         <Insets left="350.0" top="100.0"/>
+      </StackPane.margin>
+   </Label>
 </StackPane>

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class prescriptionController {
 
@@ -90,7 +91,7 @@ public class prescriptionController {
     @FXML
     void callBack( ) throws IOException {
         Stage stage = (Stage) backBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("patient.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -118,7 +119,7 @@ public class prescriptionController {
 
     }
 
-    public void callPopulateList(KeyEvent keyEvent) {
+    public void callPopulateList() {
         String nameMedicine = searchMedicineTB.getText();
         System.out.println(nameMedicine);
     }

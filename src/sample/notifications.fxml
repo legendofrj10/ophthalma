@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="300.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.notificationsController">
+   <effect>
+      <DropShadow/>
+   </effect>
+   <ScrollPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0">
+      <StackPane.margin>
+         <Insets left="5.0" right="5.0" top="20.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </ScrollPane>
+   <Button fx:id="closeNotificationBtn" mnemonicParsing="false" onAction="#callClose"
+           style="-fx-background-color: transparent;" text="X" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+      <font>
+         <Font size="10.0"/>
+      </font>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Button>
+</StackPane>

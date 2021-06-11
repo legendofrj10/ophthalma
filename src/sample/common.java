@@ -1,10 +1,14 @@
 package sample;
 
+import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 
 public class common {
+
+    public static Stage mainStage;
 
     public static String workingDirectory="";
 

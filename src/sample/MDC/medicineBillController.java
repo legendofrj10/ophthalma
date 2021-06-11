@@ -1,6 +1,5 @@
 package sample.MDC;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class medicineBillController {
 
@@ -44,24 +44,24 @@ public class medicineBillController {
     @FXML
     void callBack() throws IOException {
         Stage stage = (Stage) backBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
     }
 
     @FXML
-    void callGenerateBill(ActionEvent event) {
+    void callGenerateBill() {
 
     }
 
     @FXML
-    void callSearchMedicine(ActionEvent event) {
+    void callSearchMedicine() {
 
     }
 
     @FXML
-    void callSearchPatient(ActionEvent event) {
+    void callSearchPatient() {
 
     }
 

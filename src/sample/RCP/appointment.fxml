@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.appointmentController">
+<StackPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.appointmentController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="appointmentBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callAppointment" prefWidth="80.0" text="Appointment" StackPane.alignment="TOP_LEFT">
             <font>
@@ -103,17 +103,12 @@
     </StackPane>
     <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
         <StackPane.margin>
-            <Insets top="40.0"/>
+            <Insets top="40.0" />
         </StackPane.margin>
         <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="160.0" prefWidth="175.0">
-            <Button fx:id="newAppointmentBTN" layoutX="-1.0" layoutY="1.0" maxHeight="40.0" minHeight="40.0"
-                    mnemonicParsing="false" onAction="#callNewAppointment" prefHeight="40.0" prefWidth="175.0"
-                    text="New Appointment" AnchorPane.topAnchor="0.0"/>
-            <Button fx:id="modifyAppointmentBTN" layoutX="-2.0" layoutY="40.0" maxHeight="40.0" minHeight="40.0"
-                    mnemonicParsing="false" onAction="#callModifyAppointment" prefHeight="40.0" prefWidth="175.0"
-                    text="Modify Appointment" AnchorPane.topAnchor="40.0"/>
+            <Button fx:id="newAppointmentBTN" layoutX="-1.0" layoutY="1.0" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#callNewAppointment" prefHeight="40.0" prefWidth="175.0" text="New Appointment" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="modifyAppointmentBTN" layoutX="-2.0" layoutY="40.0" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#callModifyAppointment" prefHeight="40.0" prefWidth="175.0" text="Modify Appointment" AnchorPane.topAnchor="40.0" />
         </AnchorPane>
-        <BorderPane fx:id="appointmentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                    minHeight="-Infinity" minWidth="-Infinity"/>
+        <BorderPane fx:id="appointmentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
     </SplitPane>
 </StackPane>

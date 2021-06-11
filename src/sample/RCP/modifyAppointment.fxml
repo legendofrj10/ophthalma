@@ -13,75 +13,82 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RCP.modifyAppointmentController">
-   <children>
-      <TextField fx:id="patientIDTxt" maxWidth="200.0" minWidth="100.0" promptText="Enter Patient ID" StackPane.alignment="TOP_CENTER">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../Styles/style3.css"
+           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="sample.RCP.modifyAppointmentController">
+   <TextField fx:id="patientIDTxt" maxWidth="200.0" minWidth="100.0" promptText="Enter Patient ID"
+              StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets right="100.0" top="40.0"/>
+      </StackPane.margin>
+   </TextField>
+   <Button fx:id="searchBTN" mnemonicParsing="false" onAction="#callSearch" text="search"
+           StackPane.alignment="TOP_CENTER">
+      <StackPane.margin>
+         <Insets left="250.0" top="40.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Button>
+   <Button fx:id="saveBTN" layoutX="404.0" layoutY="50.0" mnemonicParsing="false" onAction="#callSave" text="save"
+           StackPane.alignment="BOTTOM_RIGHT">
+      <StackPane.margin>
+         <Insets bottom="30.0" right="150.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Button>
+   <Button fx:id="deleteBTN" layoutX="348.0" layoutY="354.0" mnemonicParsing="false" onAction="#callDelete"
+           text="delete" StackPane.alignment="BOTTOM_RIGHT">
+      <StackPane.margin>
+         <Insets bottom="30.0" right="50.0"/>
+      </StackPane.margin>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </Button>
+   <StackPane fx:id="innerStack" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0"
+              prefWidth="200.0" style="-fx-border-color: #464546;" StackPane.alignment="CENTER">
+      <StackPane.margin>
+         <Insets bottom="80.0" top="100.0"/>
+      </StackPane.margin>
+      <AnchorPane maxWidth="210.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: inherit;"
+                  StackPane.alignment="CENTER_LEFT">
+         <ListView fx:id="appointmentList" editable="true" layoutX="8.0" layoutY="-12.0"
+                   maxWidth="1.7976931348623157E308" onMouseClicked="#callGetAppointment" prefHeight="200.0"
+                   prefWidth="200.0" style="-fx-border-color: inherit;" stylesheets="@../Styles/style3.css"
+                   AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="50.0"/>
+         <Label fx:id="patientName" layoutX="58.0" layoutY="6.0" text="patientName"/>
+         <Label layoutX="42.0" layoutY="28.0" text="Appointments List"/>
+      </AnchorPane>
+      <ComboBox fx:id="departmentCB" editable="true" prefWidth="200.0">
          <StackPane.margin>
-            <Insets right="100.0" top="40.0" />
+            <Insets bottom="50.0" left="50.0"/>
          </StackPane.margin>
-      </TextField>
-      <Button fx:id="searchBTN" mnemonicParsing="false" onAction="#callSearch" text="search" StackPane.alignment="TOP_CENTER">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Pediatrician"/>
+               <String fx:value="Dermatologist"/>
+               <String fx:value="Ophthalmologist"/>
+               <String fx:value="Psychiatrist"/>
+               <String fx:value="Allergist/Immunologist"/>
+               <String fx:value="Urologist"/>
+               <String fx:value="Neurologist"/>
+               <String fx:value="Cardiologist"/>
+               <String fx:value="Otolaryngologist"/>
+               <String fx:value="Endocrinologist"/>
+               <String fx:value="Podiatrist"/>
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <DatePicker fx:id="datePicker" prefWidth="200.0">
          <StackPane.margin>
-            <Insets left="250.0" top="40.0" />
+            <Insets left="50.0" top="50.0"/>
          </StackPane.margin>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <Button fx:id="saveBTN" layoutX="404.0" layoutY="50.0" mnemonicParsing="false" onAction="#callSave" text="save" StackPane.alignment="BOTTOM_RIGHT">
-         <StackPane.margin>
-            <Insets bottom="30.0" right="150.0" />
-         </StackPane.margin>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <Button fx:id="deleteBTN" layoutX="348.0" layoutY="354.0" mnemonicParsing="false" onAction="#callDelete" text="delete" StackPane.alignment="BOTTOM_RIGHT">
-         <StackPane.margin>
-            <Insets bottom="30.0" right="50.0" />
-         </StackPane.margin>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <StackPane fx:id="innerStack" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: #464546;" StackPane.alignment="CENTER">
-         <StackPane.margin>
-            <Insets bottom="80.0" top="100.0" />
-         </StackPane.margin>
-         <children>
-            <AnchorPane maxWidth="210.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: inherit;" StackPane.alignment="CENTER_LEFT">
-               <children>
-                  <ListView fx:id="appointmentList" editable="true" layoutX="8.0" layoutY="-12.0" maxWidth="1.7976931348623157E308" onMouseClicked="#callGetAppointment" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: inherit;" stylesheets="@../Styles/style3.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-                  <Label fx:id="patientName" layoutX="58.0" layoutY="6.0" text="patientName" />
-                  <Label layoutX="42.0" layoutY="28.0" text="Appointments List" />
-               </children>
-            </AnchorPane>
-            <ComboBox fx:id="departmentCB" editable="true" prefWidth="200.0">
-               <StackPane.margin>
-                  <Insets bottom="50.0" left="50.0" />
-               </StackPane.margin>
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Pediatrician" />
-                     <String fx:value="Dermatologist" />
-                     <String fx:value="Ophthalmologist" />
-                     <String fx:value="Psychiatrist" />
-                     <String fx:value="Allergist/Immunologist" />
-                     <String fx:value="Urologist" />
-                     <String fx:value="Neurologist" />
-                     <String fx:value="Cardiologist" />
-                     <String fx:value="Otolaryngologist" />
-                     <String fx:value="Endocrinologist" />
-                     <String fx:value="Podiatrist" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <DatePicker fx:id="datePicker" prefWidth="200.0">
-               <StackPane.margin>
-                  <Insets left="50.0" top="50.0" />
-               </StackPane.margin>
-            </DatePicker>
-         </children>
-      </StackPane>
-   </children>
+      </DatePicker>
+   </StackPane>
 </StackPane>

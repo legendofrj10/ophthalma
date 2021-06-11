@@ -13,11 +13,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public class newAppointmentController {
 
     public Label successTxt;
+    public Button submitBTN;
     @FXML
     private TextField patientIDTxt;
 
@@ -33,7 +35,7 @@ public class newAppointmentController {
     @FXML
     void callNewPatient( ) throws IOException {
         Stage stage = (Stage) newPatientBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsRegister.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("patientsRegister.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);

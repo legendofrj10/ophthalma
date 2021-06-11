@@ -32,6 +32,7 @@ public class modifyUserController {
     public Button yesDeleteBTN;
     public ImageView lockImg;
     public Button editBtn;
+    public Button saveBtn;
     Image image;
     @FXML
     private TextField userIDTxt;

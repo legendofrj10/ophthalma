@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.dashboardController">
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.dashboardController">
    <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
       <Button fx:id="patientsAndScansBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
          <font>

@@ -6,7 +6,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MDC.dashboardController">
+<StackPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MDC.dashboardController">
    <Label text="dashboard" />
    <StackPane maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" StackPane.alignment="TOP_CENTER">
       <Button fx:id="medicineBillBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callMedicineBill" text="Medicine Bill" StackPane.alignment="TOP_LEFT">

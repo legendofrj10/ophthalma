@@ -8,11 +8,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import sample.common;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class patientsAndScansController {
@@ -25,6 +31,8 @@ public class patientsAndScansController {
     public Button searchBtn;
     public TextField searchPatientField;
     public Label noPatientMatchLbl;
+    public StackPane mainpane;
+    public StackPane navbarStackpane;
 
     @FXML
     private Button patientsAndScansBTN;
@@ -42,19 +50,21 @@ public class patientsAndScansController {
 
     @FXML
     void callChatBubble() throws IOException {
-        Stage stage = (Stage) chatBubbleBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("chatBubble.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
-    }
+        Popup popup = new Popup();
 
+        popup.getContent().add(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/chatBubble.fxml"))));
+
+        popup.show(notificationBTN.getScene().getWindow(),
+                mainpane.getWidth()-20,
+                mainpane.getHeight()-20 );
+
+    }
 
 
     @FXML
     void callDashboard() throws IOException {
         Stage stage = (Stage) dashboardBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -62,27 +72,40 @@ public class patientsAndScansController {
 
     @FXML
     void callLogOut() throws IOException {
-        Stage stage = (Stage) logOutBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))
-);
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
+
+
+        Popup popup = new Popup();
+
+
+
+        popup.getContent().add(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/logout.fxml"))));
+
+        popup.show(logOutBTN.getScene().getWindow());
+
+        BoxBlur blur = new BoxBlur(3,3,3);
+
+        mainpane.setEffect(blur);
+
+
     }
 
     @FXML
     void callNotifications() throws IOException {
-        Stage stage = (Stage) notificationBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("notifications.fxml"));
-        Scene sc = stage.getScene();
-        Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
-        stage.setScene(scene);
+        Popup popup = new Popup();
+
+        popup.getContent().add(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/notifications.fxml"))));
+
+        popup.show(notificationBTN.getScene().getWindow(),
+                mainpane.getWidth()-20,
+                100 );
+
+
     }
 
     @FXML
     void callPatientsAndScans() throws IOException {
         Stage stage = (Stage) patientsAndScansBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("patientsAndScans.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("patientsAndScans.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -92,7 +115,7 @@ public class patientsAndScansController {
     @FXML
     void callSettings() throws IOException {
         Stage stage = (Stage) settingsBTN.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("sample/settings.fxml")));
         Scene sc = stage.getScene();
         Scene scene = new Scene(root,sc.getWidth(),sc.getHeight());
         stage.setScene(scene);
@@ -147,7 +170,7 @@ public class patientsAndScansController {
             if(rs.next()){
                 patientController.patID = id;
                 Stage stage = (Stage) searchBtn.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("patient.fxml"));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("patient.fxml")));
                 Scene sc = stage.getScene();
                 Scene scene  = new Scene(root,sc.getWidth(),sc.getHeight());
                 stage.setScene(scene);

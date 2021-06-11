@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController">
+    <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@Styles/navbar.css" StackPane.alignment="TOP_CENTER">
+        <Button fx:id="dashboardBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callDashboard" prefHeight="25.0" prefWidth="81.0" text="DashBoard" StackPane.alignment="TOP_LEFT">
+            <font>
+                <Font size="10.0" />
+            </font>
+            <StackPane.margin>
+                <Insets left="110.0" />
+            </StackPane.margin>
+        </Button>
+        <Button fx:id="logOutBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callLogOut" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+            <graphic>
+                <ImageView fitHeight="18.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Assets/logoutDark.png" />
+                </ImageView>
+            </graphic>
+            <font>
+                <Font size="10.0" />
+            </font>
+            <StackPane.margin>
+                <Insets />
+            </StackPane.margin>
+        </Button>
+        <Label prefHeight="16.0" prefWidth="99.0" text="OSPITALITY" StackPane.alignment="TOP_LEFT">
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+            <font>
+                <Font size="14.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="11.0" />
+            </StackPane.margin>
+        </Label>
+        <Button fx:id="settingsBTN" disable="true" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callSettings" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+            <font>
+                <Font size="10.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Assets/settingDark.png" />
+                </ImageView>
+            </graphic>
+            <StackPane.margin>
+                <Insets right="40.0" />
+            </StackPane.margin>
+        </Button>
+        <Button fx:id="notificationBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callNotifications" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Assets/notificationDark.png" />
+                </ImageView>
+            </graphic>
+            <font>
+                <Font size="9.0" />
+            </font>
+            <StackPane.margin>
+                <Insets right="80.0" />
+            </StackPane.margin>
+        </Button>
+        <Button fx:id="chatBubbleBTN" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#callChatBubble" prefHeight="25.0" prefWidth="25.0" StackPane.alignment="TOP_RIGHT">
+            <graphic>
+                <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Assets/chatDark.png" />
+                </ImageView>
+            </graphic>
+            <font>
+                <Font size="9.0" />
+            </font>
+            <StackPane.margin>
+                <Insets right="120.0" />
+            </StackPane.margin>
+        </Button>
+    </StackPane>
+    <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@Styles/style.css"
+             tabClosingPolicy="UNAVAILABLE" StackPane.alignment="CENTER">
+        <StackPane.margin>
+            <Insets bottom="100.0" left="40.0" right="40.0" top="100.0"/>
+        </StackPane.margin>
+        <Tab text="personal details">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+                        minWidth="-Infinity">
+                <Label fx:id="name" layoutX="42.0" layoutY="49.0" text="NAME  : " AnchorPane.leftAnchor="42.0"
+                       AnchorPane.topAnchor="50.0"/>
+                <Label fx:id="userId" layoutX="42.0" layoutY="78.0" text="USER ID  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="90.0"/>
+                <Label fx:id="gender" layoutX="42.0" layoutY="111.0" text="GENDER  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="130.0"/>
+                <Label fx:id="role" layoutX="41.0" layoutY="145.0" text="JOB/ROLE  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="170.0"/>
+                <Label fx:id="designation" layoutX="361.0" layoutY="145.0" text="DESIGNATION  : "
+                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="170.0"/>
+                <Label fx:id="phno" layoutX="40.0" layoutY="184.0" text="PHONE NO.  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="210.0"/>
+                <Label fx:id="emailWork" layoutX="40.0" layoutY="211.0" text="WORK MAIL  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="250.0"/>
+                <Label fx:id="emailPers" layoutX="361.0" layoutY="211.0" text="PERSONAL EMAIL  : "
+                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0"/>
+                <Label fx:id="joiningDate" layoutX="361.0" layoutY="49.0" text="JOINING DATE  : "
+                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="50.0"/>
+                <Label fx:id="addr" layoutX="41.0" layoutY="256.0" text="ADDRESS  : "
+                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="290.0"/>
+            </AnchorPane>
+        </Tab>
+        <Tab text="password management">
+            <StackPane>
+                <Button fx:id="resetBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false"
+                        onAction="#callTryReset" prefHeight="26.0" prefWidth="250.0" text="RESET"
+                        StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets right="80.0" top="180.0"/>
+                    </StackPane.margin>
+                </Button>
+                <PasswordField fx:id="oldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
+                               prefWidth="250.0" promptText="old password" StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets bottom="150.0" right="80.0"/>
+                    </StackPane.margin>
+                </PasswordField>
+                <PasswordField fx:id="newPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
+                               prefWidth="250.0" promptText="new password" StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets bottom="20.0" right="80.0"/>
+                    </StackPane.margin>
+                </PasswordField>
+                <PasswordField fx:id="confNewPass" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
+                               prefWidth="250.0" promptText="confirm new password"
+                               StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets right="80.0" top="60.0"/>
+                    </StackPane.margin>
+                </PasswordField>
+                <Label fx:id="wrongOldPass" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;"
+                       textFill="RED" StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets bottom="100.0" right="80.0"/>
+                    </StackPane.margin>
+                </Label>
+                <Label fx:id="newPassErr" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;"
+                       textFill="RED" StackPane.alignment="CENTER_RIGHT">
+                    <StackPane.margin>
+                        <Insets right="80.0" top="110.0"/>
+                    </StackPane.margin>
+                </Label>
+                <ImageView fitHeight="350.0" fitWidth="350.0" pickOnBounds="true"
+                           StackPane.alignment="CENTER_LEFT">
+                    <StackPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </StackPane.margin>
+                    <Image url="@Assets/securityDark.png"/>
+                </ImageView>
+            </StackPane>
+        </Tab>
+    </TabPane>
+</StackPane>

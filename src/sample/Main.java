@@ -14,6 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(800);
+        common.mainStage = primaryStage;
         loginController.init(primaryStage);
     }
 
@@ -36,6 +37,7 @@ public class Main extends Application {
             Files.createDirectories(Paths.get("C:\\.ospitality"));
 
             common.setWorkingDirectory("C:\\.ospitality\\");
+
 
         }else{
             Runtime.getRuntime().exec("mkdir "+common.getWorkingDirectory()+".ospitality").destroy();
