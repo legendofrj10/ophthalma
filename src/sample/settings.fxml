@@ -6,13 +6,17 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController">
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@Styles/style3.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="dashboardBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callDashboard" prefHeight="25.0" prefWidth="81.0" text="DashBoard" StackPane.alignment="TOP_LEFT">
             <font>
@@ -86,82 +90,300 @@
             </StackPane.margin>
         </Button>
     </StackPane>
-    <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@Styles/style.css"
-             tabClosingPolicy="UNAVAILABLE" StackPane.alignment="CENTER">
+    <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@Styles/style.css" tabClosingPolicy="UNAVAILABLE" StackPane.alignment="CENTER">
         <StackPane.margin>
-            <Insets bottom="100.0" left="40.0" right="40.0" top="100.0"/>
+            <Insets bottom="100.0" left="40.0" right="40.0" top="100.0" />
         </StackPane.margin>
         <Tab text="personal details">
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
-                        minWidth="-Infinity">
-                <Label fx:id="name" layoutX="42.0" layoutY="49.0" text="NAME  : " AnchorPane.leftAnchor="42.0"
-                       AnchorPane.topAnchor="50.0"/>
-                <Label fx:id="userId" layoutX="42.0" layoutY="78.0" text="USER ID  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="90.0"/>
-                <Label fx:id="gender" layoutX="42.0" layoutY="111.0" text="GENDER  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="130.0"/>
-                <Label fx:id="role" layoutX="41.0" layoutY="145.0" text="JOB/ROLE  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="170.0"/>
-                <Label fx:id="designation" layoutX="361.0" layoutY="145.0" text="DESIGNATION  : "
-                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="170.0"/>
-                <Label fx:id="phno" layoutX="40.0" layoutY="184.0" text="PHONE NO.  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="210.0"/>
-                <Label fx:id="emailWork" layoutX="40.0" layoutY="211.0" text="WORK MAIL  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="250.0"/>
-                <Label fx:id="emailPers" layoutX="361.0" layoutY="211.0" text="PERSONAL EMAIL  : "
-                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0"/>
-                <Label fx:id="joiningDate" layoutX="361.0" layoutY="49.0" text="JOINING DATE  : "
-                       AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="50.0"/>
-                <Label fx:id="addr" layoutX="41.0" layoutY="256.0" text="ADDRESS  : "
-                       AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="290.0"/>
-            </AnchorPane>
+            <StackPane style="-fx-background-color: #3c3c3c;">
+                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="377.0" prefWidth="760.0" spacing="20.0" style="-fx-background-color: inherit;">
+                    <padding>
+                        <Insets bottom="20.0" top="10.0" />
+                    </padding>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin>
+                        <padding>
+                            <Insets left="20.0" />
+                        </padding>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="NAME" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="name" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: white;" text="GENDER" textAlignment="CENTER" textFill="WHITE" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="gender" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="WORK EMAIL" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="emailWork" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                    </VBox>
+                    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: white;" text="USER ID" textAlignment="CENTER" textFill="WHITE" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="userId" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: white;" text="PHONE NO." textAlignment="CENTER" textFill="WHITE" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="phno" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="PERSONAL EMAIL" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="emailPers" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                    </VBox>
+                    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="JOB/ROLE" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="role" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="ADDRESS" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="addr" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                        <StackPane maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" VBox.vgrow="ALWAYS">
+                            <effect>
+                                <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                    <color>
+                                        <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="JOINING DATE" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                                <effect>
+                                    <Glow />
+                                </effect>
+                                <StackPane.margin>
+                                    <Insets top="15.0" />
+                                </StackPane.margin>
+                            </Label>
+                            <Label fx:id="joiningDate" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                                <StackPane.margin>
+                                    <Insets top="50.0" />
+                                </StackPane.margin>
+                            </Label>
+                        </StackPane>
+                    </VBox>
+                    <StackPane layoutX="940.0" layoutY="30.0" maxHeight="200.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-background-radius: 50;" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets right="20.0" top="10.0" />
+                        </HBox.margin>
+                        <effect>
+                            <DropShadow height="71.09" radius="33.9075" spread="0.3" width="66.54">
+                                <color>
+                                    <Color red="0.16862745583057404" green="0.16862745583057404" blue="0.16862745583057404" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                        <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: white;" text="DESIGNATION" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                            <effect>
+                                <Glow />
+                            </effect>
+                            <StackPane.margin>
+                                <Insets top="15.0" />
+                            </StackPane.margin>
+                        </Label>
+                        <Label fx:id="designation" style="-fx-text-fill: white;" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                            <StackPane.margin>
+                                <Insets top="50.0" />
+                            </StackPane.margin>
+                        </Label>
+                    </StackPane>
+                </HBox>
+            </StackPane>
         </Tab>
         <Tab text="password management">
             <StackPane>
-                <Button fx:id="resetBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false"
-                        onAction="#callTryReset" prefHeight="26.0" prefWidth="250.0" text="RESET"
-                        StackPane.alignment="CENTER_RIGHT">
+                <Button fx:id="resetBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callTryReset" prefHeight="26.0" prefWidth="250.0" text="RESET" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets right="80.0" top="180.0"/>
+                        <Insets right="80.0" top="180.0" />
                     </StackPane.margin>
                 </Button>
-                <PasswordField fx:id="oldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
-                               prefWidth="250.0" promptText="old password" StackPane.alignment="CENTER_RIGHT">
+                <PasswordField fx:id="oldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="250.0" promptText="old password" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets bottom="150.0" right="80.0"/>
+                        <Insets bottom="150.0" right="80.0" />
                     </StackPane.margin>
                 </PasswordField>
-                <PasswordField fx:id="newPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
-                               prefWidth="250.0" promptText="new password" StackPane.alignment="CENTER_RIGHT">
+                <PasswordField fx:id="newPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="250.0" promptText="new password" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets bottom="20.0" right="80.0"/>
+                        <Insets bottom="20.0" right="80.0" />
                     </StackPane.margin>
                 </PasswordField>
-                <PasswordField fx:id="confNewPass" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0"
-                               prefWidth="250.0" promptText="confirm new password"
-                               StackPane.alignment="CENTER_RIGHT">
+                <PasswordField fx:id="confNewPass" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="250.0" promptText="confirm new password" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets right="80.0" top="60.0"/>
+                        <Insets right="80.0" top="60.0" />
                     </StackPane.margin>
                 </PasswordField>
-                <Label fx:id="wrongOldPass" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;"
-                       textFill="RED" StackPane.alignment="CENTER_RIGHT">
+                <Label fx:id="wrongOldPass" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;" textFill="RED" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets bottom="100.0" right="80.0"/>
+                        <Insets bottom="100.0" right="80.0" />
                     </StackPane.margin>
                 </Label>
-                <Label fx:id="newPassErr" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;"
-                       textFill="RED" StackPane.alignment="CENTER_RIGHT">
+                <Label fx:id="newPassErr" prefHeight="16.0" prefWidth="249.0" style="-fx-text-fill: red;" textFill="RED" StackPane.alignment="CENTER_RIGHT">
                     <StackPane.margin>
-                        <Insets right="80.0" top="110.0"/>
+                        <Insets right="80.0" top="110.0" />
                     </StackPane.margin>
                 </Label>
-                <ImageView fitHeight="350.0" fitWidth="350.0" pickOnBounds="true"
-                           StackPane.alignment="CENTER_LEFT">
+                <ImageView fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" StackPane.alignment="CENTER_LEFT">
                     <StackPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </StackPane.margin>
-                    <Image url="@Assets/securityDark.png"/>
+                    <Image url="@Assets/securityDark.png" />
                 </ImageView>
             </StackPane>
         </Tab>

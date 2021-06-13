@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientsAndScansController">
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style7.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientsAndScansController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="patientsAndScansBTN" disable="true" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
             <font>
@@ -95,7 +95,7 @@
             </StackPane.margin>
         </Button>
     </StackPane>
-    <TextField fx:id="searchPatientField" focusTraversable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient (patient id)" StackPane.alignment="TOP_CENTER">
+    <TextField fx:id="searchPatientField" focusTraversable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" promptText="search patient (patient id)" stylesheets="@../Styles/style7.css" StackPane.alignment="TOP_CENTER">
         <StackPane.margin>
           <Insets right="30.0" top="50.0" />
         </StackPane.margin>
@@ -115,40 +115,34 @@
           <Insets top="85.0" />
         </StackPane.margin>
     </Label>
-    <StackPane>
+    <StackPane stylesheets="@../Styles/style3.css">
         <StackPane.margin>
-            <Insets top="150.0"/>
+            <Insets top="150.0" />
         </StackPane.margin>
         <HBox maxWidth="1.7976931348623157E308" prefHeight="280.0" prefWidth="600.0">
-            <ListView fx:id="patientListName" cacheShape="false" centerShape="false" disable="true"
-                      focusTraversable="false" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0"
-                      scaleShape="false" HBox.hgrow="ALWAYS">
+            <ListView fx:id="patientListName" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
                 <effect>
-                    <DropShadow/>
+                    <DropShadow />
                 </effect>
             </ListView>
-            <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" disable="true"
-                      focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308"
-                      minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+            <ListView fx:id="patientListLD" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
                 <effect>
-                    <DropShadow/>
+                    <DropShadow />
                 </effect>
          </ListView>
-            <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" disable="true"
-                      focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308"
-                      minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
+            <ListView fx:id="patientListPE" cacheShape="false" centerShape="false" disable="true" focusTraversable="false" layoutX="219.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="250.0" prefHeight="120.0" scaleShape="false" HBox.hgrow="ALWAYS">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
                 <effect>
-                    <DropShadow/>
+                    <DropShadow />
                 </effect>
             </ListView>
          <StackPane.margin>
-             <Insets bottom="20.0" left="20.0" right="20.0"/>
+             <Insets bottom="20.0" left="20.0" right="20.0" />
          </StackPane.margin>
         </HBox>
     </StackPane>

@@ -5,13 +5,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientController">
-   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="240.0">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style7.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.patientController">
+   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="240.0" style="-fx-border-color: black;">
       <StackPane.margin>
          <Insets bottom="30.0" />
       </StackPane.margin>
@@ -29,7 +30,7 @@
             <Insets top="70.0" />
          </StackPane.margin>
       </TextArea>
-      <Label fx:id="patientName" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="145.0" text="NAME" textAlignment="RIGHT">
+      <Label fx:id="patientName" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="90.0" text="NAME" textAlignment="RIGHT">
          <font>
             <Font name="Ubuntu Bold" size="18.0" />
          </font>
@@ -43,9 +44,9 @@
          </StackPane.margin>
          <Image url="@../Assets/male.png" />
       </ImageView>
-      <Button fx:id="editRemarksBtn" mnemonicParsing="false" onAction="#callEditRemarks" prefHeight="26.0" prefWidth="61.0" text="SAVE">
+      <Button fx:id="editRemarksBtn" mnemonicParsing="false" onAction="#callEditRemarks" prefHeight="26.0" prefWidth="100.0" text="SAVE" StackPane.alignment="BOTTOM_RIGHT">
          <StackPane.margin>
-            <Insets left="140.0" top="265.0" />
+            <Insets bottom="10.0" right="20.0" />
          </StackPane.margin>
       </Button>
       <Label fx:id="patientAge" layoutX="30.0" layoutY="100.0" text="age" textAlignment="CENTER">
@@ -56,18 +57,21 @@
             <Insets bottom="120.0" left="140.0" />
          </StackPane.margin>
       </Label>
+      <effect>
+         <DropShadow />
+      </effect>
    </StackPane>
-   <Button fx:id="generatePrescriptionBTN" mnemonicParsing="false" onAction="#callGeneratePrescription" text="Generate Prescription" StackPane.alignment="BOTTOM_RIGHT">
+   <Button fx:id="generatePrescriptionBTN" mnemonicParsing="false" onAction="#callGeneratePrescription" prefWidth="200.0" text="Generate Prescription" StackPane.alignment="BOTTOM_RIGHT">
       <StackPane.margin>
          <Insets bottom="20.0" right="20.0" />
       </StackPane.margin>
    </Button>
-   <Button fx:id="backBtn" mnemonicParsing="false" onAction="#callBack" text="BACK" StackPane.alignment="TOP_LEFT">
+   <Button fx:id="backBtn" mnemonicParsing="false" onAction="#callBack" prefWidth="100.0" text="BACK" StackPane.alignment="TOP_LEFT">
       <StackPane.margin>
          <Insets left="20.0" top="20.0" />
       </StackPane.margin>
    </Button>
-   <Button fx:id="assignLabtestBTN" layoutX="429.0" layoutY="364.0" mnemonicParsing="false" onAction="#callAssignLabtest" text="Assign Labtest" StackPane.alignment="BOTTOM_LEFT">
+   <Button fx:id="assignLabtestBTN" layoutX="429.0" layoutY="364.0" mnemonicParsing="false" onAction="#callAssignLabtest" prefWidth="150.0" text="Assign Labtest" StackPane.alignment="BOTTOM_LEFT">
       <StackPane.margin>
          <Insets bottom="20.0" left="230.0" />
       </StackPane.margin>
@@ -77,26 +81,23 @@
          <Insets bottom="20.0" left="20.0" />
       </StackPane.margin>
    </TextField>
-   <StackPane fx:id="confermPane" maxHeight="100.0" maxWidth="400.0" style="-fx-background-color: #323232;"
-              visible="false">
+   <StackPane fx:id="confermPane" maxHeight="100.0" maxWidth="400.0" style="-fx-background-color: #323232;" visible="false">
       <Label fx:id="confermationTxt" textAlignment="CENTER" StackPane.alignment="TOP_CENTER">
          <font>
-            <Font name="Ubuntu" size="18.0"/>
+            <Font name="Ubuntu" size="18.0" />
          </font>
          <StackPane.margin>
-            <Insets top="10.0"/>
+            <Insets top="10.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="confermBTN" mnemonicParsing="false" onAction="#callAssignIt" text="Assign"
-              StackPane.alignment="BOTTOM_CENTER">
+      <Button fx:id="confermBTN" mnemonicParsing="false" onAction="#callAssignIt" text="Assign" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
-            <Insets bottom="10.0"/>
+            <Insets bottom="10.0" />
          </StackPane.margin>
       </Button>
-      <Label fx:id="cancel" onMouseClicked="#callDontAssign" stylesheets="@../Styles/style3.css" text="X"
-             StackPane.alignment="TOP_RIGHT">
+      <Label fx:id="cancel" onMouseClicked="#callDontAssign" stylesheets="@../Styles/style3.css" text="X" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
-            <Insets right="5.0" top="5.0"/>
+            <Insets right="5.0" top="5.0" />
          </StackPane.margin>
       </Label>
    </StackPane>

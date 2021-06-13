@@ -85,8 +85,8 @@
    <ComboBox fx:id="gendr" editable="true" prefWidth="200.0">
       <items>
          <FXCollections fx:factory="observableArrayList">
-            <String fx:value="MALE"/>
-            <String fx:value="FEMALE"/>
+            <String fx:value="Male"/>
+            <String fx:value="Female"/>
          </FXCollections>
       </items>
       <StackPane.margin>

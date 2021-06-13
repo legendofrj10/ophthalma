@@ -32,7 +32,6 @@ public class common {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://"+common.getIP()+":3306/OSPITALITY",sample.common.getN(),sample.common.getP()
             );
-            System.out.println("Connection established");
             return con;
         }catch (Exception e){
             e.printStackTrace();

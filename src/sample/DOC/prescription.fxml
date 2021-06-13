@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.prescriptionController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.prescriptionController">
    <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
       <StackPane fx:id="pane" prefHeight="398.0" prefWidth="370.0">
-         <Button fx:id="backBTN" mnemonicParsing="false" onAction="#callBack" text="Back" StackPane.alignment="TOP_LEFT">
+         <Button fx:id="backBTN" mnemonicParsing="false" onAction="#callBack" prefWidth="100.0" text="Back" StackPane.alignment="TOP_LEFT">
             <StackPane.margin>
                <Insets left="20.0" top="20.0" />
             </StackPane.margin>
@@ -26,7 +26,7 @@
                <Font size="22.0" />
             </font>
          </Label>
-         <Button fx:id="printBTN" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#callPrint" text="Print" StackPane.alignment="TOP_RIGHT">
+         <Button fx:id="printBTN" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#callPrint" prefWidth="100.0" text="Print" StackPane.alignment="TOP_RIGHT">
             <StackPane.margin>
                <Insets right="20.0" top="20.0" />
             </StackPane.margin>
@@ -60,7 +60,7 @@
                         <Insets bottom="20.0" right="110.0" />
                      </StackPane.margin>
                   </Label>
-                  <Label fx:id="phnoTxt" layoutX="201.0" layoutY="74.0" style="-fx-text-fill: black;" text="Ph. No." StackPane.alignment="BOTTOM_RIGHT">
+                  <Label fx:id="phnoTxt" layoutX="201.0" layoutY="74.0" style="-fx-text-fill: black;" text="0123456789" StackPane.alignment="BOTTOM_RIGHT">
                      <StackPane.margin>
                         <Insets bottom="20.0" right="10.0" />
                      </StackPane.margin>

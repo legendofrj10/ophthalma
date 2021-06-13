@@ -75,8 +75,7 @@ public class loginController {
             }
             reader.close();
 
-            System.out.println(common.getN());
-            System.out.println(common.getP());
+
         }else{
             root = FXMLLoader.load(Objects.requireNonNull(loginController.class.getResource("database.fxml")));
         }
@@ -106,7 +105,6 @@ public class loginController {
 
         uid = loginIdField.getText();
         pass = loginPassField.getText();
-        System.out.println(uid+"    "+pass);
         if(uid.length()!=0 && pass.length()!=0){    //1
             try{    //2
                 Connection con = sample.common.getConnect();

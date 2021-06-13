@@ -1,0 +1,87 @@
+.root{
+    -fx-background-color: #3d3d3d;
+}
+
+.label{
+    -fx-text-fill: #c7c7c7;
+}
+
+.text-field{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-text-fill: white;
+}
+
+.text-field:focused{
+    -fx-border-color: aqua;
+
+}
+
+.text-field:hover{
+    -fx-effect: none;
+}
+
+.text-area{
+    -fx-text-fill: whitesmoke;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-background-color: transparent;
+}
+
+.text-area:focused{
+    -fx-border-color: aqua;
+}
+
+.text-area .content{
+    -fx-background-color: #3d3d3d;
+}
+
+.scroll-pane> .viewport{
+    -fx-background-color: #3d3d3d;
+}
+
+
+.combo-box-base {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-text-base-color: white;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-color-label-visible: false;
+
+}
+
+.combo-box-base:focused{
+    -fx-border-color: aqua;
+
+}
+
+.combo-box-base .list-cell{
+    -fx-background-color: #3d3d3d;
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-border-style: none;
+    -fx-background-color: #464546;
+    -fx-text-fill: whitesmoke;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10, 0, 0, 0);
+}
+
+.button:hover{
+    -fx-background-color: #403434;
+    -fx-text-fill: aqua;
+}
+
+.button:pressed {
+    -fx-border-style: solid;
+    -fx-border-color: #013223;
+    -fx-effect: none;
+    -fx-text-fill: #124242;
+    -fx-border-radius: 3px;
+}
+
+.date-picker .label{
+    -fx-text-fill: black;
+}

@@ -8,10 +8,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.dashboardController">
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/style3.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DOC.dashboardController">
    <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
       <Button fx:id="patientsAndScansBTN" minHeight="25.0" mnemonicParsing="false" onAction="#callPatientsAndScans" text="Patients &amp; scans" StackPane.alignment="TOP_LEFT">
          <font>
@@ -104,56 +106,131 @@
          <effect>
             <DropShadow />
          </effect>
-         <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="EMAIL              : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="195.0" top="60.0" />
-            </StackPane.margin>
-         </Label>
-         <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" minWidth="110.0" style="-fx-text-fill: black;" text="CONTACT NO. : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="195.0" top="95.0" />
-            </StackPane.margin>
-         </Label>
-         <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" minWidth="110.0" style="-fx-text-fill: black;" text="JOINING DATE : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="195.0" top="130.0" />
-            </StackPane.margin>
-         </Label>
-         <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: black;" text="DESIGNATIION : " textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="195.0" top="25.0" />
-            </StackPane.margin>
-         </Label>
-         <AnchorPane maxHeight="180.0" maxWidth="150.0" style="-fx-background-color: #16FF9E;" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets />
-            </StackPane.margin>
-            <ImageView fx:id="userImg" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
-               <Image url="@../Assets/user.jpeg" />
-            </ImageView>
-            <Label fx:id="userNameTxt" alignment="CENTER" layoutY="136.0" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Name" textAlignment="CENTER" />
-            <Label fx:id="roleTxt" alignment="CENTER" layoutY="158.0" opacity="0.63" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Role" textAlignment="CENTER" />
-         </AnchorPane>
-         <Label fx:id="designationTxt" alignment="CENTER" layoutX="205.0" layoutY="35.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="310.0" top="25.0" />
-            </StackPane.margin>
-         </Label>
-         <Label fx:id="emailTxt" alignment="CENTER" layoutX="205.0" layoutY="60.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="310.0" top="60.0" />
-            </StackPane.margin>
-         </Label>
-         <Label fx:id="phnoTxt" alignment="CENTER" layoutX="205.0" layoutY="85.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="310.0" top="95.0" />
-            </StackPane.margin>
-         </Label>
-         <Label fx:id="joiningDateTxt" alignment="CENTER" layoutX="205.0" layoutY="110.0" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" StackPane.alignment="TOP_LEFT">
-            <StackPane.margin>
-               <Insets left="310.0" top="130.0" />
-            </StackPane.margin>
-         </Label>
+         <children>
+            <HBox maxHeight="180.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="760.0" spacing="20.0" style="-fx-background-color: #16ff9e;">
+               <children>
+                  <AnchorPane maxHeight="180.0" maxWidth="150.0" style="-fx-background-color: #16FF9E;">
+                     <children>
+                        <ImageView fx:id="userImg" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                           <image>
+                              <Image url="@../Assets/user.jpeg" />
+                           </image>
+                           <effect>
+                              <DropShadow height="102.96" radius="46.427499999999995" width="84.75">
+                                 <color>
+                                    <Color red="0.05882352963089943" green="0.364705890417099" blue="0.21568627655506134" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                        <Label fx:id="userNameTxt" alignment="CENTER" layoutY="136.0" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Name" textAlignment="CENTER" />
+                        <Label fx:id="roleTxt" alignment="CENTER" layoutY="158.0" opacity="0.63" prefHeight="16.0" prefWidth="156.0" style="-fx-text-fill: black;" text="Role" textAlignment="CENTER" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="-20.0" top="-20.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <StackPane maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #16ff9e; -fx-background-radius: 50;">
+                     <effect>
+                        <DropShadow height="93.12" radius="46.245000000000005" width="93.86">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.364705890417099" blue="0.21568627655506134" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER" maxWidth="110.0" minWidth="110.0" style="-fx-text-fill: black;" text="DESIGNATION" textAlignment="CENTER" textOverrun="CLIP" underline="true" StackPane.alignment="TOP_CENTER">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <StackPane.margin>
+                              <Insets top="15.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label fx:id="designationTxt" alignment="CENTER" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" />
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #16ff9e; -fx-background-radius: 50;">
+                     <effect>
+                        <DropShadow height="93.12" radius="46.245000000000005" width="93.86">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.364705890417099" blue="0.21568627655506134" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="EMAIL" textAlignment="CENTER" underline="true" StackPane.alignment="TOP_CENTER">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <StackPane.margin>
+                              <Insets top="15.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label fx:id="emailTxt" alignment="CENTER" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" />
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #16ff9e; -fx-background-radius: 50;">
+                     <effect>
+                        <DropShadow height="93.12" radius="46.245000000000005" width="93.86">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.364705890417099" blue="0.21568627655506134" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="CONTACT NO" textAlignment="CENTER" underline="true" StackPane.alignment="TOP_CENTER">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <StackPane.margin>
+                              <Insets top="15.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label fx:id="phnoTxt" alignment="CENTER" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" />
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="100.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #16ff9e; -fx-background-radius: 50;">
+                     <effect>
+                        <DropShadow height="93.12" radius="46.245000000000005" width="93.86">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.364705890417099" blue="0.21568627655506134" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER" minWidth="110.0" style="-fx-text-fill: black;" text="JOINING DATE" textAlignment="CENTER" underline="true" StackPane.alignment="TOP_CENTER">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <StackPane.margin>
+                              <Insets top="15.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label fx:id="joiningDateTxt" alignment="CENTER" style="-fx-text-fill: black;" text="l" textAlignment="CENTER" />
+                     </children>
+                  </StackPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </HBox>
+         </children>
       </StackPane>
       <StackPane style="-fx-background-color: #c557d7;" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>

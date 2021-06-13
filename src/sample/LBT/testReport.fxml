@@ -7,107 +7,99 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
-           minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LBT.testReportController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LBT.testReportController">
    <ScrollPane maxHeight="842.0" maxWidth="595.0" prefHeight="842.0" prefWidth="600.0">
       <StackPane.margin>
-         <Insets bottom="50.0" left="20.0" right="20.0" top="50.0"/>
+         <Insets bottom="50.0" left="20.0" right="20.0" top="50.0" />
       </StackPane.margin>
-      <StackPane maxWidth="1.7976931348623157E308" minHeight="840.0" minWidth="-Infinity" prefHeight="100.0"
-                 prefWidth="593.0">
+      <StackPane maxWidth="1.7976931348623157E308" minHeight="840.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="593.0">
          <Label fx:id="hospitalNameTxt" text="Hospital Name" textFill="#43f8f2" StackPane.alignment="TOP_CENTER">
             <StackPane.margin>
-               <Insets top="50.0"/>
+               <Insets top="50.0" />
             </StackPane.margin>
             <font>
-               <Font name="System Bold" size="29.0"/>
+               <Font name="System Bold" size="29.0" />
             </font>
          </Label>
-         <Label layoutX="187.0" layoutY="60.0" text="Laboratory Test Report" textFill="#40f2f2"
-                StackPane.alignment="TOP_CENTER">
+         <Label layoutX="187.0" layoutY="60.0" text="Laboratory Test Report" textFill="#40f2f2" StackPane.alignment="TOP_CENTER">
             <font>
-               <Font name="System Bold" size="29.0"/>
+               <Font name="System Bold" size="29.0" />
             </font>
             <StackPane.margin>
-               <Insets top="150.0"/>
+               <Insets top="150.0" />
             </StackPane.margin>
          </Label>
          <Label text="Patient Name ____________________________">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
          </Label>
          <Label fx:id="patientNameTxt" layoutX="163.0" layoutY="422.0" text="Patient Name">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
             <StackPane.margin>
-               <Insets left="150.0"/>
+               <Insets left="150.0" />
             </StackPane.margin>
          </Label>
          <Label layoutX="163.0" layoutY="422.0" text="Test Name ____________________________">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
             <StackPane.margin>
-               <Insets top="70.0"/>
+               <Insets top="70.0" />
             </StackPane.margin>
          </Label>
          <Label fx:id="testNameTxt" layoutX="332.0" layoutY="422.0" text="Test name">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
             <StackPane.margin>
-               <Insets left="150.0" top="70.0"/>
+               <Insets left="150.0" top="70.0" />
             </StackPane.margin>
          </Label>
-         <Label layoutX="174.0" layoutY="457.0" text="Test Conducted By ____________________________"
-                StackPane.alignment="BOTTOM_LEFT">
+         <Label layoutX="174.0" layoutY="457.0" text="Test Conducted By ____________________________" StackPane.alignment="BOTTOM_LEFT">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
             <StackPane.margin>
-               <Insets bottom="20.0" left="20.0"/>
+               <Insets bottom="20.0" left="20.0" />
             </StackPane.margin>
          </Label>
-         <Label fx:id="labTechnicianNameTxt" layoutX="30.0" layoutY="814.0" text="Test Conductor"
-                StackPane.alignment="BOTTOM_LEFT">
+         <Label fx:id="labTechnicianNameTxt" layoutX="30.0" layoutY="814.0" text="Test Conductor" StackPane.alignment="BOTTOM_LEFT">
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
             <StackPane.margin>
-               <Insets bottom="20.0" left="200.0"/>
+               <Insets bottom="20.0" left="200.0" />
             </StackPane.margin>
          </Label>
          <Label fx:id="dateTxt" text="date">
             <StackPane.margin>
-               <Insets left="150.0" top="140.0"/>
+               <Insets left="150.0" top="140.0" />
             </StackPane.margin>
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
          </Label>
          <Label text="Date _____________________________">
             <StackPane.margin>
-               <Insets top="140.0"/>
+               <Insets top="140.0" />
             </StackPane.margin>
             <font>
-               <Font name="System Bold" size="13.0"/>
+               <Font name="System Bold" size="13.0" />
             </font>
          </Label>
       </StackPane>
    </ScrollPane>
-   <Button fx:id="printReportBTN" mnemonicParsing="false" onAction="#callPrintReport" text="Print"
-           StackPane.alignment="BOTTOM_RIGHT">
+   <Button fx:id="printReportBTN" mnemonicParsing="false" onAction="#callPrintReport" prefWidth="100.0" text="Print" StackPane.alignment="BOTTOM_RIGHT">
       <StackPane.margin>
-         <Insets bottom="20.0" right="20.0"/>
+         <Insets bottom="20.0" right="20.0" />
       </StackPane.margin>
    </Button>
-   <Button fx:id="backBTN" layoutX="541.0" layoutY="364.0" mnemonicParsing="false" onAction="#callBack" text="Back"
-           StackPane.alignment="TOP_LEFT">
+   <Button fx:id="backBTN" layoutX="541.0" layoutY="364.0" mnemonicParsing="false" onAction="#callBack" prefWidth="100.0" text="Back" StackPane.alignment="TOP_LEFT">
       <StackPane.margin>
-         <Insets left="20.0" top="20.0"/>
+         <Insets left="20.0" top="20.0" />
       </StackPane.margin>
    </Button>
 </StackPane>

@@ -21,17 +21,6 @@
     -fx-control-inner-background: #403434;
 }
 
-.choice-box,.combo-box{
-    -fx-border-style: none;
-    -fx-background-color: #464546;
-    -fx-text-fill: whitesmoke;
-    -fx-prompt-text-fill: white;
-
-}
-
-.combo-box:hover,.choice-box:hover{
-    -fx-background-color: #403434;
-}
 
 .list-view{
     -fx-background-color: inherit;
@@ -40,12 +29,12 @@
 }
 
 .list-cell:odd{
-    -fx-background-color: #212a2b;
+    -fx-background-color: transparent;
     -fx-text-fill: whitesmoke;
 }
 
 .list-cell:even{
-    -fx-background-color: #2b2121;
+    -fx-background-color: transparent;
     -fx-text-fill: whitesmoke;
 }
 

@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
+<StackPane fx:id="mainpane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ADM.accountsManagementController">
     <StackPane fx:id="navbarStackpane" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../Styles/navbar.css" StackPane.alignment="TOP_CENTER">
         <Button fx:id="accountsManagementBtn" disable="true" minHeight="40.0" mnemonicParsing="false" onAction="#callAccountsManagement" text="Accounts Management" textFill="WHITE" StackPane.alignment="TOP_LEFT">
             <font>
@@ -93,25 +102,399 @@
             </StackPane.margin>
         </Button>
     </StackPane>
-    <SplitPane dividerPositions="0.2993311036789298" prefHeight="364.0" prefWidth="600.0"
-               stylesheets="@../Styles/style3.css">
-        <StackPane.margin>
-            <Insets top="40.0"/>
-        </StackPane.margin>
-        <AnchorPane maxWidth="175.0" minHeight="0.0" minWidth="175.0" prefHeight="348.0" prefWidth="175.0"
-                    stylesheets="@../Styles/style3.css">
-            <Button fx:id="addUserBtn" layoutX="-3.0" layoutY="-6.0" maxHeight="40.0"
-                    maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="0.0" mnemonicParsing="false"
-                    onAction="#callAddUser" prefHeight="40.0" prefWidth="182.0" text="Add User"
-                    AnchorPane.topAnchor="0.0">
-                <font>
-                    <Font name="FreeSans" size="13.0"/>
-                </font>
-            </Button>
-            <Button fx:id="modifyUserBtn" layoutX="-3.0" layoutY="34.0" maxHeight="40.0" minHeight="40.0"
-                    mnemonicParsing="false" onAction="#callModifyUser" prefHeight="40.0" prefWidth="182.0"
-                    text="Modify User Data" AnchorPane.topAnchor="41.0"/>
-        </AnchorPane>
-        <BorderPane fx:id="innerStage" stylesheets="@../Styles/style3.css"/>
-    </SplitPane>
+   <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../Styles/style.css" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Add User">
+         <content>
+               <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Styles/style7.css">
+                  <Label fx:id="userAddedTxt" textFill="#09c305" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets top="10.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <Label text="ADD USER" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets left="25.0" top="50.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                     <effect>
+                        <Reflection fraction="0.35" topOpacity="0.13" />
+                     </effect>
+                  </Label>
+                   <Label layoutX="346.0" layoutY="152.0" prefWidth="39.0" text="NAME" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets bottom="210.0" right="575.0" />
+                       </StackPane.margin>
+                   </Label>
+                   <Label text="ROLE" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets bottom="210.0" right="280.0" />
+                       </StackPane.margin>
+                   </Label>
+                   <Label layoutX="96.0" layoutY="152.0" text="EMAIL" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets bottom="50.0" right="275.0" />
+                       </StackPane.margin>
+                   </Label>
+                   <Label layoutX="92.0" layoutY="202.0" text="PASSWORD" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="537.0" top="110.0" />
+                       </StackPane.margin>
+                   </Label>
+                   <Label layoutX="79.0" layoutY="252.0" text="CONFIRM PASSWORD" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="173.0" top="110.0" />
+                       </StackPane.margin>
+                   </Label>
+                   <TextField fx:id="Name" maxWidth="225.0" prefHeight="40.0" promptText="Full Name" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets bottom="160.0" right="400.0" />
+                       </StackPane.margin>
+                     <effect>
+                        <Reflection topOpacity="0.18" />
+                     </effect>
+                   </TextField>
+                   <ComboBox fx:id="jobChoice" maxWidth="225.0" onAction="#callCheckRole" prefHeight="40.0" prefWidth="150.0" promptText="Job Of User" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets bottom="160.0" right="100.0" />
+                       </StackPane.margin>
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="Admin" />
+                               <String fx:value="Receptionist" />
+                               <String fx:value="Doctor" />
+                               <String fx:value="Lab Technician" />
+                               <String fx:value="Medical Storekeeper" />
+                           </FXCollections>
+                       </items>
+                     <effect>
+                        <Reflection topOpacity="0.18" />
+                     </effect>
+                   </ComboBox>
+                  <ComboBox fx:id="departmentCB" editable="true" layoutX="210.0" layoutY="197.0" maxWidth="225.0" prefHeight="40.0" prefWidth="225.0" promptText="Department" stylesheets="@../Styles/style3.css" visible="false" StackPane.alignment="CENTER_RIGHT">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Pediatrician" />
+                              <String fx:value="Dermatologist" />
+                              <String fx:value="Ophthalmologist" />
+                              <String fx:value="Psychiatrist" />
+                              <String fx:value="Allergist/Immunologist" />
+                              <String fx:value="Urologist" />
+                              <String fx:value="Neurologist" />
+                              <String fx:value="Cardiologist" />
+                              <String fx:value="Otolaryngologist" />
+                              <String fx:value="Endocrinologist" />
+                              <String fx:value="Podiatrist" />
+                          </FXCollections>
+                      </items>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <StackPane.margin>
+                        <Insets right="400.0" />
+                     </StackPane.margin>
+                  </ComboBox>
+                   <TextField fx:id="email" maxWidth="225.0" prefHeight="40.0" promptText="Email Address" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="100.0" />
+                       </StackPane.margin>
+                     <effect>
+                        <Reflection topOpacity="0.18" />
+                     </effect>
+                   </TextField>
+                   <TextField fx:id="two_pass" maxWidth="225.0" prefHeight="40.0" promptText="Password" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="400.0" top="160.0" />
+                       </StackPane.margin>
+                     <effect>
+                        <Reflection topOpacity="0.18" />
+                     </effect>
+                   </TextField>
+                   <TextField fx:id="two_passconf" layoutX="148.0" layoutY="247.0" maxWidth="225.0" prefHeight="40.0" prefWidth="224.0" promptText="Confirm Password" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="100.0" top="160.0" />
+                       </StackPane.margin>
+                     <effect>
+                        <Reflection topOpacity="0.18" />
+                     </effect>
+                   </TextField>
+                   <Label fx:id="passnotmatch" textAlignment="CENTER" textFill="RED">
+                       <StackPane.margin>
+                           <Insets top="250.0" />
+                       </StackPane.margin>
+                       <font>
+                           <Font name="System Bold" size="13.0" />
+                       </font>
+                   </Label>
+                   <Button fx:id="two_SignUPbtn" maxWidth="225.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="225.0" text="Submit" StackPane.alignment="CENTER_RIGHT">
+                       <StackPane.margin>
+                           <Insets right="100.0" top="300.0" />
+                       </StackPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                   </Button>
+               </StackPane>
+         </content>
+       </Tab>
+       <Tab text="Modify User">
+         <content>
+               <StackPane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Styles/style7.css">
+                  <TextField fx:id="userIDTxt" maxWidth="175.0" minWidth="175.0" prefHeight="50.0" promptText="User ID" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets right="20.0" top="10.0" />
+                     </StackPane.margin>
+                  </TextField>
+                  <Button fx:id="searchUserBtn" mnemonicParsing="false" onAction="#callSearchUser" text="Search" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets left="250.0" top="25.0" />
+                     </StackPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <StackPane fx:id="savePane" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #464546;" stylesheets="@../Styles/style3.css" visible="false" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets top="15.0" />
+                     </StackPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <Button fx:id="yesBTN" mnemonicParsing="false" onAction="#callYes" text="Yes" StackPane.alignment="BOTTOM_CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="15.0" right="50.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Button fx:id="noBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNo" prefHeight="26.0" prefWidth="38.0" text="No" StackPane.alignment="BOTTOM_CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="15.0" left="50.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Label text="The below details will be saved." textAlignment="CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="50.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="81.0" layoutY="52.0" text="Are You Sure?" textAlignment="CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="10.0" />
+                        </StackPane.margin>
+                     </Label>
+                  </StackPane>
+                  <StackPane fx:id="deletePane" layoutX="135.0" layoutY="25.0" maxHeight="100.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: #464546;" stylesheets="@../Styles/style3.css" visible="false" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets top="15.0" />
+                     </StackPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <Button fx:id="yesDeleteBTN" mnemonicParsing="false" onAction="#callYesDelete" text="Yes" StackPane.alignment="BOTTOM_CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="15.0" right="50.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Button fx:id="noDeleteBTN" layoutX="140.0" layoutY="69.0" mnemonicParsing="false" onAction="#callNoDelete" prefHeight="26.0" prefWidth="38.0" text="No" StackPane.alignment="BOTTOM_CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="15.0" left="50.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Label text="User Account for below user will be deleted." textAlignment="CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="50.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="81.0" layoutY="52.0" text="Are You Sure?" textAlignment="CENTER">
+                        <StackPane.margin>
+                           <Insets bottom="10.0" />
+                        </StackPane.margin>
+                     </Label>
+                  </StackPane>
+                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="430.0" prefWidth="650.0" style="-fx-background-color: #3d3d3d;" stylesheets="@../Styles/style7.css" StackPane.alignment="CENTER">
+                     <StackPane.margin>
+                        <Insets top="70.0" />
+                     </StackPane.margin>
+                     <content>
+                        <StackPane fx:id="stackPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="642.0">
+                           <children>
+                              <TilePane fx:id="tilePane" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#callTileClicked" prefColumns="3" prefHeight="428.0" prefRows="0" prefTileHeight="100.0" prefTileWidth="150.0" prefWidth="620.0" StackPane.alignment="BOTTOM_CENTER">
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color red="0.18421052396297455" green="0.18421052396297455" blue="0.18421052396297455" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </TilePane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
+                  <StackPane fx:id="detailsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" stylesheets="@../Styles/style7.css" visible="false">
+                     <StackPane.margin>
+                        <Insets top="70.0" />
+                     </StackPane.margin>
+                     <TextField fx:id="userNameTxt" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="250.0" left="100.0" />
+                        </StackPane.margin>
+                     </TextField>
+                     <TextField fx:id="designationTxt" editable="false" layoutX="210.0" layoutY="22.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="400.0" top="50.0" />
+                        </StackPane.margin>
+                     </TextField>
+                     <TextField fx:id="passwordTxt" editable="false" layoutX="210.0" layoutY="22.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="100.0" top="200.0" />
+                        </StackPane.margin>
+                     </TextField>
+                     <TextField fx:id="phnoTxt" editable="false" layoutX="210.0" layoutY="127.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="100.0" left="400.0" />
+                        </StackPane.margin>
+                     </TextField>
+                     <TextField fx:id="workEmailTxt" editable="false" layoutX="210.0" layoutY="197.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="100.0" top="50.0" />
+                        </StackPane.margin>
+                     </TextField>
+                     <TextArea fx:id="addressTxt" editable="false" maxHeight="50.0" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="400.0" top="200.0" />
+                        </StackPane.margin>
+                     </TextArea>
+                     <Button fx:id="editBtn" mnemonicParsing="false" onAction="#callEdit" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="360.0" left="570.0" />
+                        </StackPane.margin>
+                        <graphic>
+                           <ImageView fitHeight="12.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../Assets/editDark.png" />
+                           </ImageView>
+                        </graphic>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Button fx:id="deleteUserBtn" mnemonicParsing="false" onAction="#callDeleteUser" text="Delete Account" StackPane.alignment="BOTTOM_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="20.0" left="20.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#callSave" text="Save Changes" StackPane.alignment="BOTTOM_RIGHT">
+                        <StackPane.margin>
+                           <Insets bottom="20.0" right="20.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                     </Button>
+                     <ImageView fx:id="lockImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="360.0" left="530.0" />
+                        </StackPane.margin>
+                        <effect>
+                           <DropShadow />
+                        </effect>
+                        <Image url="@../Assets/lockDark.png" />
+                     </ImageView>
+                     <ComboBox fx:id="roleCB" disable="true" prefHeight="50.0" prefWidth="200.0" stylesheets="@../Styles/style7.css" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="100.0" left="100.0" />
+                        </StackPane.margin>
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Admin" />
+                              <String fx:value="Receptionist" />
+                              <String fx:value="Doctor" />
+                              <String fx:value="Lab Technician" />
+                              <String fx:value="Medical Storekeeper" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+                     <ComboBox fx:id="genderCB" disable="true" layoutX="410.0" layoutY="235.0" prefHeight="50.0" prefWidth="200.0" stylesheets="@../Styles/style7.css" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="250.0" left="400.0" />
+                        </StackPane.margin>
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Male" />
+                              <String fx:value="Female" />
+                           </FXCollections>
+                        </items>
+                     </ComboBox>
+                     <Label text="NAME" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="300.0" left="100.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="DESIGNATION" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="400.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="ROLE" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="150.0" left="100.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="PASSWORD" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="100.0" top="150.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="10.0" layoutY="102.0" text="GENDER" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="300.0" left="400.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="WORK EMAIL" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="100.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="ADDRESS" StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets left="400.0" top="150.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Label layoutX="292.0" layoutY="177.0" text="PHONE NO." StackPane.alignment="CENTER_LEFT">
+                        <StackPane.margin>
+                           <Insets bottom="150.0" left="400.0" />
+                        </StackPane.margin>
+                     </Label>
+                     <Button mnemonicParsing="false" onAction="#closeModify" text="X" StackPane.alignment="TOP_RIGHT">
+                        <StackPane.margin>
+                           <Insets right="10.0" top="10.0" />
+                        </StackPane.margin>
+                     </Button>
+                  </StackPane>
+               </StackPane>
+         </content>
+       </Tab>
+     </tabs>
+      <StackPane.margin>
+         <Insets top="40.0" />
+      </StackPane.margin>
+   </TabPane>
 </StackPane>
